@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RISINGSTARModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Acquisitions_Table">
+    <Key>
+      <PropertyRef Name="Id_Acq" />
+    </Key>
+    <Property Name="Id_Acq" Type="int" Nullable="false" />
+    <Property Name="FK_Id_Patient" Type="int" Nullable="false" />
+    <Property Name="FK_Guid_Patient" Type="uniqueidentifier" />
+    <Property Name="DATE" Type="datetime" Nullable="false" />
+    <Property Name="HOUR" Type="datetime" Nullable="false" />
+    <Property Name="OS" Type="bit" Nullable="false" />
+    <Property Name="OD" Type="bit" Nullable="false" />
+    <Property Name="OS_OD" Type="nvarchar" MaxLength="1" />
+    <Property Name="SPH" Type="real" />
+    <Property Name="CYL" Type="real" />
+    <Property Name="AXIS" Type="nvarchar" MaxLength="5" />
+    <Property Name="BCVA" Type="nvarchar" MaxLength="16" />
+    <Property Name="UCVA" Type="nvarchar" MaxLength="16" />
+    <Property Name="REFERENCE_SPH_REFRAC" Type="float" />
+    <Property Name="AP" Type="smallint" />
+    <Property Name="NP" Type="float" />
+    <Property Name="NOTES" Type="nvarchar" MaxLength="150" />
+    <Property Name="BESTFOCUS" Type="float" />
+    <Property Name="WIDTH_PROFILE_1/2" Type="float" />
+    <Property Name="WIDTH_PROFILE_1/10" Type="float" />
+    <Property Name="MTF_CUT_OFF" Type="float" />
+    <Property Name="STREHL_RATIO" Type="float" />
+    <Property Name="VA_100" Type="real" />
+    <Property Name="VA_20" Type="real" />
+    <Property Name="VA_9" Type="real" />
+    <Property Name="OQAS_VALUE_100" Type="real" />
+    <Property Name="OQAS_VALUE_20" Type="real" />
+    <Property Name="OQAS_VALUE_9" Type="real" />
+    <Property Name="Type_Num" Type="smallint" />
+    <Property Name="Type" Type="nvarchar" MaxLength="10" />
+    <Property Name="Corr_Type_Num" Type="smallint" />
+    <Property Name="Corr_Type" Type="nvarchar" MaxLength="30" />
+    <Property Name="NImag" Type="smallint" />
+    <Property Name="NImag_Acc_Each" Type="smallint" />
+    <Property Name="COMPUTED_IMAGES" Type="nvarchar" MaxLength="128" />
+    <Property Name="OAR" Type="float" />
+    <Property Name="OSI" Type="float" />
+    <Property Name="Refrac_Acc_Per_1" Type="int" />
+    <Property Name="Refrac_Acc_Per_2" Type="int" />
+    <Property Name="AR" Type="float" />
+    <Property Name="Time_Each_Image_TearFilm" Type="float" />
+    <Property Name="TearFilm_Time" Type="nvarchar(max)" />
+    <Property Name="TearFilm_OSI" Type="nvarchar(max)" />
+    <Property Name="TearFilm_Central_Energy" Type="nvarchar(max)" />
+    <Property Name="TearFilm_Peripheral_Energy" Type="nvarchar(max)" />
+    <Property Name="TearFilm_VA" Type="nvarchar(max)" />
+    <Property Name="TearFilm_MTFCutoff" Type="nvarchar(max)" />
+    <Property Name="TearFilm_MeanOSI" Type="real" />
+    <Property Name="TearFilm_StdevOSI" Type="real" />
+    <Property Name="RotatedCamera" Type="bit" Nullable="false" />
+    <Property Name="PKJ_IsPreOperation" Type="bit" Nullable="false" />
+    <Property Name="PKJ_MicrasPerPixel" Type="float" />
+    <Property Name="PKJ_PupilDiameter" Type="float" />
+    <Property Name="PKJ_PkjVsPupil_Length" Type="int" />
+    <Property Name="PKJ_PkjVsPupil_Angle" Type="int" />
+    <Property Name="PKJ_PkjVsPupil_X" Type="int" />
+    <Property Name="PKJ_PkjVsPupil_Y" Type="int" />
+    <Property Name="PKJ_InlayVsPupil_X" Type="int" />
+    <Property Name="PKJ_InlayVsPupil_Y" Type="int" />
+    <Property Name="PKJ_InlayVsPkj_X" Type="int" />
+    <Property Name="PKJ_InlayVsPkj_Y" Type="int" />
+    <Property Name="PKJ_Pupil_PixelCentroX" Type="float" />
+    <Property Name="PKJ_Pupil_PixelCentroY" Type="float" />
+    <Property Name="PKJ_Pupil_PixelRadio" Type="float" />
+    <Property Name="PKJ_Laser_PixelCentroX" Type="float" />
+    <Property Name="PKJ_Laser_PixelCentroY" Type="float" />
+    <Property Name="PKJ_Inlay_PixelCentroX" Type="float" />
+    <Property Name="PKJ_Inlay_PixelCentroY" Type="float" />
+    <Property Name="PKJ_Inlay_PixelRadio" Type="float" />
+  </EntityType>
+  <EntityType Name="Exams_Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DateInserted" Type="datetime" Nullable="false" />
+    <Property Name="DateExam" Type="datetime" Nullable="false" />
+    <Property Name="OD_Sph" Type="real" Nullable="false" />
+    <Property Name="OD_Cyl" Type="real" Nullable="false" />
+    <Property Name="OD_Axis" Type="smallint" Nullable="false" />
+    <Property Name="OS_Sph" Type="real" Nullable="false" />
+    <Property Name="OS_Cyl" Type="real" Nullable="false" />
+    <Property Name="OS_Axis" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patients_Table">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="30" />
+    <Property Name="SURNAME1" Type="nvarchar" MaxLength="50" />
+    <Property Name="REFERENCE" Type="nvarchar" MaxLength="20" />
+    <Property Name="DATE_OF_BIRTH" Type="datetime" />
+    <Property Name="SEX" Type="nvarchar" MaxLength="2" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="100" />
+    <Property Name="CITY" Type="nvarchar" MaxLength="20" />
+    <Property Name="ZIP" Type="nvarchar" MaxLength="10" />
+    <Property Name="COUNTRY" Type="nvarchar" MaxLength="20" />
+    <Property Name="PHONE" Type="nvarchar" MaxLength="16" />
+    <Property Name="E-MAIL" Type="nvarchar" MaxLength="50" />
+    <Property Name="OBSERVATIONS" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Type="int" Nullable="false" />
+    <Property Name="PermissionDescription" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="RoleDescription" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsSysAdmin" Type="bit" Nullable="false" />
+    <Property Name="DescriptionDisplay" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="RolePermission">
+    <Key>
+      <PropertyRef Name="RoleID" />
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="PermissionID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateLastModified" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="int" />
+    <Property Name="Login" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PasswordHash" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsADM" Type="bit" Nullable="false" />
+    <Property Name="Guid" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ResetPassword" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Acquisitions_Table_Patients_Table1">
+    <End Role="Patients_Table" Type="Self.Patients_Table" Multiplicity="0..1" />
+    <End Role="Acquisitions_Table" Type="Self.Acquisitions_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients_Table">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Acquisitions_Table">
+        <PropertyRef Name="FK_Guid_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exams_Table_Patients_Table">
+    <End Role="Patients_Table" Type="Self.Patients_Table" Multiplicity="1" />
+    <End Role="Exams_Table" Type="Self.Exams_Table" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Patients_Table">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Exams_Table">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermission_Permission">
+    <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+    <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permission">
+        <PropertyRef Name="PermissionID" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="PermissionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolePermission_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="RolePermission">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RISINGSTARModelStoreContainer">
+    <EntitySet Name="Acquisitions_Table" EntityType="Self.Acquisitions_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exams_Table" EntityType="Self.Exams_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patients_Table" EntityType="Self.Patients_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Acquisitions_Table_Patients_Table1" Association="Self.FK_Acquisitions_Table_Patients_Table1">
+      <End Role="Patients_Table" EntitySet="Patients_Table" />
+      <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exams_Table_Patients_Table" Association="Self.FK_Exams_Table_Patients_Table">
+      <End Role="Patients_Table" EntitySet="Patients_Table" />
+      <End Role="Exams_Table" EntitySet="Exams_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermission_Permission" Association="Self.FK_RolePermission_Permission">
+      <End Role="Permission" EntitySet="Permission" />
+      <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolePermission_Role" Association="Self.FK_RolePermission_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/font")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>Rising Star</span>Admin</a>
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
+                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
+                            <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav> 
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+        <ul class="nav menu">
+
+            <!-- TODO: change active on pageload: li class="active" -->
+            <li class="active">
+                <a href="~/Dashboard">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Dashboard
+                </a>
+            </li>
+
+            <!-- Ocular -->
+            <li>
+                <a href="~/ObjectiveScatterMetrics">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Objective Scatter Metrics
+                </a>
+            </li>
+            <li>
+                <a href="~/ObjectiveScatterTrendline">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Objective Scatter Trendline
+                </a>
+            </li>                        
+            <li>
+                <a href="~/ObjectiveScatterReports">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Objective Scatter Reports
+                </a>
+            </li>
+
+            <li role="presentation" class="divider"></li>
+            <!-- Tear film -->
+            <li>
+                <a href="~/TearFilmOcularScatter">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Tear Film Ocular Scatter
+                </a>
+            </li>
+            <li>
+                <a href="~/TearFilmTrendline">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Tear Film Trendline
+                </a>
+            </li>
+            <li>
+                <a href="~/TearFilmCohortAnalysis">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Tear Film Cohort Analysis
+                </a>
+            </li>
+
+            <li role="presentation" class="divider"></li>
+
+            <!-- Testing and Treatment Summary -->
+            <li>
+                <a href="~/TestingTreatmentSummary">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Testing and Treatment Summary
+                </a>
+            </li>
+
+            <!-- Patient education -->
+            <li>
+                <a href="~/PatientEducation">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Patient Education
+                </a>
+            </li>
+
+            <!-- AcuTarget Metrics -->
+            <li>
+                <a href="~/AcuTargetMetrics">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;AcuTarget Metrics
+                </a>
+            </li>
+
+            <li role="presentation" class="divider"></li>
+            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Some item </a></li>
+        </ul>
+
+    </div><!--/.sidebar-->
+   
+    @RenderBody()
+    
+    <script src="../Scripts/jquery-1.11.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/chart.min.js"></script>
+    <script src="../Scripts/chart-data.js"></script>
+    <script src="../Scripts/easypiechart.js"></script>
+    <script src="../Scripts/easypiechart-data.js"></script>
+    <script src="../Scripts/bootstrap-datepicker.js"></script>
+
+</body>
+</html>

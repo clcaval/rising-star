@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RISINGSTARModelStoreContainer" CdmEntityContainer="RISINGSTAREntities">
+    <EntitySetMapping Name="Acquisitions_Table">
+      <EntityTypeMapping TypeName="RISINGSTARModel.Acquisitions_Table">
+        <MappingFragment StoreEntitySet="Acquisitions_Table">
+          <ScalarProperty Name="PKJ_Inlay_PixelRadio" ColumnName="PKJ_Inlay_PixelRadio" />
+          <ScalarProperty Name="PKJ_Inlay_PixelCentroY" ColumnName="PKJ_Inlay_PixelCentroY" />
+          <ScalarProperty Name="PKJ_Inlay_PixelCentroX" ColumnName="PKJ_Inlay_PixelCentroX" />
+          <ScalarProperty Name="PKJ_Laser_PixelCentroY" ColumnName="PKJ_Laser_PixelCentroY" />
+          <ScalarProperty Name="PKJ_Laser_PixelCentroX" ColumnName="PKJ_Laser_PixelCentroX" />
+          <ScalarProperty Name="PKJ_Pupil_PixelRadio" ColumnName="PKJ_Pupil_PixelRadio" />
+          <ScalarProperty Name="PKJ_Pupil_PixelCentroY" ColumnName="PKJ_Pupil_PixelCentroY" />
+          <ScalarProperty Name="PKJ_Pupil_PixelCentroX" ColumnName="PKJ_Pupil_PixelCentroX" />
+          <ScalarProperty Name="PKJ_InlayVsPkj_Y" ColumnName="PKJ_InlayVsPkj_Y" />
+          <ScalarProperty Name="PKJ_InlayVsPkj_X" ColumnName="PKJ_InlayVsPkj_X" />
+          <ScalarProperty Name="PKJ_InlayVsPupil_Y" ColumnName="PKJ_InlayVsPupil_Y" />
+          <ScalarProperty Name="PKJ_InlayVsPupil_X" ColumnName="PKJ_InlayVsPupil_X" />
+          <ScalarProperty Name="PKJ_PkjVsPupil_Y" ColumnName="PKJ_PkjVsPupil_Y" />
+          <ScalarProperty Name="PKJ_PkjVsPupil_X" ColumnName="PKJ_PkjVsPupil_X" />
+          <ScalarProperty Name="PKJ_PkjVsPupil_Angle" ColumnName="PKJ_PkjVsPupil_Angle" />
+          <ScalarProperty Name="PKJ_PkjVsPupil_Length" ColumnName="PKJ_PkjVsPupil_Length" />
+          <ScalarProperty Name="PKJ_PupilDiameter" ColumnName="PKJ_PupilDiameter" />
+          <ScalarProperty Name="PKJ_MicrasPerPixel" ColumnName="PKJ_MicrasPerPixel" />
+          <ScalarProperty Name="PKJ_IsPreOperation" ColumnName="PKJ_IsPreOperation" />
+          <ScalarProperty Name="RotatedCamera" ColumnName="RotatedCamera" />
+          <ScalarProperty Name="TearFilm_StdevOSI" ColumnName="TearFilm_StdevOSI" />
+          <ScalarProperty Name="TearFilm_MeanOSI" ColumnName="TearFilm_MeanOSI" />
+          <ScalarProperty Name="TearFilm_MTFCutoff" ColumnName="TearFilm_MTFCutoff" />
+          <ScalarProperty Name="TearFilm_VA" ColumnName="TearFilm_VA" />
+          <ScalarProperty Name="TearFilm_Peripheral_Energy" ColumnName="TearFilm_Peripheral_Energy" />
+          <ScalarProperty Name="TearFilm_Central_Energy" ColumnName="TearFilm_Central_Energy" />
+          <ScalarProperty Name="TearFilm_OSI" ColumnName="TearFilm_OSI" />
+          <ScalarProperty Name="TearFilm_Time" ColumnName="TearFilm_Time" />
+          <ScalarProperty Name="Time_Each_Image_TearFilm" ColumnName="Time_Each_Image_TearFilm" />
+          <ScalarProperty Name="AR" ColumnName="AR" />
+          <ScalarProperty Name="Refrac_Acc_Per_2" ColumnName="Refrac_Acc_Per_2" />
+          <ScalarProperty Name="Refrac_Acc_Per_1" ColumnName="Refrac_Acc_Per_1" />
+          <ScalarProperty Name="OSI" ColumnName="OSI" />
+          <ScalarProperty Name="OAR" ColumnName="OAR" />
+          <ScalarProperty Name="COMPUTED_IMAGES" ColumnName="COMPUTED_IMAGES" />
+          <ScalarProperty Name="NImag_Acc_Each" ColumnName="NImag_Acc_Each" />
+          <ScalarProperty Name="NImag" ColumnName="NImag" />
+          <ScalarProperty Name="Corr_Type" ColumnName="Corr_Type" />
+          <ScalarProperty Name="Corr_Type_Num" ColumnName="Corr_Type_Num" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Type_Num" ColumnName="Type_Num" />
+          <ScalarProperty Name="OQAS_VALUE_9" ColumnName="OQAS_VALUE_9" />
+          <ScalarProperty Name="OQAS_VALUE_20" ColumnName="OQAS_VALUE_20" />
+          <ScalarProperty Name="OQAS_VALUE_100" ColumnName="OQAS_VALUE_100" />
+          <ScalarProperty Name="VA_9" ColumnName="VA_9" />
+          <ScalarProperty Name="VA_20" ColumnName="VA_20" />
+          <ScalarProperty Name="VA_100" ColumnName="VA_100" />
+          <ScalarProperty Name="STREHL_RATIO" ColumnName="STREHL_RATIO" />
+          <ScalarProperty Name="MTF_CUT_OFF" ColumnName="MTF_CUT_OFF" />
+          <ScalarProperty Name="WIDTH_PROFILE_1_10" ColumnName="WIDTH_PROFILE_1/10" />
+          <ScalarProperty Name="WIDTH_PROFILE_1_2" ColumnName="WIDTH_PROFILE_1/2" />
+          <ScalarProperty Name="BESTFOCUS" ColumnName="BESTFOCUS" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="NP" ColumnName="NP" />
+          <ScalarProperty Name="AP" ColumnName="AP" />
+          <ScalarProperty Name="REFERENCE_SPH_REFRAC" ColumnName="REFERENCE_SPH_REFRAC" />
+          <ScalarProperty Name="UCVA" ColumnName="UCVA" />
+          <ScalarProperty Name="BCVA" ColumnName="BCVA" />
+          <ScalarProperty Name="AXIS" ColumnName="AXIS" />
+          <ScalarProperty Name="CYL" ColumnName="CYL" />
+          <ScalarProperty Name="SPH" ColumnName="SPH" />
+          <ScalarProperty Name="OS_OD" ColumnName="OS_OD" />
+          <ScalarProperty Name="OD" ColumnName="OD" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="HOUR" ColumnName="HOUR" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="FK_Guid_Patient" ColumnName="FK_Guid_Patient" />
+          <ScalarProperty Name="FK_Id_Patient" ColumnName="FK_Id_Patient" />
+          <ScalarProperty Name="Id_Acq" ColumnName="Id_Acq" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exams_Table">
+      <EntityTypeMapping TypeName="RISINGSTARModel.Exams_Table">
+        <MappingFragment StoreEntitySet="Exams_Table">
+          <ScalarProperty Name="OS_Axis" ColumnName="OS_Axis" />
+          <ScalarProperty Name="OS_Cyl" ColumnName="OS_Cyl" />
+          <ScalarProperty Name="OS_Sph" ColumnName="OS_Sph" />
+          <ScalarProperty Name="OD_Axis" ColumnName="OD_Axis" />
+          <ScalarProperty Name="OD_Cyl" ColumnName="OD_Cyl" />
+          <ScalarProperty Name="OD_Sph" ColumnName="OD_Sph" />
+          <ScalarProperty Name="DateExam" ColumnName="DateExam" />
+          <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients_Table">
+      <EntityTypeMapping TypeName="RISINGSTARModel.Patients_Table">
+        <MappingFragment StoreEntitySet="Patients_Table">
+          <ScalarProperty Name="OBSERVATIONS" ColumnName="OBSERVATIONS" />
+          <ScalarProperty Name="E_MAIL" ColumnName="E-MAIL" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+          <ScalarProperty Name="CITY" ColumnName="CITY" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="SEX" ColumnName="SEX" />
+          <ScalarProperty Name="DATE_OF_BIRTH" ColumnName="DATE_OF_BIRTH" />
+          <ScalarProperty Name="REFERENCE" ColumnName="REFERENCE" />
+          <ScalarProperty Name="SURNAME1" ColumnName="SURNAME1" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="RISINGSTARModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="PermissionDescription" ColumnName="PermissionDescription" />
+          <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="RISINGSTARModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="DescriptionDisplay" ColumnName="DescriptionDisplay" />
+          <ScalarProperty Name="IsSysAdmin" ColumnName="IsSysAdmin" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="RISINGSTARModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ResetPassword" ColumnName="ResetPassword" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+          <ScalarProperty Name="IsADM" ColumnName="IsADM" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="RolePermission" TypeName="RISINGSTARModel.RolePermission" StoreEntitySet="RolePermission">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+      </EndProperty>
+      <EndProperty Name="Permission">
+        <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserRole" TypeName="RISINGSTARModel.UserRole" StoreEntitySet="UserRole">
+      <EndProperty Name="User">
+        <ScalarProperty Name="UserID" ColumnName="UserID" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

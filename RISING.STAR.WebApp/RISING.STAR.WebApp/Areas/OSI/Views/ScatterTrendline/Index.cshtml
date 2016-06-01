@@ -1,0 +1,82 @@
+﻿@model RISING.STAR.WebApp.Models.OSI.InterventionViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+        
+        <div class="col-md-4">
+            
+            <h3>Intervention</h3>
+            <div class="input-group">
+                @Html.LabelFor(m => m.Eye, new { @class = "input-group-addon" })
+                @Html.DropDownListFor(m => m.SelectedEye, Model.Eye, "Select an eye", new { @class = "form-control" })
+            </div>
+
+            <div class="input-group">
+                @Html.LabelFor(m => m.Intervention, new { @class = "input-group-addon" })
+                @Html.DropDownListFor(m => m.SelectedIntervention, Model.Intervention, "Select a treatment", new { @class = "form-control" })
+            </div>
+            
+            <div class="input-group date" id="datePicker">
+                <label class="input-group-addon">Date</label>
+                <input type="text" class="form-control">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+
+            <div class="text-center" style="padding-top: 10px;">
+                <button class="btn btn-primary" value="Add inervention to patient" id="btnAddIntervention">Add intervention to patient</button>
+            </div>
+
+            <h3>Intervention history</h3>
+            <table class="table table-condensed table-striped" id="intHistTable">
+                <thead>
+                    <tr>
+                        <th class="hidden">Intervention Id</th>
+                        <th>Intervention</th>
+                        <th>Eye</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (Model.InterventionEvents != null && Model.InterventionEvents.Count() > 0)
+                        { 
+                            foreach (var item in Model.InterventionEvents)
+                            {
+                                <tr>
+                                    <td>@item.InterventionEventGuid</td>
+                                    <td>@item.InterventionType.Description</td>
+                                    <td>@item.Eye</td>
+                                    <td>@item.Date</td>
+                                    <td><button class="btn btn-primary" value="Do something">Do something</button></td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <div class="col-md-8">
+            <h3> Chart </h3>
+
+            <div id="osiGraph"></div>
+        </div>
+
+
+    </div>
+
+</div>
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/OSI/osiTrendline.js")"></script>
+}

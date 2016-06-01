@@ -1,0 +1,739 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body tabs">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="#tab1" data-toggle="tab">OSI</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Pseudoaccomodation</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Tear film OSI</a></li>
+                        <li><a href="#tab4" data-toggle="tab">Purkinje vs Pupil</a></li>
+                        <li><a href="#tab5" data-toggle="tab">Inlay vs Purkinje</a></li>
+                        <li><a href="#actions" data-toggle="tab">Actions</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+
+                        <!-- Tab 01 - Objective Scatter Index -->
+                        <div class="tab-pane fade in active" id="tab1">      
+                                                 
+                            <div class="row text-center"><h4>Objective Scatter Index</h4></div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+
+                                    <div class="well">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">OD&nbsp;&nbsp;</span>
+                                                    <input type="text" class="form-control" id="txtOSIOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtOSIODDate">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">OS&nbsp;&nbsp;</span>
+                                                    <input type="text" class="form-control" id="txtOSIOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtOSIOSDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <table id="tblOSI" class="table table-condensed table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Exam date
+                                                </th>
+                                                <th>
+                                                    Exam Time
+                                                </th>
+                                                <th>
+                                                    Exam Eye
+                                                </th>
+                                                <th>
+                                                    OSI
+                                                </th>
+                                                <th>
+                                                    Actions
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbdOSI"></tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                                                        
+                        </div>
+
+                        <!-- Tab 02 - Pseudo Accomodation -->
+                        <div class="tab-pane fade" id="tab2">
+                            
+                            <div class="row text-center"><h4>Pseudo Accomodation</h4></div>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                                                  
+                                    <div class="well">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">OD&nbsp;&nbsp;</span>
+                                                    <input type="text" class="form-control" id="txtPseudoAccOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtPseudoAccODDate">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">OD&nbsp;&nbsp;</span>
+                                                    <input type="text" class="form-control" id="txtPseudoAccOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtPseudoAccOSDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                   
+                                                       
+                                <div class="col-md-6">
+
+                                    <table id="tblPseudoAcc" class="table table-condensed table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Exam date
+                                                </th>
+                                                <th>
+                                                    Exam Time
+                                                </th>
+                                                <th>
+                                                    Exam Eye
+                                                </th>
+                                                <th>
+                                                    OAR
+                                                </th>
+                                                <th>
+                                                    Actions
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+
+                                </div>
+
+                             </div>
+                        
+                        </div>
+
+                        <!-- Tab 03 - Tear film OSI -->
+                        <div class="tab-pane fade" id="tab3">
+                            
+                            <div class="row text-center"><h4>Tear Film OSI</h4></div>
+                            
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    
+                                    <div class="well">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">OD OSI</span>
+                                                    <input type="text" class="form-control" id="txtTearFilmOSIOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">OD StDev</span>
+                                                    <input type="text" class="form-control" id="txtTearFilmStDevOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtTearFilmOSIODDate">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">OD OSI</span>
+                                                    <input type="text" class="form-control" id="txtTearFilmOSIOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">OD StDev</span>
+                                                    <input type="text" class="form-control" id="txtTearFilmStDevOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtTearFilmOSIOSDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <table id="tblTearFilmOSI" class="table table-condensed table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Exam date
+                                                </th>
+                                                <th>
+                                                    Exam Time
+                                                </th>
+                                                <th>
+                                                    Exam Eye
+                                                </th>
+                                                <th>
+                                                    OSI
+                                                </th>
+                                                <th>
+                                                    St Dev
+                                                </th>
+                                                <th>
+                                                    Actions
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        
+                        <!-- Tab 04 Purkinje vs Pupil Metrics -->
+                        <div class="tab-pane fade" id="tab4">
+                            
+                            <div class="row text-center"><h4>Purkinje vs Pupil Metrics</h4></div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    
+                                    <div class="well">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span class="input-group-addon" id="sizing-addon1">OD</span>
+                                                <div class="input-group">                                                            
+                                                    <span class="input-group-addon" id="sizing-addon1">Cord</span>
+                                                    <input type="text" class="form-control" id="txtCoordOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Angle</span>
+                                                    <input type="text" class="form-control" id="txtAngleOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">X</span>
+                                                    <input type="text" class="form-control" id="txtXOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                                    <input type="text" class="form-control" id="txtYOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtPurkODDate">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="input-group-addon" id="sizing-addon1">OS</span>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Cord</span>
+                                                    <input type="text" class="form-control" id="txtCoordOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Angle</span>
+                                                    <input type="text" class="form-control" id="txtAngleOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">X</span>
+                                                    <input type="text" class="form-control" id="txtXOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                                    <input type="text" class="form-control" id="txtYOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtPurkOSDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+
+                                    <table id="tblPurkVsPupil" class="table table-condensed table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Exam date
+                                                </th>
+                                                <th>
+                                                    Exam Time
+                                                </th>
+                                                <th>
+                                                    Exam Eye
+                                                </th>
+                                                <th>
+                                                    Cord
+                                                </th>
+                                                <th>
+                                                    Angle
+                                                </th>
+                                                <th>
+                                                    X
+                                                </th>
+                                                <th>
+                                                    Y
+                                                </th>
+                                                <th>
+                                                    Actions
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Tab 5 Inlay vs Purkinje Metrics -->
+                        <div class="tab-pane fade" id="tab5">
+                            
+                            <div class="row text-center"><h4>Inlay vs Purkinje Metrics</h4></div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    
+                                    <div class="well">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span class="input-group-addon" id="sizing-addon1">OD</span>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">X</span>
+                                                    <input type="text" class="form-control" id="txtInlayVsPurkXOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                                    <input type="text" class="form-control" id="txtInlayVsPurkYOD">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtInlayVsPurkODDate">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="input-group-addon" id="sizing-addon1">OS</span>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">X</span>
+                                                    <input type="text" class="form-control" id="txtInlayVsPurkXOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                                    <input type="text" class="form-control" id="txtInlayVsPurkYOS">
+                                                </div>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                    <input type="text" class="form-control" id="txtInlayVsPurkOSDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    <table id="tblInlayVsPurk" class="table table-condensed table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Exam date
+                                                </th>
+                                                <th>
+                                                    Exam Time
+                                                </th>
+                                                <th>
+                                                    Exam Eye
+                                                </th>
+                                                <th>
+                                                    X
+                                                </th>
+                                                <th>
+                                                    Y
+                                                </th>
+                                                <th>
+                                                    Actions
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="tab-pane fade" id="actions">
+                           
+                            <div class="row">
+                           
+                                <div class="text-center">
+                                    <h4>Actions</h4>
+                                </div>                                
+                                     
+                                <div class="col-md-4 well">
+
+                                    <div class="text-center">
+                                        <h5>Target - Inlay vs Purkinje</h5>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span class="input-group-addon" id="sizing-addon1">OD</span>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Cord</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkCoordOD">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Angle</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkAngleOD">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">X</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkXOD">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkYOD">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkODDate">
+                                            </div>
+
+                                            <div class="text-center">
+                                                @Html.ActionLink("Generate", "Graph", "AcuTargetMetrics",
+                                                    new
+                                                    {
+                                                        id = 571,   // todo: pass real patient
+                                                        ids = "__ids__",
+                                                        exam = "__exam__",
+                                                        name = "__name__",
+                                                        section = "__section__",
+                                                        cords = "__cords__",
+                                                        angle = "__angle__",
+                                                        x = "__x__",
+                                                        y = "__y__",
+                                                        purkX = "__purkX__",
+                                                        purkY = "__purkY__",
+                                                        type = "__type__",
+                                                        eye = "__eye__"
+                                                    }, new { id = "InlayVsPurkGraphOD" })
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="input-group-addon" id="sizing-addon1">OS</span>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Cord</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkCoordOS">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Angle</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkAngleOS">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">X</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkXOS">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkYOS">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                <input type="text" class="form-control" id="txtTargetInlayVsPurkOSDate">
+                                            </div>
+
+                                            <div class="text-center">
+                                                @Html.ActionLink("Generate", "Graph", "AcuTargetMetrics",
+                                                    new
+                                                    {
+                                                        id = 571,   // todo: pass real patient
+                                                        ids = "__ids__",
+                                                        exam = "__exam__",
+                                                        name = "__name__",
+                                                        section = "__section__",
+                                                        cords = "__cords__",
+                                                        angle = "__angle__",
+                                                        x = "__x__",
+                                                        y = "__y__",
+                                                        purkX = "__purkX__",
+                                                        purkY = "__purkY__",
+                                                        type = "__type__",
+                                                        eye = "__eye__"
+                                                    }, new { id = "InlayVsPurkGraphOS" })
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-4 well">
+
+                                    <div class="text-center">
+                                        <h5>Achieved - Inlay vs Purkinje (MAB Target)</h5>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <span class="input-group-addon" id="sizing-addon1">OD</span>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Cord</span>
+                                                <input type="text" class="form-control" id="txtAchievMABCoordOD">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Angle</span>
+                                                <input type="text" class="form-control" id="txtAchievMABAngleOD">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">X</span>
+                                                <input type="text" class="form-control" id="txtAchievMABXOD">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                                <input type="text" class="form-control" id="txtAchievMABYOD">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                <input type="text" class="form-control" id="txtAchievMABDate">
+                                            </div>
+
+                                            <div class="text-center">
+                                                @Html.ActionLink("Generate", "Graph", "AcuTargetMetrics",
+                                                    new
+                                                    {
+                                                        id = 571,   // todo: pass real patient
+                                                        ids = "__ids__",
+                                                        exam = "__exam__",
+                                                        name = "__name__",
+                                                        section = "__section__",
+                                                        cords = "__cords__",
+                                                        angle = "__angle__",
+                                                        x = "__x__",
+                                                        y = "__y__",
+                                                        purkX = "__purkX__",
+                                                        purkY = "__purkY__",
+                                                        type = "__type__",
+                                                        eye = "__eye__"
+                                                    }, new { id = "MABOD" })
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="input-group-addon" id="sizing-addon1">OS</span>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Cord</span>
+                                                <input type="text" class="form-control" id="txtAchievMABCoordOS">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Angle</span>
+                                                <input type="text" class="form-control" id="txtAchievMABAngleOS">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">X</span>
+                                                <input type="text" class="form-control" id="txtAchievMABXOS">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                                <input type="text" class="form-control" id="txtAchievMABYOS">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                                <input type="text" class="form-control" id="txtAchievMABOSDate">
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center">
+                                            @Html.ActionLink("Generate", "Graph", "AcuTargetMetrics",
+                                                    new
+                                                    {
+                                                        id = 571,   // todo: pass real patient
+                                                        ids = "__ids__",
+                                                        exam = "__exam__",
+                                                        name = "__name__",
+                                                        section = "__section__",
+                                                        cords = "__cords__",
+                                                        angle = "__angle__",
+                                                        x = "__x__",
+                                                        y = "__y__",
+                                                        purkX = "__purkX__",
+                                                        purkY = "__purkY__",
+                                                        type = "__type__",
+                                                        eye = "__eye__"
+                                                    }, new { id = "MABOS" })
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                
+                                <div class="col-md-4 well">
+
+                                    <div class="text-center">
+                                        <h5>Achieved Inlay vs Purkinje (Purkinje target)</h5>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <span class="input-group-addon" id="sizing-addon1">OD</span>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">Cord</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkCoordOD">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">Angle</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkAngleOD">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">X</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkXOD">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkYOD">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkDate">
+                                        </div>
+
+                                        <div class="text-center">
+                                            @Html.ActionLink("Generate", "Graph", "AcuTargetMetrics",
+                                                    new
+                                                    {
+                                                        id = 571,   // todo: pass real patient
+                                                        ids = "__ids__",
+                                                        exam = "__exam__",
+                                                        name = "__name__",
+                                                        section = "__section__",
+                                                        cords = "__cords__",
+                                                        angle = "__angle__",
+                                                        x = "__x__",
+                                                        y = "__y__",
+                                                        purkX = "__purkX__",
+                                                        purkY = "__purkY__",
+                                                        type = "__type__",
+                                                        eye = "__eye__"
+                                                    }, new { id = "PurkinjeTargetOD" })
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="input-group-addon" id="sizing-addon1">OS</span>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">Cord</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkCoordOS">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">Angle</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkAngleOS">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">X</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkXOS">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">Y</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkYOS">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon1">Date</span>
+                                            <input type="text" class="form-control" id="txtAchievPurkOSDate">
+                                        </div>
+
+                                        <div class="text-center">
+                                            @Html.ActionLink("Generate", "Graph", "AcuTargetMetrics",
+                                                    new
+                                                    {
+                                                        id = 571,   // todo: pass real patient
+                                                        ids = "__ids__",
+                                                        exam = "__exam__",
+                                                        name = "__name__",
+                                                        section = "__section__",
+                                                        cords = "__cords__",
+                                                        angle = "__angle__",
+                                                        x = "__x__",
+                                                        y = "__y__",
+                                                        purkX = "__purkX__",
+                                                        purkY = "__purkY__",
+                                                        type = "__type__",
+                                                        eye = "__eye__"
+                                                    }, new { id = "PurkinjeTargetOS" })
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+               
+
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <button id="btnCalculate" class="btn btn-primary" value="Calculate">Calculate</button>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    
+                    </div>
+                </div>
+            </div><!--/.panel-->
+        </div><!--/.col-->
+        
+    </div>
+
+</div>
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/AcuTargetMetrics/acuTargetApp.js")"></script>
+}

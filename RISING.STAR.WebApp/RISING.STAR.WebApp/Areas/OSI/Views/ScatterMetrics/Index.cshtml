@@ -1,0 +1,351 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-body tabs">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="#tab1" data-toggle="tab">2D View</a></li>
+                        <li><a href="#tab2" data-toggle="tab">3D View</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Strehl Ratio</a></li>
+                        <li><a href="#tab4" data-toggle="tab">MTF</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+
+                        <!-- Tab 01 - 2D -->
+                        <div class="tab-pane fade in active" id="tab1">
+
+                            <div class="row">
+                                
+                                <div class="col-md-4">
+                                    <div id="verticalGaugePatient"></div>
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Decimal</th>
+                                                    <th>Smellen</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Predicted Visual Acuity</td>
+                                                    <td id="pvaDecimalPatient"></td>
+                                                    <td id="pvaSmellenPatient"></td>
+                                                </tr>
+                                            </tbody>                                            
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">             
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <img src="~/Images/OSI/osiPatient.png">
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <img src="~/Images/OSI/osiNormal.png">
+                                        </div>
+                                    </div>                       
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div id="verticalGaugeNormal"></div>
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Decimal</th>
+                                                    <th>Smellen</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Predicted Visual Acuity</td>
+                                                    <td id="pvaDecimalNormal"></td>
+                                                    <td id="pvaSmellenNormal"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Tab 02 - 3D  -->
+                        <div class="tab-pane fade active" id="tab2">
+
+                            <div class="row">
+
+                                <div class="col-md-4">
+                                    <div id="verticalGaugePatient3D"></div>
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Decimal</th>
+                                                    <th>Smellen</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Predicted Visual Acuity</td>
+                                                    <td id="pvaDecimalPatient3D"></td>
+                                                    <td id="pvaSmellenPatient3D"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <h2> Put 3D image here</h2>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <h2> Put 3D image here</h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div id="verticalGaugeNormal3D"></div>
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>Decimal</th>
+                                                    <th>Smellen</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Predicted Visual Acuity</td>
+                                                    <td id="pvaDecimalNormal3D"></td>
+                                                    <td id="pvaSmellenNormal3D"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Tab 03 - Strehl Ratio -->
+                        <div class="tab-pane fade" id="tab3">
+
+                            <div class="row">
+
+                                <div class="col-md-3" style="margin-top: 40px;">
+                                    <p>Width at at 50% (arc min): <span id="widAt50Patient" class="highlight"></span></p>
+                                    <p>Width at at 10% (arc min): <span id="widAt10Patient" class="highlight"></span></p>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div id="strehlGraphPatient"></div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                
+                                <div class="col-md-3" style="margin-top: 40px;">
+                                    <p>Width at at 50% (arc min): <span id="widAt50Normal" class="highlight"></span></p>
+                                    <p>Width at at 10% (arc min): <span id="widAt10Normal" class="highlight"></span></p>
+                                </div>
+                                
+                                <div class="col-md-9">
+                                    <div id="strehlGraphNormal"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Tab 04 - MTF  -->
+                        <div class="tab-pane fade" id="tab4">
+
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <h4>Width at xx</h4>
+                                    <h4>Width at yy</h4>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <img src="http://placehold.it/270x170">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <img src="http://placehold.it/270x170">
+                                </div>
+
+                                <div class="col-md-3">
+                                    <h4>Width at xx</h4>
+                                    <h4>Width at yy</h4>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div><!--/.panel-->
+
+        </div><!--/.col-->
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="row">
+
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="well text-center">
+                        John Doe Objective Scatter
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="well text-center">
+                        Ideal Eye Ocular Scatter
+                    </div>
+                </div>
+                <div class="col-md-offset-1"></div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="panel panel-default">
+                    <div class="panel-body tabs">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tabBaby" data-toggle="tab">Baby</a></li>
+                            <li><a href="#tabLandscape" data-toggle="tab">Landscape</a></li>
+                            <li><a href="#tabWork" data-toggle="tab">Work</a></li>
+                            <li><a href="#tabCityScape" data-toggle="tab">CityScape</a></li>
+                            <li><a href="#tabMacro" data-toggle="tab">Macro</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+
+                            <div class="tab-pane fade in active" id="tabBaby">
+
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-1">        
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div> 
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="tabLandscape">
+
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="tabWork">
+                                
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="tabCityScape">
+                                
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="tabMacro">
+
+                                <div class="row">
+                                    <div class="col-md-5 col-md-offset-1">
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div>
+                                            <img src="http://placehold.it/270x170">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/OSI/osi.js")"></script>
+}

@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF92B35F-3E38-4412-A52B-D3CD6E028A44}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RISING.STAR.WebApp</RootNamespace>
+    <AssemblyName>RISING.STAR.WebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionFilters\RBACAttribute.cs" />
+    <Compile Include="ActionFilters\RBACUser.cs" />
+    <Compile Include="ActionFilters\RBAC_ExtendedMethods.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\AcuTargetMetrics\AcuTargetMetricsAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AcquisitionsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminDashController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ExamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PatientController.cs" />
+    <Compile Include="Areas\OSI\Controllers\ScatterMetricsController.cs" />
+    <Compile Include="Areas\OSI\Controllers\ScatterReportsController.cs" />
+    <Compile Include="Areas\OSI\Controllers\ScatterTrendlineController.cs" />
+    <Compile Include="Areas\OSI\OSIAreaRegistration.cs" />
+    <Compile Include="Areas\PatientEd\Controllers\PatientEducationController.cs" />
+    <Compile Include="Areas\PatientEd\PatientEdAreaRegistration.cs" />
+    <Compile Include="Areas\TearFilm\Controllers\CohortAnalysisController.cs" />
+    <Compile Include="Areas\TearFilm\Controllers\OcularScatterController.cs" />
+    <Compile Include="Areas\TearFilm\Controllers\TrendlineController.cs" />
+    <Compile Include="Areas\TearFilm\TearFilmAreaRegistration.cs" />
+    <Compile Include="Areas\TestingTreatment\Controllers\TestingTreatmentSummaryController.cs" />
+    <Compile Include="Areas\TestingTreatment\TestingTreatmentAreaRegistration.cs" />
+    <Compile Include="Areas\Visiometrics\Controllers\CompareVisiometricsController.cs" />
+    <Compile Include="Areas\Visiometrics\Controllers\KAMRAOutcomesController.cs" />
+    <Compile Include="Areas\Visiometrics\Controllers\VisiometricController.cs" />
+    <Compile Include="Areas\Visiometrics\VisiometricsAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Areas\AcuTargetMetrics\Controllers\AcuTargetMetricsController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ObjectiveScatterMetricsController.cs" />
+    <Compile Include="Controllers\ObjectiveScatterReportsController.cs" />
+    <Compile Include="Controllers\ObjectiveScatterTrendlineController.cs" />
+    <Compile Include="Controllers\PatientsController.cs" />
+    <Compile Include="Controllers\TearFilmCohortAnalysisController.cs" />
+    <Compile Include="Controllers\TearFilmOcularScatterController.cs" />
+    <Compile Include="Controllers\TearFilmTrendlineController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AcuTargetGraphModel.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LayoutViewModel.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OSI\InterventionEventViewModel.cs" />
+    <Compile Include="Models\OSI\InterventionViewModel.cs" />
+    <Compile Include="Models\RBAC_Model.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-table.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\datepicker3.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="Content\themify-icons.css" />
+    <Content Include="Images\AcuTargetMetrics\cross.png" />
+    <Content Include="Images\AcuTargetMetrics\cross12.png" />
+    <Content Include="Images\AcuTargetMetrics\cross16.png" />
+    <Content Include="Images\AcuTargetMetrics\dash.png" />
+    <Content Include="Images\AcuTargetMetrics\dash30_4.png" />
+    <Content Include="Images\AcuTargetMetrics\dash40_6.png" />
+    <Content Include="Images\AcuTargetMetrics\eye_bg.jpg" />
+    <Content Include="Images\AcuTargetMetrics\kamra_small.png" />
+    <Content Include="Images\AcuTargetMetrics\teal.png" />
+    <Content Include="Images\ChartsIcons\20\artificial_tears.png" />
+    <Content Include="Images\ChartsIcons\20\cataract.png" />
+    <Content Include="Images\ChartsIcons\20\cyclosporine.png" />
+    <Content Include="Images\ChartsIcons\20\eyedrop.png" />
+    <Content Include="Images\ChartsIcons\20\KAMRA_inlay.png" />
+    <Content Include="Images\ChartsIcons\20\omega3.png" />
+    <Content Include="Images\ChartsIcons\20\punctal_plug.png" />
+    <Content Include="Images\ChartsIcons\20\YAG_laser.png" />
+    <Content Include="Images\ChartsIcons\30\artificial_tears.png" />
+    <Content Include="Images\ChartsIcons\30\cataract.png" />
+    <Content Include="Images\ChartsIcons\30\cyclosporine.png" />
+    <Content Include="Images\ChartsIcons\30\eyedrop.png" />
+    <Content Include="Images\ChartsIcons\30\KAMRA_inlay.png" />
+    <Content Include="Images\ChartsIcons\30\omega3.png" />
+    <Content Include="Images\ChartsIcons\30\punctal_plug.png" />
+    <Content Include="Images\ChartsIcons\30\YAG_laser.png" />
+    <Content Include="Images\Icons\CompareVisioReports.png" />
+    <Content Include="Images\Icons\Education.png" />
+    <Content Include="Images\Icons\Metrics.png" />
+    <Content Include="Images\Icons\OSI.png" />
+    <Content Include="Images\Icons\OSICohort.png" />
+    <Content Include="Images\Icons\OSITrendline.png" />
+    <Content Include="Images\Icons\Outcomes.png" />
+    <Content Include="Images\Icons\TearFilm.png" />
+    <Content Include="Images\Icons\TearFilmCohort.png" />
+    <Content Include="Images\Icons\TearFilmTrendline.png" />
+    <Content Include="Images\Icons\Testing.png" />
+    <Content Include="Images\Icons\VisioReports.png" />
+    <Content Include="Images\AcuTargetMetrics\inlaycenter.png" />
+    <Content Include="Images\AcuTargetMetrics\kamra_inlay_original.png" />
+    <Content Include="Images\AcuTargetMetrics\kamra_bg.png" />
+    <Content Include="Images\OSI\osiNormal.png" />
+    <Content Include="Images\OSI\osiPatient.png" />
+    <Content Include="Images\AcuTargetMetrics\target.png" />
+    <Content Include="Scripts\app\AcuTargetMetrics\acuTargetGraph.js" />
+    <Content Include="Scripts\app\Exam\exam.js" />
+    <Content Include="Scripts\app\OSI\osi.js" />
+    <Content Include="Scripts\app\OSI\osiTrendline.js" />
+    <Content Include="Scripts\highcharts\api\css\font-awesome.min.css" />
+    <Content Include="Scripts\highcharts\api\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Scripts\highcharts\api\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Scripts\highcharts\api\css\jquery-ui.min.css" />
+    <Content Include="Scripts\highcharts\api\css\ref.css" />
+    <Content Include="Scripts\highcharts\api\css\source-sans-pro.css" />
+    <Content Include="Scripts\highcharts\api\highcharts.html" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-114x114.png" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-120x120.png" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-144x144.png" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-152x152.png" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-180x180.png" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-57x57.png" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-60x60.png" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-72x72.png" />
+    <Content Include="Scripts\highcharts\api\images\apple-touch-icon-76x76.png" />
+    <Content Include="Scripts\highcharts\api\images\favicon-160x160.png" />
+    <Content Include="Scripts\highcharts\api\images\favicon-16x16.png" />
+    <Content Include="Scripts\highcharts\api\images\favicon-192x192.png" />
+    <Content Include="Scripts\highcharts\api\images\favicon-32x32.png" />
+    <Content Include="Scripts\highcharts\api\images\favicon-96x96.png" />
+    <Content Include="Scripts\highcharts\api\images\Highcharts.svg" />
+    <Content Include="Scripts\highcharts\api\images\splash.svg" />
+    <Content Include="Scripts\highcharts\api\images\sprite.png" />
+    <Content Include="Scripts\highcharts\api\js\jquery-1.11.3.min.js" />
+    <Content Include="Scripts\highcharts\api\js\jquery-ui.min.js" />
+    <Content Include="Scripts\highcharts\api\js\ref.js" />
+    <Content Include="Scripts\highcharts\examples\3d-column-interactive\index.htm" />
+    <Content Include="Scripts\highcharts\examples\3d-column-null-values\index.htm" />
+    <Content Include="Scripts\highcharts\examples\3d-column-stacking-grouping\index.htm" />
+    <Content Include="Scripts\highcharts\examples\3d-pie-donut\index.htm" />
+    <Content Include="Scripts\highcharts\examples\3d-pie\index.htm" />
+    <Content Include="Scripts\highcharts\examples\3d-scatter-draggable\index.htm" />
+    <Content Include="Scripts\highcharts\examples\area-basic\index.htm" />
+    <Content Include="Scripts\highcharts\examples\area-inverted\index.htm" />
+    <Content Include="Scripts\highcharts\examples\area-missing\index.htm" />
+    <Content Include="Scripts\highcharts\examples\area-negative\index.htm" />
+    <Content Include="Scripts\highcharts\examples\area-stacked-percent\index.htm" />
+    <Content Include="Scripts\highcharts\examples\area-stacked\index.htm" />
+    <Content Include="Scripts\highcharts\examples\arearange-line\index.htm" />
+    <Content Include="Scripts\highcharts\examples\arearange\index.htm" />
+    <Content Include="Scripts\highcharts\examples\areaspline\index.htm" />
+    <Content Include="Scripts\highcharts\examples\bar-basic\index.htm" />
+    <Content Include="Scripts\highcharts\examples\bar-negative-stack\index.htm" />
+    <Content Include="Scripts\highcharts\examples\bar-stacked\index.htm" />
+    <Content Include="Scripts\highcharts\examples\box-plot\index.htm" />
+    <Content Include="Scripts\highcharts\examples\bubble-3d\index.htm" />
+    <Content Include="Scripts\highcharts\examples\bubble\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-basic\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-drilldown\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-negative\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-parsed\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-placement\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-rotated-labels\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-stacked-and-grouped\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-stacked-percent\index.htm" />
+    <Content Include="Scripts\highcharts\examples\column-stacked\index.htm" />
+    <Content Include="Scripts\highcharts\examples\columnrange\index.htm" />
+    <Content Include="Scripts\highcharts\examples\combo-dual-axes\index.htm" />
+    <Content Include="Scripts\highcharts\examples\combo-meteogram\index.htm" />
+    <Content Include="Scripts\highcharts\examples\combo-multi-axes\index.htm" />
+    <Content Include="Scripts\highcharts\examples\combo-regression\index.htm" />
+    <Content Include="Scripts\highcharts\examples\combo-timeline\index.htm" />
+    <Content Include="Scripts\highcharts\examples\combo\index.htm" />
+    <Content Include="Scripts\highcharts\examples\dynamic-click-to-add\index.htm" />
+    <Content Include="Scripts\highcharts\examples\dynamic-master-detail\index.htm" />
+    <Content Include="Scripts\highcharts\examples\dynamic-update\index.htm" />
+    <Content Include="Scripts\highcharts\examples\error-bar\index.htm" />
+    <Content Include="Scripts\highcharts\examples\funnel\index.htm" />
+    <Content Include="Scripts\highcharts\examples\gauge-activity\index.htm" />
+    <Content Include="Scripts\highcharts\examples\gauge-clock\index.htm" />
+    <Content Include="Scripts\highcharts\examples\gauge-dual\index.htm" />
+    <Content Include="Scripts\highcharts\examples\gauge-solid\index.htm" />
+    <Content Include="Scripts\highcharts\examples\gauge-speedometer\index.htm" />
+    <Content Include="Scripts\highcharts\examples\gauge-vu-meter\index.htm" />
+    <Content Include="Scripts\highcharts\examples\heatmap-canvas\index.htm" />
+    <Content Include="Scripts\highcharts\examples\heatmap\index.htm" />
+    <Content Include="Scripts\highcharts\examples\line-ajax\index.htm" />
+    <Content Include="Scripts\highcharts\examples\line-basic\index.htm" />
+    <Content Include="Scripts\highcharts\examples\line-labels\index.htm" />
+    <Content Include="Scripts\highcharts\examples\line-log-axis\index.htm" />
+    <Content Include="Scripts\highcharts\examples\line-time-series\index.htm" />
+    <Content Include="Scripts\highcharts\examples\pie-basic\index.htm" />
+    <Content Include="Scripts\highcharts\examples\pie-donut\index.htm" />
+    <Content Include="Scripts\highcharts\examples\pie-drilldown\index.htm" />
+    <Content Include="Scripts\highcharts\examples\pie-gradient\index.htm" />
+    <Content Include="Scripts\highcharts\examples\pie-legend\index.htm" />
+    <Content Include="Scripts\highcharts\examples\pie-monochrome\index.htm" />
+    <Content Include="Scripts\highcharts\examples\pie-semi-circle\index.htm" />
+    <Content Include="Scripts\highcharts\examples\polar-spider\index.htm" />
+    <Content Include="Scripts\highcharts\examples\polar-wind-rose\index.htm" />
+    <Content Include="Scripts\highcharts\examples\polar\index.htm" />
+    <Content Include="Scripts\highcharts\examples\polygon\index.htm" />
+    <Content Include="Scripts\highcharts\examples\pyramid\index.htm" />
+    <Content Include="Scripts\highcharts\examples\renderer\index.htm" />
+    <Content Include="Scripts\highcharts\examples\scatter\index.htm" />
+    <Content Include="Scripts\highcharts\examples\sparkline\index.htm" />
+    <Content Include="Scripts\highcharts\examples\spline-inverted\index.htm" />
+    <Content Include="Scripts\highcharts\examples\spline-irregular-time\index.htm" />
+    <Content Include="Scripts\highcharts\examples\spline-plot-bands\index.htm" />
+    <Content Include="Scripts\highcharts\examples\spline-symbols\index.htm" />
+    <Content Include="Scripts\highcharts\examples\synchronized-charts\index.htm" />
+    <Content Include="Scripts\highcharts\examples\treemap-coloraxis\index.htm" />
+    <Content Include="Scripts\highcharts\examples\treemap-large-dataset\index.htm" />
+    <Content Include="Scripts\highcharts\examples\treemap-with-levels\index.htm" />
+    <Content Include="Scripts\highcharts\examples\waterfall\index.htm" />
+    <Content Include="Scripts\highcharts\gfx\vml-radial-gradient.png" />
+    <Content Include="Scripts\highcharts\graphics\highslide\close.png" />
+    <Content Include="Scripts\highcharts\graphics\highslide\closeX.png" />
+    <Content Include="Scripts\highcharts\graphics\highslide\outlines\rounded-white.png" />
+    <Content Include="Scripts\highcharts\graphics\highslide\resize.gif" />
+    <Content Include="Scripts\highcharts\graphics\highslide\zoomout.cur" />
+    <Content Include="Scripts\highcharts\graphics\meteogram-symbols-30px.png" />
+    <Content Include="Scripts\highcharts\graphics\search.png" />
+    <Content Include="Scripts\highcharts\graphics\skies.jpg" />
+    <Content Include="Scripts\highcharts\graphics\snow.png" />
+    <Content Include="Scripts\highcharts\graphics\sun.png" />
+    <Content Include="Scripts\highcharts\index.htm" />
+    <Content Include="Scripts\highcharts\js\adapters\standalone-framework.js" />
+    <Content Include="Scripts\highcharts\js\adapters\standalone-framework.src.js" />
+    <Content Include="Scripts\highcharts\js\highcharts-3d.js" />
+    <Content Include="Scripts\highcharts\js\highcharts-3d.src.js" />
+    <Content Include="Scripts\highcharts\js\highcharts-more.js" />
+    <Content Include="Scripts\highcharts\js\highcharts-more.src.js" />
+    <Content Include="Scripts\highcharts\js\highcharts.js" />
+    <Content Include="Scripts\highcharts\js\highcharts.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\boost.js" />
+    <Content Include="Scripts\highcharts\js\modules\boost.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\broken-axis.js" />
+    <Content Include="Scripts\highcharts\js\modules\broken-axis.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\canvas-tools.js" />
+    <Content Include="Scripts\highcharts\js\modules\canvas-tools.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\data.js" />
+    <Content Include="Scripts\highcharts\js\modules\data.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\drilldown.js" />
+    <Content Include="Scripts\highcharts\js\modules\drilldown.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\exporting.js" />
+    <Content Include="Scripts\highcharts\js\modules\exporting.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\funnel.js" />
+    <Content Include="Scripts\highcharts\js\modules\funnel.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\heatmap.js" />
+    <Content Include="Scripts\highcharts\js\modules\heatmap.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\no-data-to-display.js" />
+    <Content Include="Scripts\highcharts\js\modules\no-data-to-display.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\offline-exporting.js" />
+    <Content Include="Scripts\highcharts\js\modules\offline-exporting.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\solid-gauge.js" />
+    <Content Include="Scripts\highcharts\js\modules\solid-gauge.src.js" />
+    <Content Include="Scripts\highcharts\js\modules\treemap.js" />
+    <Content Include="Scripts\highcharts\js\modules\treemap.src.js" />
+    <Content Include="Scripts\highcharts\js\themes\dark-blue.js" />
+    <Content Include="Scripts\highcharts\js\themes\dark-green.js" />
+    <Content Include="Scripts\highcharts\js\themes\dark-unica.js" />
+    <Content Include="Scripts\highcharts\js\themes\gray.js" />
+    <Content Include="Scripts\highcharts\js\themes\grid-light.js" />
+    <Content Include="Scripts\highcharts\js\themes\grid.js" />
+    <Content Include="Scripts\highcharts\js\themes\sand-signika.js" />
+    <Content Include="Scripts\highcharts\js\themes\skies.js" />
+    <Content Include="Scripts\app\AcuTargetMetrics\acuTargetApp.js" />
+    <Content Include="Scripts\app\Common\common.js" />
+    <Content Include="Scripts\d3\.gitattributes" />
+    <Content Include="Scripts\d3\.gitignore" />
+    <Content Include="Scripts\d3\d3.js" />
+    <Content Include="Scripts\d3\d3.min.js" />
+    <Content Include="Scripts\d3\package.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-table.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Patient\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Patient\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Patient\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Patient\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Patient\Index.cshtml" />
+    <Content Include="Areas\PatientEd\Views\web.config" />
+    <Content Include="Areas\PatientEd\Views\PatientEducation\Index.cshtml" />
+    <Content Include="Areas\Visiometrics\Views\web.config" />
+    <Content Include="Areas\Visiometrics\Views\Visiometric\Index.cshtml" />
+    <Content Include="Areas\Visiometrics\Views\CompareVisiometrics\Index.cshtml" />
+    <Content Include="Areas\Visiometrics\Views\KAMRAOutcomes\Index.cshtml" />
+    <Content Include="Areas\OSI\Views\web.config" />
+    <Content Include="Areas\TearFilm\Views\web.config" />
+    <Content Include="Areas\AcuTargetMetrics\Views\web.config" />
+    <Content Include="Areas\TestingTreatment\Views\web.config" />
+    <Content Include="Areas\Admin\Views\AdminDash\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Patient\_CreateExam.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Acquisitions\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Acquisitions\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Acquisitions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Acquisitions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Acquisitions\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Exam\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InterventionEvents\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InterventionEvents\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InterventionEvents\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InterventionEvents\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InterventionEvents\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\rsCaioPublish.pubxml" />
+    <Content Include="Scripts\d3\.npmignore" />
+    <Content Include="Scripts\d3\.spmignore" />
+    <Content Include="Scripts\d3\composer.json" />
+    <Content Include="Scripts\d3\CONTRIBUTING.md" />
+    <Content Include="Scripts\d3\LICENSE" />
+    <Content Include="Scripts\d3\package.json" />
+    <Content Include="Scripts\d3\README.md" />
+    <Content Include="Scripts\highcharts\api\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\highcharts\api\js\highcharts.json" />
+    <None Include="Scripts\jquery\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\html5shiv.min.js" />
+    <Content Include="Scripts\jquery\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\jquery\jquery.validate.js" />
+    <Content Include="Scripts\jquery\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lumino.glyphs.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutInner.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Areas\AcuTargetMetrics\Views\AcuTargetMetrics\Index.cshtml" />
+    <Content Include="Areas\OSI\Views\ScatterMetrics\Index.cshtml" />
+    <Content Include="Areas\TearFilm\Views\OcularScatter\Index.cshtml" />
+    <Content Include="Areas\OSI\Views\ScatterTrendline\Index.cshtml" />
+    <Content Include="Areas\TearFilm\Views\CohortAnalysis\Index.cshtml" />
+    <Content Include="Areas\TearFilm\Views\Trendline\Index.cshtml" />
+    <Content Include="Areas\TestingTreatment\Views\TestingTreatmentSummary\Index.cshtml" />
+    <Content Include="Areas\OSI\Views\ScatterReports\Index.cshtml" />
+    <Content Include="Areas\AcuTargetMetrics\Views\AcuTargetMetrics\Graph.cshtml" />
+    <Content Include="Views\Shared\_PatientDropdownList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\AcuTargetMetrics\Models\" />
+    <Folder Include="Areas\AcuTargetMetrics\Views\Shared\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\OSI\Models\" />
+    <Folder Include="Areas\OSI\Views\Shared\" />
+    <Folder Include="Areas\PatientEd\Models\" />
+    <Folder Include="Areas\PatientEd\Views\Shared\" />
+    <Folder Include="Areas\TearFilm\Models\" />
+    <Folder Include="Areas\TestingTreatment\Models\" />
+    <Folder Include="Areas\Visiometrics\Models\" />
+    <Folder Include="Areas\Visiometrics\Views\Shared\" />
+    <Folder Include="Scripts\NewFolder1\" />
+    <Folder Include="Views\InterventionViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RISING.STAR.Business\RISING.STAR.Business.csproj">
+      <Project>{f119de6c-0302-46ba-9523-b0e389a65a22}</Project>
+      <Name>RISING.STAR.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RISING.STAR.DAL\RISING.STAR.DAL.csproj">
+      <Project>{d4ce0bdb-7870-414c-b87d-766af5b135ad}</Project>
+      <Name>RISING.STAR.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RISING.STAR.Entities\RISING.STAR.Entities.csproj">
+      <Project>{b6305fb1-6b80-40d5-8398-d619940280a6}</Project>
+      <Name>RISING.STAR.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RISING.STAR.Exceptions\RISING.STAR.Exceptions.csproj">
+      <Project>{3296e028-f9ec-473b-9a06-228d904ebe88}</Project>
+      <Name>RISING.STAR.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RISING.STAR.Utils\RISING.STAR.Utils.csproj">
+      <Project>{ac4ca6cd-4b9b-426a-9218-389f273e1f50}</Project>
+      <Name>RISING.STAR.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49832</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49832/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

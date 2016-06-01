@@ -1,0 +1,10 @@
+C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\bin\Debug\RISING.STAR.Utils.dll
+C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\bin\Debug\RISING.STAR.Utils.pdb
+C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Debug\RISING.STAR.Utils.dll
+C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Debug\RISING.STAR.Utils.pdb
+C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Debug\RISING.STAR.Utils.csprojResolveAssemblyReference.cache
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\bin\Debug\RISING.STAR.Utils.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\bin\Debug\RISING.STAR.Utils.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Debug\RISING.STAR.Utils.csprojResolveAssemblyReference.cache
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Debug\RISING.STAR.Utils.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Debug\RISING.STAR.Utils.pdb

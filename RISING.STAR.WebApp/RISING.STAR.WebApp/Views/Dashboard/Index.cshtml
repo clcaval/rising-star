@@ -1,0 +1,292 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <p class="center-block"><h2 class="page-header">Dashboard</h2></p>
+            
+        </div>
+    </div><!--/.row-->
+
+    <!-- First row -->
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-blue panel-widget ">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/OSI.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "ScatterMetrics", new { Area = "OSI" })">
+                                Objective Scatter Metrics
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-blue panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/OSITrendline.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "OcularScatter", new { Area = "TearFilm" })">
+                                Tear Film Ocular Scatter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-blue panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Testing.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "TestingTreatmentSummary", new { Area = "TestingTreatment" })">
+                                Testing and Treatment Summary
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!--/.row-->
+
+    <!-- Second row -->
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-orange panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/OSITrendline.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "ScatterTrendline", new { Area = "OSI" })">
+                                Objective Scatter Trendline
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-orange panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/TearFilmTrendline.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "Trendline", new { Area = "TearFilm" })">
+                                Tear Film Trendline
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-orange panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Metrics.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "AcuTargetMetrics", new { Area = "AcuTargetMetrics" })">
+                                AcuTarget Metrics
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Third row-->
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/OSICohort.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "ScatterReports", new { Area = "OSI" })">
+                                Objective Scatter Reports
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/TearFilmCohort.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "CohortAnalysis", new { Area = "TearFilm" })">
+                                Tear Film Cohort Analysis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "PatientEducation", new { Area = "PatientEd" })">Patient Education</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <!-- Fourth row -->
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-red panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/VisioReports.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "Visiometric", new { Area = "Visiometrics" })">
+                                Visiometrics Reports
+                            </a>       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-red panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/CompareVisioReports.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "CompareVisiometrics", new { Area = "Visiometrics" })">
+                                Compare Visiometrics Reports
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-red panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Outcomes.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "KAMRAOutcomes", new { Area = "Visiometrics" })">
+                                KAMRA Outcomes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <br /><br />
+
+    <div class="row">
+
+    </div>
+
+
+
+    <!-- Indicators -->
+    @*<div class="row">
+        <div class="col-xs-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body easypiechart-panel">
+                    <h4>Something 1</h4>
+                    <div class="easypiechart" id="easypiechart-blue" data-percent="92">
+                        <span class="percent">92%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body easypiechart-panel">
+                    <h4>Something 2</h4>
+                    <div class="easypiechart" id="easypiechart-orange" data-percent="65">
+                        <span class="percent">65%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body easypiechart-panel">
+                    <h4>Something 3</h4>
+                    <div class="easypiechart" id="easypiechart-teal" data-percent="56">
+                        <span class="percent">56%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body easypiechart-panel">
+                    <h4>Something 4</h4>
+                    <div class="easypiechart" id="easypiechart-red" data-percent="27">
+                        <span class="percent">27%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+</div>

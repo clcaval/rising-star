@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80633ca268684614b70e779840be2ff2" Name="Diagram1" ZoomLevel="93">
+        <EntityTypeShape EntityType="RISINGSTARModel.Permission" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Role" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="RISINGSTARModel.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="RISINGSTARModel.User" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Acquisitions_Table" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="RISINGSTARModel.List_Of_Patients" Width="1.5" PointX="4.75" PointY="5.75" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Patients_Table" Width="1.5" PointX="6.75" PointY="5.75" />
+        <AssociationConnector Association="RISINGSTARModel.RolePermission" />
+        <AssociationConnector Association="RISINGSTARModel.UserRole" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

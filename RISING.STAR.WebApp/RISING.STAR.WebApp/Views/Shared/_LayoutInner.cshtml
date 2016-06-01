@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/bootstrap")
+    @Styles.Render("~/Content/css")
+
+    @Styles.Render("~/Content/font")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    @{
+        var loggedUser = (RISING.STAR.DAL.User)Session["UserDados"];
+    }
+    <input type="hidden" id="hdnPatientId" />
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span>Rising Star</span>Admin</a>
+                    @if (loggedUser != null)
+                    {
+                        using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()    
+                            <ul class="user-menu">
+                                <li class="dropdown pull-right">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> 
+                                        @loggedUser.Login
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">                                    
+                                        <li><a href="#">Profile</a></li>
+                                        <li><a href="@Url.Action("Index", "AdminDash", new { Area = "Admin" })">Settings</a></li>
+                                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+                                    </ul>
+                                </li>                    
+                            </ul>
+                        }
+                    }
+                    
+            </div>
+        </div>
+    </nav> 
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+
+        <form role="search">
+            <div class="form-group">
+
+                @{
+                    var patientList = Session["PatientList"] as IEnumerable<SelectListItem>;
+                    if (patientList != null)
+                    {
+                         @Html.DropDownList("Patient", patientList, "Select a patient", new { @class = "form-control" })
+                    }
+                }
+                             
+                @*<select class="form-control" placeholder="Patient" id="ddlPatient">
+                    <option value="0">Chose a patient</option>
+                </select>*@
+            </div>
+        </form>
+
+        @*@{ Html.RenderAction("GetAllPatients", "Patients", null); }*@
+    
+        <ul id="leftMenu" class="nav menu">
+
+            <li>
+                <a href="@Url.Action("Index", "Dashboard", new { Area = "" })">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Dashboard
+                </a>
+            </li>
+
+            <!-- Ocular -->
+            <li>
+                <a href="@Url.Action("Index", "ScatterMetrics", new { Area = "OSI" })">
+                    <img src="~/Images/Icons/OSI.png" height="15" width="15" /> &nbsp;&nbsp;Objective Scatter Metrics
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "ScatterTrendline", new { id = "__ids__", Area = "OSI" })" id="lnkScatterTrendline">
+                    <img src="~/Images/Icons/OSITrendline.png" height="15" width="15" />&nbsp;&nbsp;Objective Scatter Trendline
+                </a>
+            </li>                        
+            <li>
+                <a href="@Url.Action("Index", "ScatterReports", new { Area = "OSI" })">
+                    <img src="~/Images/Icons/OSICohort.png" height="15" width="15" />&nbsp;&nbsp;Objective Scatter Reports
+                </a>
+            </li>
+
+            <li role="presentation" class="divider"></li>
+            <!-- Tear film -->
+            <li>
+                <a href="@Url.Action("Index", "OcularScatter", new { Area = "TearFilm" })">
+                    <img src="~/Images/Icons/TearFilm.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Ocular Scatter
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Trendline", new { Area = "TearFilm" })">
+                    <img src="~/Images/Icons/TearFilmTrendline.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Trendline
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "CohortAnalysis", new { Area = "TearFilm" })">
+                    <img src="~/Images/Icons/TearFilmCohort.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Cohort Analysis
+                </a>
+            </li>
+
+            <li role="presentation" class="divider"></li>
+
+            <!-- Testing and Treatment Summary -->
+            <li>
+                <a href="@Url.Action("Index", "TestingTreatmentSummary", new { Area = "TestingTreatment" })">
+                    <img src="~/Images/Icons/Testing.png" height="15" width="15" />&nbsp;&nbsp;Testing and Treatment Summary
+                </a>
+            </li>
+
+            <!-- AcuTarget Metrics -->
+            <li>
+                <a href="@Url.Action("Index", "AcuTargetMetrics", new { Area = "AcuTargetMetrics" })">
+                    <img src="~/Images/Icons/Metrics.png" height="15" width="15" />&nbsp;&nbsp;AcuTarget Metrics
+                </a>
+            </li>
+
+            <!-- Patient education -->
+            <li>
+                <a href="@Url.Action("Index", "PatientEducation", new { Area = "PatientEd" })">
+                    <img src="~/Images/Icons/Education.png" height="15" width="15" />&nbsp;&nbsp;Patient Education
+                </a>
+            </li>
+
+            <li role="presentation" class="divider"></li>
+
+            <!-- Visiometrics Reports -->
+            <li>
+                <a href="@Url.Action("Index", "Visiometric", new { Area = "Visiometrics" })">
+                    <img src="~/Images/Icons/VisioReports.png" height="15" width="15" />&nbsp;&nbsp;Visiometrics Reports
+                </a>                    
+            </li>
+
+            <!-- Compare Visiometrics Reports -->
+            <li>
+                <a href="@Url.Action("Index", "CompareVisiometrics", new { Area = "Visiometrics" })">
+                    <img src="~/Images/Icons/CompareVisioReports.png" height="15" width="15" />&nbsp;&nbsp;Compare Visiometrics Reports
+                </a>
+            </li>
+
+            <!-- KAMRA Outcomes -->
+            <li>
+                <a href="@Url.Action("Index", "KAMRAOutcomes", new { Area = "Visiometrics" })">
+                    <img src="~/Images/Icons/Outcomes.png" height="15" width="15" />&nbsp;&nbsp;KAMRA Outcomes
+                </a>
+            </li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            @*<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Some item </a></li>*@
+        </ul>
+
+    </div><!--/.sidebar-->
+   
+    @RenderBody()
+    
+    <script src="~/Scripts/jquery/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/highcharts/js/highcharts.js"></script>
+    <script src="~/Scripts/highcharts/js/highcharts-more.js"></script>
+        
+    <script src="~/Scripts/app/Common/common.js"></script>
+    @RenderSection("JavaScript", required: false)
+    
+</body>
+</html>

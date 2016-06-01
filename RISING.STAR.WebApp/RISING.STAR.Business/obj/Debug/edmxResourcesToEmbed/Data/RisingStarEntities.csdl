@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RISINGSTARModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="RISINGSTAREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Acquisitions_Table" EntityType="RISINGSTARModel.Acquisitions_Table" />
+    <EntitySet Name="Exams_Table" EntityType="RISINGSTARModel.Exams_Table" />
+    <EntitySet Name="Patients_Table" EntityType="RISINGSTARModel.Patients_Table" />
+    <EntitySet Name="Permissions" EntityType="RISINGSTARModel.Permission" />
+    <EntitySet Name="Roles" EntityType="RISINGSTARModel.Role" />
+    <EntitySet Name="Users" EntityType="RISINGSTARModel.User" />
+    <AssociationSet Name="FK_Acquisitions_Table_Patients_Table1" Association="RISINGSTARModel.FK_Acquisitions_Table_Patients_Table1">
+      <End Role="Patients_Table" EntitySet="Patients_Table" />
+      <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exams_Table_Patients_Table" Association="RISINGSTARModel.FK_Exams_Table_Patients_Table">
+      <End Role="Patients_Table" EntitySet="Patients_Table" />
+      <End Role="Exams_Table" EntitySet="Exams_Table" />
+    </AssociationSet>
+    <AssociationSet Name="RolePermission" Association="RISINGSTARModel.RolePermission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserRole" Association="RISINGSTARModel.UserRole">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Acquisitions_Table">
+    <Key>
+      <PropertyRef Name="Id_Acq" />
+    </Key>
+    <Property Name="Id_Acq" Type="Int32" Nullable="false" />
+    <Property Name="FK_Id_Patient" Type="Int32" Nullable="false" />
+    <Property Name="FK_Guid_Patient" Type="Guid" />
+    <Property Name="DATE" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HOUR" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OS" Type="Boolean" Nullable="false" />
+    <Property Name="OD" Type="Boolean" Nullable="false" />
+    <Property Name="OS_OD" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="SPH" Type="Single" />
+    <Property Name="CYL" Type="Single" />
+    <Property Name="AXIS" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="BCVA" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="UCVA" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="REFERENCE_SPH_REFRAC" Type="Double" />
+    <Property Name="AP" Type="Int16" />
+    <Property Name="NP" Type="Double" />
+    <Property Name="NOTES" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="BESTFOCUS" Type="Double" />
+    <Property Name="WIDTH_PROFILE_1_2" Type="Double" />
+    <Property Name="WIDTH_PROFILE_1_10" Type="Double" />
+    <Property Name="MTF_CUT_OFF" Type="Double" />
+    <Property Name="STREHL_RATIO" Type="Double" />
+    <Property Name="VA_100" Type="Single" />
+    <Property Name="VA_20" Type="Single" />
+    <Property Name="VA_9" Type="Single" />
+    <Property Name="OQAS_VALUE_100" Type="Single" />
+    <Property Name="OQAS_VALUE_20" Type="Single" />
+    <Property Name="OQAS_VALUE_9" Type="Single" />
+    <Property Name="Type_Num" Type="Int16" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Corr_Type_Num" Type="Int16" />
+    <Property Name="Corr_Type" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="NImag" Type="Int16" />
+    <Property Name="NImag_Acc_Each" Type="Int16" />
+    <Property Name="COMPUTED_IMAGES" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="OAR" Type="Double" />
+    <Property Name="OSI" Type="Double" />
+    <Property Name="Refrac_Acc_Per_1" Type="Int32" />
+    <Property Name="Refrac_Acc_Per_2" Type="Int32" />
+    <Property Name="AR" Type="Double" />
+    <Property Name="Time_Each_Image_TearFilm" Type="Double" />
+    <Property Name="TearFilm_Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TearFilm_OSI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TearFilm_Central_Energy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TearFilm_Peripheral_Energy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TearFilm_VA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TearFilm_MTFCutoff" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TearFilm_MeanOSI" Type="Single" />
+    <Property Name="TearFilm_StdevOSI" Type="Single" />
+    <Property Name="RotatedCamera" Type="Boolean" Nullable="false" />
+    <Property Name="PKJ_IsPreOperation" Type="Boolean" Nullable="false" />
+    <Property Name="PKJ_MicrasPerPixel" Type="Double" />
+    <Property Name="PKJ_PupilDiameter" Type="Double" />
+    <Property Name="PKJ_PkjVsPupil_Length" Type="Int32" />
+    <Property Name="PKJ_PkjVsPupil_Angle" Type="Int32" />
+    <Property Name="PKJ_PkjVsPupil_X" Type="Int32" />
+    <Property Name="PKJ_PkjVsPupil_Y" Type="Int32" />
+    <Property Name="PKJ_InlayVsPupil_X" Type="Int32" />
+    <Property Name="PKJ_InlayVsPupil_Y" Type="Int32" />
+    <Property Name="PKJ_InlayVsPkj_X" Type="Int32" />
+    <Property Name="PKJ_InlayVsPkj_Y" Type="Int32" />
+    <Property Name="PKJ_Pupil_PixelCentroX" Type="Double" />
+    <Property Name="PKJ_Pupil_PixelCentroY" Type="Double" />
+    <Property Name="PKJ_Pupil_PixelRadio" Type="Double" />
+    <Property Name="PKJ_Laser_PixelCentroX" Type="Double" />
+    <Property Name="PKJ_Laser_PixelCentroY" Type="Double" />
+    <Property Name="PKJ_Inlay_PixelCentroX" Type="Double" />
+    <Property Name="PKJ_Inlay_PixelCentroY" Type="Double" />
+    <Property Name="PKJ_Inlay_PixelRadio" Type="Double" />
+    <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_Acquisitions_Table_Patients_Table1" FromRole="Acquisitions_Table" ToRole="Patients_Table" />
+  </EntityType>
+  <EntityType Name="Exams_Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="PatientId" Type="Guid" Nullable="false" />
+    <Property Name="DateInserted" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateExam" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OD_Sph" Type="Single" Nullable="false" />
+    <Property Name="OD_Cyl" Type="Single" Nullable="false" />
+    <Property Name="OD_Axis" Type="Int16" Nullable="false" />
+    <Property Name="OS_Sph" Type="Single" Nullable="false" />
+    <Property Name="OS_Cyl" Type="Single" Nullable="false" />
+    <Property Name="OS_Axis" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_Exams_Table_Patients_Table" FromRole="Exams_Table" ToRole="Patients_Table" />
+  </EntityType>
+  <EntityType Name="Patients_Table">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SURNAME1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REFERENCE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DATE_OF_BIRTH" Type="DateTime" Precision="3" />
+    <Property Name="SEX" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ADDRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CITY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ZIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="COUNTRY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PHONE" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="E_MAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OBSERVATIONS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Acquisitions_Table" Relationship="RISINGSTARModel.FK_Acquisitions_Table_Patients_Table1" FromRole="Patients_Table" ToRole="Acquisitions_Table" />
+    <NavigationProperty Name="Exams_Table" Relationship="RISINGSTARModel.FK_Exams_Table_Patients_Table" FromRole="Patients_Table" ToRole="Exams_Table" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Type="Int32" Nullable="false" />
+    <Property Name="PermissionDescription" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Roles" Relationship="RISINGSTARModel.RolePermission" FromRole="Permission" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="RoleDescription" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsSysAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="DescriptionDisplay" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Permissions" Relationship="RISINGSTARModel.RolePermission" FromRole="Role" ToRole="Permission" />
+    <NavigationProperty Name="Users" Relationship="RISINGSTARModel.UserRole" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateLastModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedBy" Type="Int32" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsADM" Type="Boolean" Nullable="false" />
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ResetPassword" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Roles" Relationship="RISINGSTARModel.UserRole" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_Acquisitions_Table_Patients_Table1">
+    <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="0..1" />
+    <End Type="RISINGSTARModel.Acquisitions_Table" Role="Acquisitions_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients_Table">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Acquisitions_Table">
+        <PropertyRef Name="FK_Guid_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exams_Table_Patients_Table">
+    <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
+    <End Type="RISINGSTARModel.Exams_Table" Role="Exams_Table" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Patients_Table">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Exams_Table">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RolePermission">
+    <End Type="RISINGSTARModel.Permission" Role="Permission" Multiplicity="*" />
+    <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
+  </Association>
+  <Association Name="UserRole">
+    <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
+    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="*" />
+  </Association>
+</Schema>
