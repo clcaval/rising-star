@@ -47,8 +47,7 @@
                                 </li>                    
                             </ul>
                         }
-                    }
-                    
+                    }                    
             </div>
         </div>
     </nav> 
@@ -65,15 +64,10 @@
                          @Html.DropDownList("Patient", patientList, "Select a patient", new { @class = "form-control" })
                     }
                 }
-                             
-                @*<select class="form-control" placeholder="Patient" id="ddlPatient">
-                    <option value="0">Chose a patient</option>
-                </select>*@
+
             </div>
         </form>
-
-        @*@{ Html.RenderAction("GetAllPatients", "Patients", null); }*@
-    
+        
         <ul id="leftMenu" class="nav menu">
 
             <li>

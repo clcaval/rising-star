@@ -10,12 +10,15 @@
 
             intHistTable: $("#intHistTable"),
             osiGraph: $('#osiGraph'),
-            datePick: $('#datePicker')
+            datePick: $('#datePicker'),
+            btnAddIntervention: $("#btnAddIntervention")
 
         },
 
         url: {
             
+            addIntTypeUrl: window.location. window.location.hostname + ":" + window.location.port + "/Intervention/InterventionEvents/Create"
+
         },
 
         graph: {
@@ -24,8 +27,7 @@
 
                 s.osiGraph.highcharts({
                     chart: {
-                        type: 'spline'/*,
-                        backgroundColor: 'rgba(0,0,0,0)'*/
+                        type: 'spline'
                     },
                     title: {
                         text: 'Objective Scatter Index'
@@ -87,9 +89,47 @@
 
         ajax: {
 
+            postIntervention: function(_data){
+                
+                h.logging(u.addIntTypeUrl);
+                h.logging(JSON.stringify(_data));
+
+                var a =  $.ajax({
+                    contentType: 'application/json; charset=utf-8',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify(_data),
+                    url: h.addIntTypeUrl
+                }).done(function(data, textStatus, jqXHR){
+                                   
+                    h.logging(data);
+                    h.logging(textStatus);
+                    h.logging(jqXHR);
+
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    
+                    h.logging(jqXHR);
+                    h.logging(textStatus);
+                    h.logging(errorThrown);
+                  
+
+                }).always(function(data, textStatus, jqXHR){
+                    h.logging(data);
+                    h.logging(textStatus);
+                    h.logging(jqXHR);
+                });
+
+            },
+
+            
         },
 
         helper: {
+
+            logging: function(data)
+            {
+                console.log(data);
+            }
 
         },
 
@@ -102,6 +142,19 @@
                     autoclose: true
                 });
 
+            },
+
+            bindIntervention: function () {
+                s.btnAddIntervention.on('click', function () {
+                    var data = {}; // InterventionEventGuid,PatientGuid,InterventionTypeGuid,Eye,Date
+                    data["InterventionEventGuid"] = "";
+                    data["PatientGuid"] = $("#Patient").val();
+                    data["InterventionTypeGuid"] = $("#SelectedIntervention").val();
+                    data["Eye"] = $("#SelectedEye").val();
+                    data["Date"] = $("#dateSelected").val();
+                    console.log(data);
+                    a.postIntervention(data);
+                })
             }
 
         },
@@ -117,6 +170,7 @@
 
             g.generateOSIGraph();
             b.bindDatePicker();
+            b.bindIntervention();
 
         }
 

@@ -277,6 +277,18 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_InterventionEvent_Patients_Table">
+    <End Role="Patients_Table" Type="Self.Patients_Table" Multiplicity="1" />
+    <End Role="InterventionEvent" Type="Self.InterventionEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients_Table">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="InterventionEvent">
+        <PropertyRef Name="PatientGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_InterventionType_InterventionCategory">
     <End Role="InterventionCategory" Type="Self.InterventionCategory" Multiplicity="0..1" />
     <End Role="InterventionType" Type="Self.InterventionType" Multiplicity="*" />
@@ -382,6 +394,10 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
     </AssociationSet>
     <AssociationSet Name="FK_InterventionEvent_InterventionType" Association="Self.FK_InterventionEvent_InterventionType">
       <End Role="InterventionType" EntitySet="InterventionType" />
+      <End Role="InterventionEvent" EntitySet="InterventionEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterventionEvent_Patients_Table" Association="Self.FK_InterventionEvent_Patients_Table">
+      <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="InterventionEvent" EntitySet="InterventionEvent" />
     </AssociationSet>
     <AssociationSet Name="FK_InterventionType_InterventionCategory" Association="Self.FK_InterventionType_InterventionCategory">

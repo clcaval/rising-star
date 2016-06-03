@@ -170,6 +170,10 @@
     <Compile Include="Areas\Admin\Controllers\ExamController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PatientController.cs" />
+    <Compile Include="Areas\Intervention\Controllers\InterventionEventsController.cs" />
+    <Compile Include="Areas\Intervention\Controllers\InterventionIconsController.cs" />
+    <Compile Include="Areas\Intervention\Controllers\InterventionTypesController.cs" />
+    <Compile Include="Areas\Intervention\InterventionAreaRegistration.cs" />
     <Compile Include="Areas\OSI\Controllers\ScatterMetricsController.cs" />
     <Compile Include="Areas\OSI\Controllers\ScatterReportsController.cs" />
     <Compile Include="Areas\OSI\Controllers\ScatterTrendlineController.cs" />
@@ -489,6 +493,22 @@
     <Content Include="Areas\Admin\Views\InterventionEvents\Details.cshtml" />
     <Content Include="Areas\Admin\Views\InterventionEvents\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\InterventionEvents\Index.cshtml" />
+    <Content Include="Areas\Intervention\Views\web.config" />
+    <Content Include="Areas\Intervention\Views\InterventionIcons\Create.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionIcons\Delete.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionIcons\Details.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionIcons\Edit.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionIcons\Index.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionTypes\Create.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionTypes\Delete.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionTypes\Details.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionTypes\Edit.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionTypes\Index.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionEvents\Create.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionEvents\Delete.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionEvents\Details.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionEvents\Edit.cshtml" />
+    <Content Include="Areas\Intervention\Views\InterventionEvents\Index.cshtml" />
     <None Include="Properties\PublishProfiles\rsCaioPublish.pubxml" />
     <Content Include="Scripts\d3\.npmignore" />
     <Content Include="Scripts\d3\.spmignore" />
@@ -514,7 +534,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -567,6 +589,8 @@
     <Folder Include="Areas\AcuTargetMetrics\Views\Shared\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Intervention\Models\" />
+    <Folder Include="Areas\Intervention\Views\Shared\" />
     <Folder Include="Areas\OSI\Models\" />
     <Folder Include="Areas\OSI\Views\Shared\" />
     <Folder Include="Areas\PatientEd\Models\" />

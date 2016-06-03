@@ -22,7 +22,6 @@ namespace RISING.STAR.Business.PatientBusiness
         public List<Patient> RetrieveAllPatients()
         {
             var patients = new List<Patient>();
-
             foreach (var item in dbContext.Patients_Table)
             {
                 patients.Add(new Patient(item.NAME + " " + item.SURNAME1, item.Guid));

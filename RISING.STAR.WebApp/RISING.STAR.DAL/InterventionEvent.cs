@@ -21,5 +21,6 @@ namespace RISING.STAR.DAL
         public System.DateTime Date { get; set; }
     
         public virtual InterventionType InterventionType { get; set; }
+        public virtual Patients_Table Patients_Table { get; set; }
     }
 }

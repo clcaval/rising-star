@@ -23,7 +23,7 @@ namespace RISING.STAR.WebApp.Areas.AcuTargetMetrics.Controllers
         {
             return View();
         }
-        
+                
         //[HttpPost]
         public ActionResult Graph(Guid ids, string exam, string name, string section, string cords, string angle, string x, string y, string purkX, string purkY, int type, string eye)
         {

@@ -19,6 +19,7 @@ namespace RISING.STAR.DAL
         {
             this.Acquisitions_Table = new HashSet<Acquisitions_Table>();
             this.Exams_Table = new HashSet<Exams_Table>();
+            this.InterventionEvents = new HashSet<InterventionEvent>();
         }
     
         public int Id { get; set; }
@@ -40,5 +41,7 @@ namespace RISING.STAR.DAL
         public virtual ICollection<Acquisitions_Table> Acquisitions_Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Exams_Table> Exams_Table { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InterventionEvent> InterventionEvents { get; set; }
     }
 }
