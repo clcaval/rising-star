@@ -9,6 +9,7 @@ namespace RISING.STAR.Entities.Charts
     public class BaseEntity
     {
         public DateTime Date { get; set; }
-        public float OSI { get; set; }
+        public float? Value { get; set; }
+        public string DisplayX { get; set; }
     }
 }

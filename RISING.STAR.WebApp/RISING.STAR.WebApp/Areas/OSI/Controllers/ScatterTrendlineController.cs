@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using RISING.STAR.WebApp.Models.OSI;
 using RISING.STAR.Business.OSI;
+using RISING.STAR.Utils.Helper;
 
 namespace RISING.STAR.WebApp.Areas.OSI.Controllers
 {
@@ -14,12 +15,24 @@ namespace RISING.STAR.WebApp.Areas.OSI.Controllers
         // GET: OSI/ScatterTrendline
         //public ActionResult Index()
         //{
-        //    return Index(new Guid());
+        //    return View();
         //}
 
         public ActionResult Index(Guid id)
         {
-            return View(GetInterventionViewModel(id));
+            var ivm = this.GetInterventionViewModel(id);
+            return View(ivm);
+        }
+
+        [HttpGet]
+        public ActionResult RetrieveAcquisitions(Guid patientId, String eye, DateTime initialDate, DateTime finalDate)
+        {
+
+            var bussTrend = new OSITrendlineBusiness();
+            var acqList = bussTrend.RetrieveOSITrendline(patientId, eye, initialDate, finalDate);
+            
+            return Json(acqList, JsonRequestBehavior.AllowGet);
+
         }
 
         private InterventionViewModel GetInterventionViewModel(Guid id)
@@ -36,23 +49,13 @@ namespace RISING.STAR.WebApp.Areas.OSI.Controllers
                                     Value = x.InterventionGuid.ToString(),
                                     Text = x.Description
                                 }).ToList();
+
+            ivm.InterventionEvents = osiTrendBuss.GetAllEventsFromPatient(id);
             
             return ivm;
         }
+
+
         
     }
 }
-
-
-//ivm.Treatment.Add(new SelectListItem { Text = "Treatment1", Value = "Guid1"} );
-//ivm.Treatment.Add(new SelectListItem { Text = "Treatment2", Value = "Guid2"} );
-//ivm.Treatment.Add(new SelectListItem { Text = "Treatment3", Value = "Guid3"} );
-
-
-//var locs  = locBuss.RetrieveLocations().Select(x =>
-//    new SelectListItem
-//    {
-//        Value = x.LocationGuid.ToString(),
-//        Text = x.Description
-//    }
-//);

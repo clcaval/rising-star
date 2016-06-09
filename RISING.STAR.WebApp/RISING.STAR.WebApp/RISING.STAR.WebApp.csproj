@@ -171,6 +171,7 @@
     <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
     <Compile Include="Areas\Admin\Controllers\PatientController.cs" />
     <Compile Include="Areas\Intervention\Controllers\InterventionEventsController.cs" />
+    <Compile Include="Areas\Intervention\Controllers\InterventionEventViewModelController.cs" />
     <Compile Include="Areas\Intervention\Controllers\InterventionIconsController.cs" />
     <Compile Include="Areas\Intervention\Controllers\InterventionTypesController.cs" />
     <Compile Include="Areas\Intervention\InterventionAreaRegistration.cs" />
@@ -236,6 +237,7 @@
     <Content Include="Images\AcuTargetMetrics\eye_bg.jpg" />
     <Content Include="Images\AcuTargetMetrics\kamra_small.png" />
     <Content Include="Images\AcuTargetMetrics\teal.png" />
+    <Content Include="Images\ChartsIcons\20\lightning.png" />
     <Content Include="Images\ChartsIcons\20\artificial_tears.png" />
     <Content Include="Images\ChartsIcons\20\cataract.png" />
     <Content Include="Images\ChartsIcons\20\cyclosporine.png" />
@@ -244,6 +246,7 @@
     <Content Include="Images\ChartsIcons\20\omega3.png" />
     <Content Include="Images\ChartsIcons\20\punctal_plug.png" />
     <Content Include="Images\ChartsIcons\20\YAG_laser.png" />
+    <Content Include="Images\ChartsIcons\30\lightning.png" />
     <Content Include="Images\ChartsIcons\30\artificial_tears.png" />
     <Content Include="Images\ChartsIcons\30\cataract.png" />
     <Content Include="Images\ChartsIcons\30\cyclosporine.png" />
@@ -531,6 +534,10 @@
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\lumino.glyphs.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment\moment-with-locales.js" />
+    <Content Include="Scripts\moment\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment\moment.js" />
+    <Content Include="Scripts\moment\moment.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -590,6 +597,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Intervention\Models\" />
+    <Folder Include="Areas\Intervention\Views\InterventionEventViewModel\" />
     <Folder Include="Areas\Intervention\Views\Shared\" />
     <Folder Include="Areas\OSI\Models\" />
     <Folder Include="Areas\OSI\Views\Shared\" />
@@ -599,7 +607,6 @@
     <Folder Include="Areas\TestingTreatment\Models\" />
     <Folder Include="Areas\Visiometrics\Models\" />
     <Folder Include="Areas\Visiometrics\Views\Shared\" />
-    <Folder Include="Scripts\NewFolder1\" />
     <Folder Include="Views\InterventionViewModel\" />
   </ItemGroup>
   <ItemGroup>

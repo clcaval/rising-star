@@ -12,7 +12,6 @@ namespace RISING.STAR.Entities.OSI
     {
 
         public string Icon { get; set; }
-
-        
+                
     }
 }

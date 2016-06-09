@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+
 using RISING.STAR.DAL;
+using RISING.STAR.WebApp.Models.OSI;
 
 namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
 {
@@ -41,27 +43,31 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
         {
             ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description");
             ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME");
-            return View();
+            return Json(View(), JsonRequestBehavior.AllowGet);
         }
 
         // POST: Intervention/InterventionEvents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "InterventionEventGuid,PatientGuid,InterventionTypeGuid,Eye,Date")] InterventionEvent interventionEvent)
         {
-            if (ModelState.IsValid)
-            {
-                interventionEvent.InterventionEventGuid = Guid.NewGuid();
+            try 
+	        {
                 db.InterventionEvents.Add(interventionEvent);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                return Json(new Result("OK", interventionEvent.InterventionEventGuid.ToString()));
+	        }
+	        catch (Exception ex)
+	        {		
+		        throw ex;
+	        }
 
-            ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
-            ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME", interventionEvent.PatientGuid);
-            return View(interventionEvent);
+            //ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
+            //ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME", interventionEvent.PatientGuid);
+            ////return Json(View(interventionEvent));
+            //return Json("OK");
         }
 
         // GET: Intervention/InterventionEvents/Edit/5
@@ -92,7 +98,7 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
             {
                 db.Entry(interventionEvent).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Json(new Result("OK", interventionEvent.InterventionEventGuid.ToString()));
             }
             ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
             ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME", interventionEvent.PatientGuid);
@@ -116,13 +122,13 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
 
         // POST: Intervention/InterventionEvents/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
             InterventionEvent interventionEvent = db.InterventionEvents.Find(id);
             db.InterventionEvents.Remove(interventionEvent);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new Result("OK", id.ToString()));
         }
 
         protected override void Dispose(bool disposing)
@@ -133,5 +139,69 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
             }
             base.Dispose(disposing);
         }
+
+        /* Intervention view model Create */
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult CreateViewModel(string SelectedEye, DateTime Date, string SelectedIntervention, string PatientGuid)
+        //{
+        //    var iEvent = new InterventionEvent();
+        //    iEvent.InterventionEventGuid = Guid.NewGuid();
+        //    iEvent.Eye = SelectedEye;
+        //    iEvent.Date = Date;
+        //    iEvent.InterventionTypeGuid = Guid.Parse(SelectedIntervention);
+        //    iEvent.PatientGuid = Guid.Parse(PatientGuid);
+        //    return Create(iEvent);
+
+        //}
+
+        // GET: Intervention/InterventionEvents/Create
+        public ActionResult CreateViewModel()
+        {
+            return Create();
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult CreateViewModel(InterventionViewModel interventionEvent)
+        {
+            var iEvent = new InterventionEvent();
+            iEvent.InterventionEventGuid = Guid.NewGuid();
+            iEvent.Eye = interventionEvent.SelectedEye;
+            iEvent.Date = interventionEvent.Date;
+            iEvent.InterventionTypeGuid = Guid.Parse(interventionEvent.SelectedIntervention);
+            iEvent.PatientGuid = interventionEvent.PatientGuid;
+            return Create(iEvent);
+        }
+
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult EditViewModel(InterventionViewModel interventionEvent)
+        {
+            var iEvent = new InterventionEvent();
+            iEvent.InterventionEventGuid = interventionEvent.InterventionEventGuid;
+            iEvent.Eye = interventionEvent.SelectedEye;
+            iEvent.Date = interventionEvent.Date;
+            iEvent.InterventionTypeGuid = Guid.Parse(interventionEvent.SelectedIntervention);
+            iEvent.PatientGuid = interventionEvent.PatientGuid;
+            return Edit(iEvent);
+        }
+
     }
+
+    public class Result
+    {
+
+        public string message { get; set; }
+        public string guid { get; set; }
+
+        public Result(string _message, string _guid)
+        {
+            message = _message;
+            guid = _guid;
+        }
+
+    }
+
 }
