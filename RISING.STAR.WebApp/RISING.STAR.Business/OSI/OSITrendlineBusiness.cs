@@ -92,6 +92,22 @@ namespace RISING.STAR.Business.OSI
                 returnOsiData.Add(osi);
             }
 
+            returnOsiData.OrderBy(x => x.Date);
+
+            foreach (DateTime month in DatetimeHelper.EachMonth(initialDate, finalDate))
+            {
+                var found = returnOsiData.Where(x => x.Date == month).FirstOrDefault();
+                if(found == null)
+                {
+                    var auxInterior = new OSITrendlineData();
+                    auxInterior.Date = new DateTime(month.Year, month.Month, 1);
+                    auxInterior.Value = 0;
+                    auxInterior.DisplayX = month.ToString("MMM/yyyy");
+                    returnOsiData.Add(auxInterior);
+                }
+            }
+
+
             return returnOsiData.OrderBy(x => x.Date);
         }
 

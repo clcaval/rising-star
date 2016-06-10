@@ -10,7 +10,6 @@
 
             intHistTable: $("#intHistTable"),
             tbody: $("#tbodyInterventions"),
-            osiGraph: $('#osiGraphType1'),
             datePick: $('#datePicker'),
             btnSave: $("#btnSave"),
             intervEventId: $("#interventionId"),
@@ -18,7 +17,12 @@
 
             start: $("#starFilter"),
             end: $("#endFilter"),
-            btnFilt: $("#btnFilter")
+            btnFilt: $("#btnFilter"),
+
+            osiGraph: $('#osiGraphType1'),
+            osiGraph2: $('#osiGraphType2'),
+            osiGraph3: $('#osiGraphType3'),
+
 
         },
 
@@ -33,10 +37,10 @@
         },
 
         graph: {
+                            
+            generateOSIGraph2: function (_data, _icons) {
 
-            generateOSIGraph: function (_data, _icons) {
-
-                var categories = [], values = [], normalOsi = [], interventions = [], intervValues = [];
+                var categories = [], values = [], normalOsi = [], interventions = [], intervValues = [], flags = [];
                 var maxOsi = 0;
 
                 s.tbody.children('tr').each(function (i, e) {
@@ -46,6 +50,8 @@
                     interventions.push({ 'date': date, 'icon': icon , display: date.format('MMM/YYYY') });
                 });
                 
+                console.log("interventions", interventions);
+
                 $.each(_data, function (i, v) {
                
                     normalOsi.push({
@@ -55,8 +61,11 @@
                         }
                     });
 
+                    maxOsi = maxOsi < v.Value ? v.Value : maxOsi;
+
                     categories.push(v.DisplayX);
-                                        
+                    values.push(v.Value);
+                    
                     var momentDate = moment(v.Date);                    
                     var t = momentDate.format('MMM/YYYY');
                     
@@ -66,26 +75,22 @@
                     if(found.length > 0)
                     {
 
+                        var s = "";
                         $.each(found, function(q, p){
                             iconsForPoint.push(p.icon);
+                            s += "<img src='" + u.iconsURL + p.icon +"' />  ";
                         });
 
-                        values.push({
-                            y: v.Value,
-                            custom: iconsForPoint.join(','),
-                            marker: {
-                                symbol: 'url(' + u.iconsURL + 'lightning.png)'
-                            }
+                        flags.push({
+                            x: i,
+                            title: s,
+                            text: ""
                         });
-
-                    }else
-                    {
-                        values.push(v.Value);
                     }
-
+                        
                 });
-                                                                
-                s.osiGraph.highcharts({
+                          
+                s.osiGraph2.highcharts({
                     chart: {
                         type: 'spline'
                     },
@@ -106,25 +111,7 @@
                     tooltip: {
                         crosshairs: true,
                         shared: true,
-                        useHTML: true,
-                        formatter: function(){
-    
-                            var s = '<b>'+ this.x +'</b>';
-                            $.each(this.points, function(i, point) {
-                                s += '<br/><span style="color:'+ point.series.color +'">\u25CF</span>: ' + point.series.name + ': ' + point.y;
-                            });
-                            s += "<br />";
-                            var point = this.points[0];
-                            var custom = point.point.custom;
-                            if(custom){
-                                var imgs = custom.split(',');
-                                $.each(imgs, function(index, image){
-                                    var img = "<img src='"+u.iconsURL + image+"'/>";
-                                    s = s + img + "&nbsp;";
-                                });
-                            }
-                            return s;
-                        }
+                        useHTML: true
                     },
                     plotOptions: {
                         spline: {
@@ -137,6 +124,7 @@
                     },
                     series: [{
                         name: 'OSI',
+                        id: 'osiId',
                         marker: {
                             symbol: 'square'
                         },
@@ -156,17 +144,29 @@
                             symbol: 'diamond'
                         },
                         data: normalOsi
-                    }]
+                    }, {
+                        type: 'flags',
+                        onSeries: 'osiId',
+                        y: -40,
+                        enableMouseTracking: false,
+                        showInLegend: false,
+                        useHTML:true,
+                        dataLabels:{
+                            useHTML:true,
+                        },
+                        data: flags
+                    }
+                    
+                    ]
                 });
-            }            
+            }
+
         },
 
         ajax: {
 
             postIntervention: function(_data, url){
                 
-                console.log(_data, url);
-
                 $.post(u.addIntEventUrl, _data,
 
                     function (returnedData) {
@@ -240,11 +240,11 @@
 
             getOSITrendline: function(_data) {
                 
-                console.log(_data);
-
                 $.get(u.retrieveAcqUrl, _data,
                        function (returnedData) {
-                           g.generateOSIGraph(returnedData);
+                           console.log(returnedData);
+                           //g.generateOSIGraphObsolete(returnedData);
+                           g.generateOSIGraph2(returnedData);
                        });
             }
 
@@ -255,6 +255,19 @@
             logging: function(data)
             {
                 console.log(data);
+            },
+
+            transformIntervention: function(interv){
+                
+                interv = interv.replace(".png", "");
+                interv = interv.replace("_", " ");
+                interv = h.toTitleCase(interv);
+                return interv;
+            },
+        
+            toTitleCase: function(str)
+            {
+                return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
             }
 
         },
@@ -291,8 +304,7 @@
 
                     var data;
                     var eventGuid = s.intervEventId.text();
-                    console.log(eventGuid, eventGuid.length);
-
+                    
                     if(eventGuid.length > 0)
                     {
                         data = {
@@ -377,7 +389,6 @@
                     s.intervEventId.text("");
 
                 });
-
             }
 
         },
@@ -405,3 +416,130 @@
 $(function () {
     OSITrendline.init();
 });
+
+
+//generateOSIGraphObsolete: function (_data, _icons) {
+
+//    var categories = [], values = [], normalOsi = [], interventions = [], intervValues = [];
+//    var maxOsi = 0;
+
+//    s.tbody.children('tr').each(function (i, e) {
+//        var d = $(this).children('td:nth-child(5)').text();
+//        var date = moment(d);
+//        var icon = $(this).children('td:nth-child(2)').text();
+//        interventions.push({ 'date': date, 'icon': icon , display: date.format('MMM/YYYY') });
+//    });
+                
+//    $.each(_data, function (i, v) {
+               
+//        normalOsi.push({
+//            y: 1,
+//            marker: {
+//                enabled: false
+//            }
+//        });
+
+//        categories.push(v.DisplayX);
+                                        
+//        var momentDate = moment(v.Date);                    
+//        var t = momentDate.format('MMM/YYYY');
+                    
+//        var found = interventions.filter(x=> x.display === t);
+//        var iconsForPoint = [];
+
+//        if(found.length > 0)
+//        {
+
+//            $.each(found, function(q, p){
+//                iconsForPoint.push(p.icon);
+//            });
+
+//            values.push({
+//                y: v.Value,
+//                custom: iconsForPoint.join(','),
+//                marker: {
+//                    symbol: 'url(' + u.iconsURL + 'lightning.png)'
+//                }
+//            });
+
+//        }else
+//        {
+//            values.push(v.Value);
+//        }
+
+//    });
+                                                                
+//    s.osiGraph.highcharts({
+//        chart: {
+//            type: 'spline'
+//        },
+//        title: {
+//            text: 'Objective Scatter Index'
+//        },
+//        subtitle: {
+//            text: $("#Patient option:selected").text()
+//        },
+//        xAxis: {
+//            categories: categories
+//        },
+//        yAxis: {
+//            title: {
+//                text: 'OSI'
+//            }
+//        },
+//        tooltip: {
+//            crosshairs: true,
+//            shared: true,
+//            useHTML: true,
+//            formatter: function(){
+    
+//                var s = '<b>'+ this.x +'</b>';
+//                $.each(this.points, function(i, point) {
+//                    s += '<br/><span style="color:'+ point.series.color +'">\u25CF</span>: ' + point.series.name + ': ' + point.y;
+//                });
+//                s += "<br />";
+//                var point = this.points[0];
+//                var custom = point.point.custom;
+//                if(custom){
+//                    var imgs = custom.split(',');
+//                    $.each(imgs, function(index, image){
+//                        var img = "<img src='"+u.iconsURL + image+"'/>";
+//                        s = s + img + "&nbsp;";
+//                    });
+//                }
+//                return s;
+//            }
+//        },
+//        plotOptions: {
+//            spline: {
+//                marker: {
+//                    radius: 4,
+//                    lineColor: '#666666',
+//                    lineWidth: 1
+//                }
+//            }
+//        },
+//        series: [{
+//            name: 'OSI',
+//            marker: {
+//                symbol: 'square'
+//            },
+//            point: {
+//                events: {
+//                    click: function (event) {
+                                    
+//                    }
+//                }
+//            },
+//            data: values
+
+//        }, {
+//            name: "Normal OSI",
+//            color: 'red',
+//            marker: {
+//                symbol: 'diamond'
+//            },
+//            data: normalOsi
+//        }]
+//    });
+//},
