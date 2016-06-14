@@ -29,7 +29,7 @@ namespace RISING.STAR.WebApp.Controllers
         public ActionResult Login(string returnUrl)
         {
 
-            LocationBusiness locBuss = new LocationBusiness();
+            var locBuss = new LocationBusiness();
 
             var lvm = new LoginViewModel();
             var locs  = locBuss.RetrieveLocations().Select(x =>

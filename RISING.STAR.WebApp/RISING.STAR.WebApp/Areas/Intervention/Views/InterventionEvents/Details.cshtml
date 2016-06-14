@@ -38,11 +38,27 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Patients_Table.NAME)
+                <span>Location</span>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Location.Description)
+            </dd>
+
+            <dt>
+                <span>Patient</span>
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.Patients_Table.NAME)
+            </dd>
+
+            <dt>
+                <span>Doctor</span>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.User.Login)
             </dd>
 
         </dl>

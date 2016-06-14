@@ -19,10 +19,7 @@
             end: $("#endFilter"),
             btnFilt: $("#btnFilter"),
 
-            osiGraph: $('#osiGraphType1'),
-            osiGraph2: $('#osiGraphType2'),
-            osiGraph3: $('#osiGraphType3'),
-
+            osiGraph: $('#osiGraph')
 
         },
 
@@ -32,26 +29,21 @@
             editIntEventUrl: "http://" + window.location.hostname + ":" + window.location.port + "/Intervention/InterventionEvents/EditViewModel",
             deleteIntUrl: "http://" + window.location.hostname + ":" + window.location.port + "/Intervention/InterventionEvents/Delete",
             retrieveAcqUrl: "http://" + window.location.hostname + ":" + window.location.port + "/OSI/ScatterTrendline/RetrieveAcquisitions",
+            retrieveIntUrl: "http://" + window.location.hostname + ":" + window.location.port + "/OSI/ScatterTrendline/GetInterventions",
+            retrieveIconsLeg: "http://" + window.location.hostname + ":" + window.location.port + "/Intervention/InterventionIcons/GetAll",
             iconsURL: '../../../Images/ChartsIcons/20/'
 
         },
 
         graph: {
                             
-            generateOSIGraph2: function (_data, _icons) {
+            generateOSIGraph: function (_data, _interventions){
 
-                var categories = [], values = [], normalOsi = [], interventions = [], intervValues = [], flags = [];
+                var categories = [], values = [], normalOsi = [], intervValues = [], flags = [];
                 var maxOsi = 0;
 
-                s.tbody.children('tr').each(function (i, e) {
-                    var d = $(this).children('td:nth-child(5)').text();
-                    var date = moment(d);
-                    var icon = $(this).children('td:nth-child(2)').text();
-                    interventions.push({ 'date': date, 'icon': icon , display: date.format('MMM/YYYY') });
-                });
-                
-                console.log("interventions", interventions);
-
+                var cont = 0;
+                                                
                 $.each(_data, function (i, v) {
                
                     normalOsi.push({
@@ -69,7 +61,7 @@
                     var momentDate = moment(v.Date);                    
                     var t = momentDate.format('MMM/YYYY');
                     
-                    var found = interventions.filter(x=> x.display === t);
+                    var found = _interventions.filter(x=> x.display === t);
                     var iconsForPoint = [];
 
                     if(found.length > 0)
@@ -84,13 +76,18 @@
                         flags.push({
                             x: i,
                             title: s,
-                            text: ""
+                            text: "",
+                            events: {
+                                click: function(){
+                                    alert(1);
+                                }
+                            }
                         });
                     }
                         
                 });
                           
-                s.osiGraph2.highcharts({
+                s.osiGraph.highcharts({
                     chart: {
                         type: 'spline'
                     },
@@ -98,7 +95,7 @@
                         text: 'Objective Scatter Index'
                     },
                     subtitle: {
-                        text: $("#Patient option:selected").text()
+                        text: $("#Patient option:selected").text() + " - " + $("#eyeFilter").val()
                     },
                     xAxis: {
                         categories: categories
@@ -151,13 +148,11 @@
                         enableMouseTracking: false,
                         showInLegend: false,
                         useHTML:true,
-                        dataLabels:{
-                            useHTML:true,
+                        dataLabels: {
+                            useHTML: true,
                         },
                         data: flags
-                    }
-                    
-                    ]
+                    }]
                 });
             }
 
@@ -242,10 +237,39 @@
                 
                 $.get(u.retrieveAcqUrl, _data,
                        function (returnedData) {
-                           console.log(returnedData);
-                           //g.generateOSIGraphObsolete(returnedData);
-                           g.generateOSIGraph2(returnedData);
-                       });
+                           $.get(u.retrieveIntUrl, _data,
+                               function(returnedIntervData) {
+                                   g.generateOSIGraph(returnedData, returnedIntervData);
+                               }
+                           
+                           )});
+            },
+
+            getIconsLegend: function()
+            {
+
+                $.get(u.retrieveIconsLeg, function(returnedData){
+
+                    $.each(returnedData, function(i, v){
+
+                        console.log(v);
+
+                        var img = $("<img>");
+                        img.attr('src', u.iconsURL + v.FileName);
+
+                        $("#iconsLegend tbody").append(
+                                        $('<tr>')
+                                        .append($('<td>')
+                                            .html(img))
+                                        .append($('<td>')
+                                            .text(v.Description))                                        
+                                            );
+
+                    });
+                    
+
+                });
+
             }
 
         },
@@ -325,7 +349,6 @@
                             Date: $("#dateSelected").val()                        
                         };
                     }
-                    
 
                     var url = data.InterventionEventGuid.length == 0 ? u.addIntEventUrl : u.editIntEventUrl;
                     a.postIntervention(data, url);
@@ -389,6 +412,12 @@
                     s.intervEventId.text("");
 
                 });
+            },
+
+            bindLegend: function(){
+
+                a.getIconsLegend();
+
             }
 
         },
@@ -403,6 +432,7 @@
             u = this.url;
 
             b.bindInitialFilters();
+            b.bindLegend();
             b.bindDatePicker();
             b.bindSave();
             b.bindEdits();

@@ -71,8 +71,8 @@ C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISI
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.Business.dll
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\Microsoft.Owin.Security.dll
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.Utils.dll
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.Entities.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.Utils.dll
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.WebApp.pdb
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\Newtonsoft.Json.xml
@@ -92,8 +92,8 @@ C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISI
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.Business.pdb
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\Microsoft.Owin.Security.xml
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.Utils.pdb
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.Entities.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\RISING.STAR.Utils.pdb
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\obj\Debug\RISING.STAR.WebApp.Tests.csprojResolveAssemblyReference.cache
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.WebApp.Tests\obj\Debug\RISING.STAR.WebApp.Tests.dll

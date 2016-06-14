@@ -114,6 +114,8 @@
     <EntitySetMapping Name="InterventionEvents">
       <EntityTypeMapping TypeName="RISINGSTARModel.InterventionEvent">
         <MappingFragment StoreEntitySet="InterventionEvent">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Eye" ColumnName="Eye" />
           <ScalarProperty Name="InterventionTypeGuid" ColumnName="InterventionTypeGuid" />
@@ -135,6 +137,8 @@
       <EntityTypeMapping TypeName="RISINGSTARModel.InterventionType">
         <MappingFragment StoreEntitySet="InterventionType">
           <ScalarProperty Name="IconGuid" ColumnName="IconGuid" />
+          <ScalarProperty Name="InterventionTag" ColumnName="InterventionTag" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="CategoryGuid" ColumnName="CategoryGuid" />
           <ScalarProperty Name="InterventionGuid" ColumnName="InterventionGuid" />

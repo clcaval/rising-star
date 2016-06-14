@@ -78,17 +78,17 @@
 
             <!-- Ocular -->
             <li>
-                <a href="@Url.Action("Index", "ScatterMetrics", new { Area = "OSI" })">
+                <a href="@Url.Action("Index", "ScatterMetrics", new { id = "__ids__", Area = "OSI" })" class="leftLink">
                     <img src="~/Images/Icons/OSI.png" height="15" width="15" /> &nbsp;&nbsp;Objective Scatter Metrics
                 </a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "ScatterTrendline", new { id = "__ids__", Area = "OSI" })" id="lnkScatterTrendline">
+                <a href="@Url.Action("Index", "ScatterTrendline", new { id = "__ids__", Area = "OSI" })" id="lnkScatterTrendline" class="leftLink">
                     <img src="~/Images/Icons/OSITrendline.png" height="15" width="15" />&nbsp;&nbsp;Objective Scatter Trendline
                 </a>
             </li>                        
             <li>
-                <a href="@Url.Action("Index", "ScatterReports", new { Area = "OSI" })">
+                <a href="@Url.Action("Index", "ScatterReports", new { id = "__ids__", Area = "OSI" })" class="leftLink">
                     <img src="~/Images/Icons/OSICohort.png" height="15" width="15" />&nbsp;&nbsp;Objective Scatter Reports
                 </a>
             </li>
@@ -96,17 +96,17 @@
             <li role="presentation" class="divider"></li>
             <!-- Tear film -->
             <li>
-                <a href="@Url.Action("Index", "OcularScatter", new { Area = "TearFilm" })">
+                <a href="@Url.Action("Index", "OcularScatter", new { id = "__ids__", Area = "TearFilm" })" class="leftLink">
                     <img src="~/Images/Icons/TearFilm.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Ocular Scatter
                 </a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "Trendline", new { Area = "TearFilm" })">
+                <a href="@Url.Action("Index", "Trendline", new { id = "__ids__", Area = "TearFilm" })" class="leftLink">
                     <img src="~/Images/Icons/TearFilmTrendline.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Trendline
                 </a>
             </li>
             <li>
-                <a href="@Url.Action("Index", "CohortAnalysis", new { Area = "TearFilm" })">
+                <a href="@Url.Action("Index", "CohortAnalysis", new { id = "__ids__", Area = "TearFilm" })" class="leftLink">
                     <img src="~/Images/Icons/TearFilmCohort.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Cohort Analysis
                 </a>
             </li>
@@ -115,7 +115,7 @@
 
             <!-- Testing and Treatment Summary -->
             <li>
-                <a href="@Url.Action("Index", "TestingTreatmentSummary", new { Area = "TestingTreatment" })">
+                <a href="@Url.Action("Index", "TestingTreatmentSummary", new { id = "__ids__", Area = "TestingTreatment" })" class="leftLink">
                     <img src="~/Images/Icons/Testing.png" height="15" width="15" />&nbsp;&nbsp;Testing and Treatment Summary
                 </a>
             </li>
@@ -129,7 +129,7 @@
 
             <!-- Patient education -->
             <li>
-                <a href="@Url.Action("Index", "PatientEducation", new { Area = "PatientEd" })">
+                <a href="@Url.Action("Index", "PatientEducation", new { id = "__ids__", Area = "PatientEd" })" class="leftLink">
                     <img src="~/Images/Icons/Education.png" height="15" width="15" />&nbsp;&nbsp;Patient Education
                 </a>
             </li>
@@ -138,27 +138,27 @@
 
             <!-- Visiometrics Reports -->
             <li>
-                <a href="@Url.Action("Index", "Visiometric", new { Area = "Visiometrics" })">
+                <a href="@Url.Action("Index", "Visiometric", new { id = "__ids__", Area = "Visiometrics" })" class="leftLink">
                     <img src="~/Images/Icons/VisioReports.png" height="15" width="15" />&nbsp;&nbsp;Visiometrics Reports
                 </a>                    
             </li>
 
             <!-- Compare Visiometrics Reports -->
             <li>
-                <a href="@Url.Action("Index", "CompareVisiometrics", new { Area = "Visiometrics" })">
+                <a href="@Url.Action("Index", "CompareVisiometrics", new { id = "__ids__", Area = "Visiometrics" })" class="leftLink">
                     <img src="~/Images/Icons/CompareVisioReports.png" height="15" width="15" />&nbsp;&nbsp;Compare Visiometrics Reports
                 </a>
             </li>
 
             <!-- KAMRA Outcomes -->
             <li>
-                <a href="@Url.Action("Index", "KAMRAOutcomes", new { Area = "Visiometrics" })">
+                <a href="@Url.Action("Index", "KAMRAOutcomes", new { id = "__ids__", Area = "Visiometrics" })" class="leftLink">
                     <img src="~/Images/Icons/Outcomes.png" height="15" width="15" />&nbsp;&nbsp;KAMRA Outcomes
                 </a>
             </li>
             <li>&nbsp;</li>
             <li>&nbsp;</li>
-            <li>&nbsp;</li>
+
             @*<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Some item </a></li>*@
         </ul>
 

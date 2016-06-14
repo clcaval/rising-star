@@ -20,6 +20,21 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
             return View(db.InterventionIcons.ToList());
         }
 
+        [HttpGet]
+        public JsonResult GetAll()
+        {
+            var iconList = new List<IconsTable>();
+            foreach (var item in db.InterventionIcons)
+            {
+                IconsTable it = new IconsTable();
+                it.Description = item.IconDescription;
+                it.FileName = item.IconFileName;
+                iconList.Add(it);
+            }
+
+            return Json(iconList, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Intervention/InterventionIcons/Details/5
         public ActionResult Details(Guid? id)
         {
@@ -124,5 +139,13 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
             }
             base.Dispose(disposing);
         }
+    }
+
+    public class IconsTable
+    {
+
+        public string FileName { get; set; }
+        public string Description { get; set; }
+
     }
 }

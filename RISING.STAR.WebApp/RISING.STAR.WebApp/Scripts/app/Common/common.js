@@ -126,8 +126,18 @@
 
             });
 
-            $("#lnkScatterTrendline").on('click', function () {
-                this.href = this.href.replace("__ids__", $("#Patient").val());
+            $(".leftLink").on('click', function () {
+                
+                if ($("#Patient").val())
+                {
+                    this.href = this.href.replace("__ids__", $("#Patient").val());
+                }
+                else
+                {
+                    alert("Chose a patient");
+                    return false;
+                }
+                
             });
 
             h.bindUIComponents();

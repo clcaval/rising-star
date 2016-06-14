@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using RISING.STAR.DAL;
-using RISING.STAR.WebApp.Models.OSI;
+using RISING.STAR.WebApp.Models.Intervention;
 
 namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
 {
@@ -19,7 +19,7 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
         // GET: Intervention/InterventionEvents
         public ActionResult Index()
         {
-            var interventionEvents = db.InterventionEvents.Include(i => i.InterventionType).Include(i => i.Patients_Table);
+            var interventionEvents = db.InterventionEvents.Include(i => i.InterventionType).Include(i => i.Location).Include(i => i.Patients_Table).Include(i => i.User);
             return View(interventionEvents.ToList());
         }
 
@@ -42,32 +42,29 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
         public ActionResult Create()
         {
             ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description");
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationGuid", "Description");
             ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME");
-            return Json(View(), JsonRequestBehavior.AllowGet);
+            ViewBag.DoctorId = new SelectList(db.Users, "Guid", "Login");
+            return View();
         }
 
         // POST: Intervention/InterventionEvents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "InterventionEventGuid,PatientGuid,InterventionTypeGuid,Eye,Date")] InterventionEvent interventionEvent)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "InterventionEventGuid,PatientGuid,InterventionTypeGuid,Eye,Date,DoctorId,LocationId")] InterventionEvent interventionEvent)
         {
-            try 
-	        {
+            try
+            {
                 db.InterventionEvents.Add(interventionEvent);
                 db.SaveChanges();
                 return Json(new Result("OK", interventionEvent.InterventionEventGuid.ToString()));
-	        }
-	        catch (Exception ex)
-	        {		
-		        throw ex;
-	        }
-
-            //ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
-            //ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME", interventionEvent.PatientGuid);
-            ////return Json(View(interventionEvent));
-            //return Json("OK");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // GET: Intervention/InterventionEvents/Edit/5
@@ -83,7 +80,9 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
                 return HttpNotFound();
             }
             ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationGuid", "Description", interventionEvent.LocationId);
             ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME", interventionEvent.PatientGuid);
+            ViewBag.DoctorId = new SelectList(db.Users, "Guid", "Login", interventionEvent.DoctorId);
             return View(interventionEvent);
         }
 
@@ -92,16 +91,18 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "InterventionEventGuid,PatientGuid,InterventionTypeGuid,Eye,Date")] InterventionEvent interventionEvent)
+        public ActionResult Edit([Bind(Include = "InterventionEventGuid,PatientGuid,InterventionTypeGuid,Eye,Date,DoctorId,LocationId")] InterventionEvent interventionEvent)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(interventionEvent).State = EntityState.Modified;
                 db.SaveChanges();
-                return Json(new Result("OK", interventionEvent.InterventionEventGuid.ToString()));
+                return RedirectToAction("Index");
             }
             ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
+            ViewBag.LocationId = new SelectList(db.Locations, "LocationGuid", "Description", interventionEvent.LocationId);
             ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME", interventionEvent.PatientGuid);
+            ViewBag.DoctorId = new SelectList(db.Users, "Guid", "Login", interventionEvent.DoctorId);
             return View(interventionEvent);
         }
 
@@ -122,13 +123,13 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
 
         // POST: Intervention/InterventionEvents/Delete/5
         [HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
             InterventionEvent interventionEvent = db.InterventionEvents.Find(id);
             db.InterventionEvents.Remove(interventionEvent);
             db.SaveChanges();
-            return Json(new Result("OK", id.ToString()));
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
@@ -140,6 +141,7 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
             base.Dispose(disposing);
         }
 
+        
         /* Intervention view model Create */
 
         //[HttpPost]
@@ -155,13 +157,7 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
         //    return Create(iEvent);
 
         //}
-
-        // GET: Intervention/InterventionEvents/Create
-        public ActionResult CreateViewModel()
-        {
-            return Create();
-        }
-
+        
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult CreateViewModel(InterventionViewModel interventionEvent)
@@ -188,7 +184,9 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
             return Edit(iEvent);
         }
 
+
     }
+
 
     public class Result
     {

@@ -11,5 +11,14 @@ namespace RISING.STAR.Entities.Charts
         public DateTime Date { get; set; }
         public float? Value { get; set; }
         public string DisplayX { get; set; }
+
+        public BaseEntity() { }
+
+        public BaseEntity(DateTime _Date, float? _Value, string _DisplayX) {
+            this.Date = _Date;
+            this.Value = _Value;
+            this.DisplayX = _DisplayX;
+        }
+
     }
 }

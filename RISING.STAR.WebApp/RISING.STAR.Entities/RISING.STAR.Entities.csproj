@@ -48,10 +48,13 @@
     <Compile Include="AcuDataTarget\ReportBase.cs" />
     <Compile Include="AcuDataTarget\TearFilmOSI.cs" />
     <Compile Include="Charts\BaseEntity.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="OSI\OSITrendlineData.cs" />
+    <Compile Include="Charts\InterventionData.cs" />
+    <Compile Include="Charts\TrendlineData.cs" />
     <Compile Include="Patients\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OSI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

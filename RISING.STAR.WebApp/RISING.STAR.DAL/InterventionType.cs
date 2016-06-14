@@ -23,6 +23,8 @@ namespace RISING.STAR.DAL
         public System.Guid InterventionGuid { get; set; }
         public Nullable<System.Guid> CategoryGuid { get; set; }
         public string Description { get; set; }
+        public Nullable<int> Rank { get; set; }
+        public Nullable<int> InterventionTag { get; set; }
         public System.Guid IconGuid { get; set; }
     
         public virtual InterventionCategory InterventionCategory { get; set; }

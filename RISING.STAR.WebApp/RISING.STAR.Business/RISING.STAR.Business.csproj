@@ -51,14 +51,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcuDataMetrics\AcuTargetMetricsBusiness.cs" />
+    <Compile Include="BusinessBase.cs" />
     <Compile Include="Common\CommonBusiness.cs" />
+    <Compile Include="Intervention\InterventionBusiness.cs" />
     <Compile Include="Login\LocationBusiness.cs" />
+    <Compile Include="Acquisition\AcquisitionBusiness.cs" />
     <Compile Include="OSI\OSITrendlineBusiness.cs" />
     <Compile Include="PatientBusiness\PatientBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TearFilm\TearFilmBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

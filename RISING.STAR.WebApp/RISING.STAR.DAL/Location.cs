@@ -14,7 +14,16 @@ namespace RISING.STAR.DAL
     
     public partial class Location
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Location()
+        {
+            this.InterventionEvents = new HashSet<InterventionEvent>();
+        }
+    
         public System.Guid LocationGuid { get; set; }
         public string Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<InterventionEvent> InterventionEvents { get; set; }
     }
 }

@@ -24,7 +24,13 @@
                 @Html.DisplayNameFor(model => model.InterventionType.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patients_Table.NAME)
+                <span>Location</span>
+            </th>
+            <th>
+                <span>Patient</span>
+            </th>
+            <th>
+                <span>Doctor</span>
             </th>
             <th></th>
         </tr>
@@ -42,7 +48,13 @@
                     @Html.DisplayFor(modelItem => item.InterventionType.Description)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Location.Description)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Patients_Table.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Login)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.InterventionEventGuid }) |

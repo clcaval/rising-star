@@ -31,8 +31,16 @@
       <End Role="InterventionType" EntitySet="InterventionTypes" />
       <End Role="InterventionEvent" EntitySet="InterventionEvents" />
     </AssociationSet>
+    <AssociationSet Name="FK_InterventionEvent_Location" Association="RISINGSTARModel.FK_InterventionEvent_Location">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="InterventionEvent" EntitySet="InterventionEvents" />
+    </AssociationSet>
     <AssociationSet Name="FK_InterventionEvent_Patients_Table" Association="RISINGSTARModel.FK_InterventionEvent_Patients_Table">
       <End Role="Patients_Table" EntitySet="Patients_Table" />
+      <End Role="InterventionEvent" EntitySet="InterventionEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InterventionEvent_User" Association="RISINGSTARModel.FK_InterventionEvent_User">
+      <End Role="User" EntitySet="Users" />
       <End Role="InterventionEvent" EntitySet="InterventionEvents" />
     </AssociationSet>
     <AssociationSet Name="FK_InterventionType_InterventionIcon" Association="RISINGSTARModel.FK_InterventionType_InterventionIcon">
@@ -167,8 +175,12 @@
     <Property Name="InterventionTypeGuid" Type="Guid" Nullable="false" />
     <Property Name="Eye" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DoctorId" Type="Guid" />
+    <Property Name="LocationId" Type="Guid" />
     <NavigationProperty Name="InterventionType" Relationship="RISINGSTARModel.FK_InterventionEvent_InterventionType" FromRole="InterventionEvent" ToRole="InterventionType" />
+    <NavigationProperty Name="Location" Relationship="RISINGSTARModel.FK_InterventionEvent_Location" FromRole="InterventionEvent" ToRole="Location" />
     <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_InterventionEvent_Patients_Table" FromRole="InterventionEvent" ToRole="Patients_Table" />
+    <NavigationProperty Name="User" Relationship="RISINGSTARModel.FK_InterventionEvent_User" FromRole="InterventionEvent" ToRole="User" />
   </EntityType>
   <EntityType Name="InterventionIcon">
     <Key>
@@ -186,6 +198,8 @@
     <Property Name="InterventionGuid" Type="Guid" Nullable="false" />
     <Property Name="CategoryGuid" Type="Guid" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Rank" Type="Int32" />
+    <Property Name="InterventionTag" Type="Int32" />
     <Property Name="IconGuid" Type="Guid" Nullable="false" />
     <NavigationProperty Name="InterventionCategory" Relationship="RISINGSTARModel.FK_InterventionType_InterventionCategory" FromRole="InterventionType" ToRole="InterventionCategory" />
     <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_InterventionType" FromRole="InterventionType" ToRole="InterventionEvent" />
@@ -197,6 +211,7 @@
     </Key>
     <Property Name="LocationGuid" Type="Guid" Nullable="false" />
     <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_Location" FromRole="Location" ToRole="InterventionEvent" />
   </EntityType>
   <EntityType Name="Patients_Table">
     <Key>
@@ -263,6 +278,7 @@
     <Property Name="IsADM" Type="Boolean" Nullable="false" />
     <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ResetPassword" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_User" FromRole="User" ToRole="InterventionEvent" />
     <NavigationProperty Name="Roles" Relationship="RISINGSTARModel.UserRole" FromRole="User" ToRole="Role" />
   </EntityType>
   <EntityType Name="List_Of_Patients">
@@ -321,6 +337,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_InterventionEvent_Location">
+    <End Type="RISINGSTARModel.Location" Role="Location" Multiplicity="0..1" />
+    <End Type="RISINGSTARModel.InterventionEvent" Role="InterventionEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="LocationGuid" />
+      </Principal>
+      <Dependent Role="InterventionEvent">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_InterventionEvent_Patients_Table">
     <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
     <End Type="RISINGSTARModel.InterventionEvent" Role="InterventionEvent" Multiplicity="*" />
@@ -330,6 +358,18 @@
       </Principal>
       <Dependent Role="InterventionEvent">
         <PropertyRef Name="PatientGuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InterventionEvent_User">
+    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="RISINGSTARModel.InterventionEvent" Role="InterventionEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="InterventionEvent">
+        <PropertyRef Name="DoctorId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

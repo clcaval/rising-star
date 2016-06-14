@@ -2,3 +2,7 @@ C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\bin\Release\RISING.STAR.Util
 C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\bin\Release\RISING.STAR.Utils.pdb
 C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Release\RISING.STAR.Utils.dll
 C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Release\RISING.STAR.Utils.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\bin\Release\RISING.STAR.Utils.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\bin\Release\RISING.STAR.Utils.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Release\RISING.STAR.Utils.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Utils\obj\Release\RISING.STAR.Utils.pdb

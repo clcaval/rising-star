@@ -7,11 +7,17 @@
 
     @Styles.Render("~/Content/bootstrap")
     @Styles.Render("~/Content/css")
+
     @Styles.Render("~/Content/font")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
+
+    @{
+        var loggedUser = (RISING.STAR.DAL.User)Session["UserDados"];
+    }
+    <input type="hidden" id="hdnPatientId" />
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -23,62 +29,85 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#"><span>Rising Star</span>Admin</a>
-                <ul class="user-menu">
-                    <li class="dropdown pull-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
-                            <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                    @if (loggedUser != null)
+                    {
+                        using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()    
+                            <ul class="user-menu">
+                                <li class="dropdown pull-right">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> 
+                                        @loggedUser.Login
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu" role="menu">                                    
+                                        <li><a href="#">Profile</a></li>
+                                        <li><a href="@Url.Action("Index", "AdminDash", new { Area = "Admin" })">Settings</a></li>
+                                        <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
+                                    </ul>
+                                </li>                    
+                            </ul>
+                        }
+                    }                    
             </div>
         </div>
     </nav> 
 
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-        <ul class="nav menu">
 
-            <!-- TODO: change active on pageload: li class="active" -->
-            <li class="active">
-                <a href="~/Dashboard">
+        <form role="search">
+            <div class="form-group">
+
+                @{
+                    var patientList = Session["PatientList"] as IEnumerable<SelectListItem>;
+                    if (patientList != null)
+                    {
+                         @Html.DropDownList("Patient", patientList, "Select a patient", new { @class = "form-control" })
+                    }
+                }
+
+            </div>
+        </form>
+        
+        <ul id="leftMenu" class="nav menu">
+
+            <li>
+                <a href="@Url.Action("Index", "Dashboard", new { Area = "" })">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Dashboard
                 </a>
             </li>
 
             <!-- Ocular -->
             <li>
-                <a href="~/ObjectiveScatterMetrics">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Objective Scatter Metrics
+                <a href="@Url.Action("Index", "ScatterMetrics", new { id = "__ids__", Area = "OSI" })" class="leftLink">
+                    <img src="~/Images/Icons/OSI.png" height="15" width="15" /> &nbsp;&nbsp;Objective Scatter Metrics
                 </a>
             </li>
             <li>
-                <a href="~/ObjectiveScatterTrendline">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Objective Scatter Trendline
+                <a href="@Url.Action("Index", "ScatterTrendline", new { id = "__ids__", Area = "OSI" })" id="lnkScatterTrendline" class="leftLink">
+                    <img src="~/Images/Icons/OSITrendline.png" height="15" width="15" />&nbsp;&nbsp;Objective Scatter Trendline
                 </a>
             </li>                        
             <li>
-                <a href="~/ObjectiveScatterReports">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Objective Scatter Reports
+                <a href="@Url.Action("Index", "ScatterReports", new { id = "__ids__", Area = "OSI" })" class="leftLink">
+                    <img src="~/Images/Icons/OSICohort.png" height="15" width="15" />&nbsp;&nbsp;Objective Scatter Reports
                 </a>
             </li>
 
             <li role="presentation" class="divider"></li>
             <!-- Tear film -->
             <li>
-                <a href="~/TearFilmOcularScatter">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Tear Film Ocular Scatter
+                <a href="@Url.Action("Index", "OcularScatter", new { id = "__ids__", Area = "TearFilm" })" class="leftLink">
+                    <img src="~/Images/Icons/TearFilm.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Ocular Scatter
                 </a>
             </li>
             <li>
-                <a href="~/TearFilmTrendline">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Tear Film Trendline
+                <a href="@Url.Action("Index", "Trendline", new { id = "__ids__", Area = "TearFilm" })" class="leftLink">
+                    <img src="~/Images/Icons/TearFilmTrendline.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Trendline
                 </a>
             </li>
             <li>
-                <a href="~/TearFilmCohortAnalysis">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Tear Film Cohort Analysis
+                <a href="@Url.Action("Index", "CohortAnalysis", new { id = "__ids__", Area = "TearFilm" })" class="leftLink">
+                    <img src="~/Images/Icons/TearFilmCohort.png" height="15" width="15" />&nbsp;&nbsp;Tear Film Cohort Analysis
                 </a>
             </li>
 
@@ -86,40 +115,68 @@
 
             <!-- Testing and Treatment Summary -->
             <li>
-                <a href="~/TestingTreatmentSummary">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Testing and Treatment Summary
-                </a>
-            </li>
-
-            <!-- Patient education -->
-            <li>
-                <a href="~/PatientEducation">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;Patient Education
+                <a href="@Url.Action("Index", "TestingTreatmentSummary", new { id = "__ids__", Area = "TestingTreatment" })" class="leftLink">
+                    <img src="~/Images/Icons/Testing.png" height="15" width="15" />&nbsp;&nbsp;Testing and Treatment Summary
                 </a>
             </li>
 
             <!-- AcuTarget Metrics -->
             <li>
-                <a href="~/AcuTargetMetrics">
-                    <i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp;&nbsp;AcuTarget Metrics
+                <a href="@Url.Action("Index", "AcuTargetMetrics", new { Area = "AcuTargetMetrics" })">
+                    <img src="~/Images/Icons/Metrics.png" height="15" width="15" />&nbsp;&nbsp;AcuTarget Metrics
+                </a>
+            </li>
+
+            <!-- Patient education -->
+            <li>
+                <a href="@Url.Action("Index", "PatientEducation", new { id = "__ids__", Area = "PatientEd" })" class="leftLink">
+                    <img src="~/Images/Icons/Education.png" height="15" width="15" />&nbsp;&nbsp;Patient Education
                 </a>
             </li>
 
             <li role="presentation" class="divider"></li>
-            <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Some item </a></li>
+
+            <!-- Visiometrics Reports -->
+            <li>
+                <a href="@Url.Action("Index", "Visiometric", new { id = "__ids__", Area = "Visiometrics" })" class="leftLink">
+                    <img src="~/Images/Icons/VisioReports.png" height="15" width="15" />&nbsp;&nbsp;Visiometrics Reports
+                </a>                    
+            </li>
+
+            <!-- Compare Visiometrics Reports -->
+            <li>
+                <a href="@Url.Action("Index", "CompareVisiometrics", new { id = "__ids__", Area = "Visiometrics" })" class="leftLink">
+                    <img src="~/Images/Icons/CompareVisioReports.png" height="15" width="15" />&nbsp;&nbsp;Compare Visiometrics Reports
+                </a>
+            </li>
+
+            <!-- KAMRA Outcomes -->
+            <li>
+                <a href="@Url.Action("Index", "KAMRAOutcomes", new { id = "__ids__", Area = "Visiometrics" })" class="leftLink">
+                    <img src="~/Images/Icons/Outcomes.png" height="15" width="15" />&nbsp;&nbsp;KAMRA Outcomes
+                </a>
+            </li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+
+            @*<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Some item </a></li>*@
         </ul>
 
     </div><!--/.sidebar-->
    
     @RenderBody()
     
-    <script src="../Scripts/jquery-1.11.1.min.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
-    <script src="../Scripts/chart.min.js"></script>
-    <script src="../Scripts/chart-data.js"></script>
-    <script src="../Scripts/easypiechart.js"></script>
-    <script src="../Scripts/easypiechart-data.js"></script>
-    <script src="../Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/jquery/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap/bootstrap-datepicker.js"></script>
+    @*<script src="~/Scripts/highcharts/js/highcharts.js"></script>
+    <script src="~/Scripts/highcharts/js/highcharts-more.js"></script>*@
+    <script src="~/Scripts/moment/moment-with-locales.min.js"></script>
+    @*<script src="~/Scripts/highstock/js/highstock.js"></script>*@
+    <script src="~/Scripts/highstock/js/highstock-all.js"></script>
 
+    <script src="~/Scripts/app/Common/common.js"></script>
+    @RenderSection("JavaScript", required: false)
+    
 </body>
 </html>

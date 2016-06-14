@@ -121,6 +121,8 @@
           <Property Name="InterventionTypeGuid" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Eye" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="DoctorId" Type="uniqueidentifier" />
+          <Property Name="LocationId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="InterventionIcon">
           <Key>
@@ -137,6 +139,8 @@
           <Property Name="InterventionGuid" Type="uniqueidentifier" Nullable="false" />
           <Property Name="CategoryGuid" Type="uniqueidentifier" />
           <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="InterventionTag" Type="int" />
           <Property Name="IconGuid" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -282,6 +286,18 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_InterventionEvent_Location">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="InterventionEvent" Type="Self.InterventionEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationGuid" />
+            </Principal>
+            <Dependent Role="InterventionEvent">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_InterventionEvent_Patients_Table">
           <End Role="Patients_Table" Type="Self.Patients_Table" Multiplicity="1" />
           <End Role="InterventionEvent" Type="Self.InterventionEvent" Multiplicity="*" />
@@ -291,6 +307,18 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
             </Principal>
             <Dependent Role="InterventionEvent">
               <PropertyRef Name="PatientGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterventionEvent_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="InterventionEvent" Type="Self.InterventionEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="InterventionEvent">
+              <PropertyRef Name="DoctorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -401,8 +429,16 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
             <End Role="InterventionType" EntitySet="InterventionType" />
             <End Role="InterventionEvent" EntitySet="InterventionEvent" />
           </AssociationSet>
+          <AssociationSet Name="FK_InterventionEvent_Location" Association="Self.FK_InterventionEvent_Location">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="InterventionEvent" EntitySet="InterventionEvent" />
+          </AssociationSet>
           <AssociationSet Name="FK_InterventionEvent_Patients_Table" Association="Self.FK_InterventionEvent_Patients_Table">
             <End Role="Patients_Table" EntitySet="Patients_Table" />
+            <End Role="InterventionEvent" EntitySet="InterventionEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterventionEvent_User" Association="Self.FK_InterventionEvent_User">
+            <End Role="User" EntitySet="User" />
             <End Role="InterventionEvent" EntitySet="InterventionEvent" />
           </AssociationSet>
           <AssociationSet Name="FK_InterventionType_InterventionCategory" Association="Self.FK_InterventionType_InterventionCategory">
@@ -465,8 +501,16 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
             <End Role="InterventionType" EntitySet="InterventionTypes" />
             <End Role="InterventionEvent" EntitySet="InterventionEvents" />
           </AssociationSet>
+          <AssociationSet Name="FK_InterventionEvent_Location" Association="RISINGSTARModel.FK_InterventionEvent_Location">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="InterventionEvent" EntitySet="InterventionEvents" />
+          </AssociationSet>
           <AssociationSet Name="FK_InterventionEvent_Patients_Table" Association="RISINGSTARModel.FK_InterventionEvent_Patients_Table">
             <End Role="Patients_Table" EntitySet="Patients_Table" />
+            <End Role="InterventionEvent" EntitySet="InterventionEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InterventionEvent_User" Association="RISINGSTARModel.FK_InterventionEvent_User">
+            <End Role="User" EntitySet="Users" />
             <End Role="InterventionEvent" EntitySet="InterventionEvents" />
           </AssociationSet>
           <AssociationSet Name="FK_InterventionType_InterventionIcon" Association="RISINGSTARModel.FK_InterventionType_InterventionIcon">
@@ -601,8 +645,12 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
           <Property Name="InterventionTypeGuid" Type="Guid" Nullable="false" />
           <Property Name="Eye" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DoctorId" Type="Guid" />
+          <Property Name="LocationId" Type="Guid" />
           <NavigationProperty Name="InterventionType" Relationship="RISINGSTARModel.FK_InterventionEvent_InterventionType" FromRole="InterventionEvent" ToRole="InterventionType" />
+          <NavigationProperty Name="Location" Relationship="RISINGSTARModel.FK_InterventionEvent_Location" FromRole="InterventionEvent" ToRole="Location" />
           <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_InterventionEvent_Patients_Table" FromRole="InterventionEvent" ToRole="Patients_Table" />
+          <NavigationProperty Name="User" Relationship="RISINGSTARModel.FK_InterventionEvent_User" FromRole="InterventionEvent" ToRole="User" />
         </EntityType>
         <EntityType Name="InterventionIcon">
           <Key>
@@ -620,6 +668,8 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
           <Property Name="InterventionGuid" Type="Guid" Nullable="false" />
           <Property Name="CategoryGuid" Type="Guid" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="InterventionTag" Type="Int32" />
           <Property Name="IconGuid" Type="Guid" Nullable="false" />
           <NavigationProperty Name="InterventionCategory" Relationship="RISINGSTARModel.FK_InterventionType_InterventionCategory" FromRole="InterventionType" ToRole="InterventionCategory" />
           <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_InterventionType" FromRole="InterventionType" ToRole="InterventionEvent" />
@@ -631,6 +681,7 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
           </Key>
           <Property Name="LocationGuid" Type="Guid" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_Location" FromRole="Location" ToRole="InterventionEvent" />
         </EntityType>
         <EntityType Name="Patients_Table">
           <Key>
@@ -697,6 +748,7 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
           <Property Name="IsADM" Type="Boolean" Nullable="false" />
           <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ResetPassword" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_User" FromRole="User" ToRole="InterventionEvent" />
           <NavigationProperty Name="Roles" Relationship="RISINGSTARModel.UserRole" FromRole="User" ToRole="Role" />
         </EntityType>
         <EntityType Name="List_Of_Patients">
@@ -755,6 +807,18 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_InterventionEvent_Location">
+          <End Type="RISINGSTARModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="RISINGSTARModel.InterventionEvent" Role="InterventionEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationGuid" />
+            </Principal>
+            <Dependent Role="InterventionEvent">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_InterventionEvent_Patients_Table">
           <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
           <End Type="RISINGSTARModel.InterventionEvent" Role="InterventionEvent" Multiplicity="*" />
@@ -764,6 +828,18 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
             </Principal>
             <Dependent Role="InterventionEvent">
               <PropertyRef Name="PatientGuid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InterventionEvent_User">
+          <End Type="RISINGSTARModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="RISINGSTARModel.InterventionEvent" Role="InterventionEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="InterventionEvent">
+              <PropertyRef Name="DoctorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -906,6 +982,8 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
           <EntitySetMapping Name="InterventionEvents">
             <EntityTypeMapping TypeName="RISINGSTARModel.InterventionEvent">
               <MappingFragment StoreEntitySet="InterventionEvent">
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Eye" ColumnName="Eye" />
                 <ScalarProperty Name="InterventionTypeGuid" ColumnName="InterventionTypeGuid" />
@@ -927,6 +1005,8 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
             <EntityTypeMapping TypeName="RISINGSTARModel.InterventionType">
               <MappingFragment StoreEntitySet="InterventionType">
                 <ScalarProperty Name="IconGuid" ColumnName="IconGuid" />
+                <ScalarProperty Name="InterventionTag" ColumnName="InterventionTag" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="CategoryGuid" ColumnName="CategoryGuid" />
                 <ScalarProperty Name="InterventionGuid" ColumnName="InterventionGuid" />

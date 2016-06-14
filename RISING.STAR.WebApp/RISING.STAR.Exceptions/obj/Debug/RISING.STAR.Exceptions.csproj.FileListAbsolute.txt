@@ -5,6 +5,5 @@ C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Exceptions\obj\Debug\RISING.STAR.E
 C:\_RISINGSTAR\RISING.STAR.WebApp\RISING.STAR.Exceptions\obj\Debug\RISING.STAR.Exceptions.csprojResolveAssemblyReference.cache
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\bin\Debug\RISING.STAR.Exceptions.dll
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\bin\Debug\RISING.STAR.Exceptions.pdb
-C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\obj\Debug\RISING.STAR.Exceptions.csprojResolveAssemblyReference.cache
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\obj\Debug\RISING.STAR.Exceptions.dll
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\obj\Debug\RISING.STAR.Exceptions.pdb

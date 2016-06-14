@@ -1,14 +1,24 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cohort Analysis";
     Layout = "~/Views/Shared/_LayoutInner.cshtml";
 }
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
     <div class="row">
-        <h2>Index Tear Film Cohort Analysis</h2>
+        <div class="col-md-3">
+            <h4>Left side</h4>
+        </div>
+        <div class="col-md-9">
+            <h4>Chart</h4>
+            <div id="graph"></div>
+        </div>
     </div>
 
 </div>
 
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/TearFilm/tearFilmCohort.js")"></script>
+}

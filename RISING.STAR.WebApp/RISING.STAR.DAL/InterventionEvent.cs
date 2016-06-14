@@ -19,8 +19,12 @@ namespace RISING.STAR.DAL
         public System.Guid InterventionTypeGuid { get; set; }
         public string Eye { get; set; }
         public System.DateTime Date { get; set; }
+        public Nullable<System.Guid> DoctorId { get; set; }
+        public Nullable<System.Guid> LocationId { get; set; }
     
         public virtual InterventionType InterventionType { get; set; }
+        public virtual Location Location { get; set; }
         public virtual Patients_Table Patients_Table { get; set; }
+        public virtual User User { get; set; }
     }
 }
