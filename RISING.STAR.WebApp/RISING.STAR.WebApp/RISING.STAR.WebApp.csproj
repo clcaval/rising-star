@@ -234,6 +234,7 @@
     <Content Include="Images\AcuTargetMetrics\dash30_4.png" />
     <Content Include="Images\AcuTargetMetrics\dash40_6.png" />
     <Content Include="Images\AcuTargetMetrics\eye_bg.jpg" />
+    <Content Include="Images\AcuTargetMetrics\kamra_inlay.png" />
     <Content Include="Images\AcuTargetMetrics\kamra_small.png" />
     <Content Include="Images\AcuTargetMetrics\teal.png" />
     <Content Include="Images\ChartsIcons\20\no_icon.png" />
@@ -274,6 +275,13 @@
     <Content Include="Images\OSI\osiNormal.png" />
     <Content Include="Images\OSI\osiPatient.png" />
     <Content Include="Images\AcuTargetMetrics\target.png" />
+    <Content Include="Images\PatientEd\blurred_vision.jpg" />
+    <Content Include="Images\PatientEd\daylight_glare.jpg" />
+    <Content Include="Images\PatientEd\nightmare_glare2.jpg" />
+    <Content Include="Images\PatientEd\nightmare_glare1.jpg" />
+    <Content Include="Images\PatientEd\normal_night_vision.jpg" />
+    <Content Include="Images\PatientEd\cataract_illustration.jpg" />
+    <Content Include="Images\PatientEd\cataract.jpg" />
     <Content Include="Scripts\app\AcuTargetMetrics\acuTargetGraph.js" />
     <Content Include="Scripts\app\Exam\exam.js" />
     <Content Include="Scripts\app\OSI\osi.js" />

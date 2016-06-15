@@ -1,0 +1,45 @@
+﻿@model RISING.STAR.DAL.Role
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <h2>Details</h2>
+
+    <div>
+        <h4>Role</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RoleDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoleDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsSysAdmin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsSysAdmin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DescriptionDisplay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DescriptionDisplay)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RoleGUID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

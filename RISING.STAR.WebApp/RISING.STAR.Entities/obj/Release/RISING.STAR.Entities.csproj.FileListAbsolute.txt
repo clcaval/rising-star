@@ -1,0 +1,5 @@
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\bin\Release\RISING.STAR.Entities.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\bin\Release\RISING.STAR.Entities.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\obj\Release\RISING.STAR.Entities.csprojResolveAssemblyReference.cache
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\obj\Release\RISING.STAR.Entities.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\obj\Release\RISING.STAR.Entities.pdb

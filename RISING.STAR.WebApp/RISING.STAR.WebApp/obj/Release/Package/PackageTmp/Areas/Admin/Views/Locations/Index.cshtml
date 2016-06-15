@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RISING.STAR.DAL.Location>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.LocationGuid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.LocationGuid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.LocationGuid })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

@@ -1,0 +1,304 @@
+﻿@model RISING.STAR.DAL.Patients_Table
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <div class="row">
+        
+        <div class="col-md-4">
+            <h3>Patient details</h3>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayNameFor(model => model.NAME)</dt>
+                <dd>@Html.DisplayFor(model => model.NAME)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.SURNAME1)</dt>
+                <dd>@Html.DisplayFor(model => model.SURNAME1)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.REFERENCE)</dt>
+                <dd>@Html.DisplayFor(model => model.REFERENCE)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.DATE_OF_BIRTH)</dt>
+                <dd>@Html.DisplayFor(model => model.DATE_OF_BIRTH)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.SEX)</dt>
+                <dd>@Html.DisplayFor(model => model.SEX)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.ADDRESS)</dt>
+                <dd>@Html.DisplayFor(model => model.ADDRESS)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.CITY)</dt>
+                <dd>@Html.DisplayFor(model => model.CITY)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.ZIP)</dt>
+                <dd>@Html.DisplayFor(model => model.ZIP)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.COUNTRY)</dt>
+                <dd>@Html.DisplayFor(model => model.COUNTRY)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.PHONE)</dt>
+                <dd>@Html.DisplayFor(model => model.PHONE)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.E_MAIL)</dt>
+                <dd>@Html.DisplayFor(model => model.E_MAIL)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.OBSERVATIONS)</dt>
+                <dd>@Html.DisplayFor(model => model.OBSERVATIONS)</dd>
+
+            </dl>
+        </div>
+
+        <div class="col-md-8">
+            <h3>Patient exams</h3>
+            @if (Model.Exams_Table != null && Model.Exams_Table.Count() > 0)
+            {
+
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th class="hidden">Id</th>
+                            <th class="hidden">PatientId</th>
+                            <th>Inserted date</th>
+                            <th>Exam date</th>
+                            <th>OD Sph</th>
+                            <th>OD Cyl</th>
+                            <th>OD Axis</th>
+                            <th>OS Sph</th>
+                            <th>OS Cyl</th>
+                            <th>OS Axis</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.Exams_Table)
+                        {
+                            <tr>
+                                <td class="hidden">@item.Id</td>
+                                <td class="hidden">@item.PatientId</td>
+                                <td>@item.DateInserted</td>
+                                <td>@item.DateExam</td>
+                                <td>@item.OD_Sph</td>
+                                <td>@item.OD_Cyl</td>
+                                <td>@item.OD_Axis</td>
+                                <td>@item.OS_Sph</td>
+                                <td>@item.OS_Cyl</td>
+                                <td>@item.OS_Axis</td>
+                                <td>@Html.ActionLink("Edit", "Edit", "Exam", new { id = item.Id }, null) |
+                                    @Html.ActionLink("Delete", "Delete", "Exam", new { id = item.Id }, null)
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+    <button id="btnAddNewExam" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add new Exam</button>
+
+            }
+            
+        </div>
+    </div>
+
+   
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add new Exam</h4>
+            </div>
+            <div class="modal-body">
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/Exam/exam.js")"></script>
+}
+
+@*<div class="row">
+        <h3>Acquisitions details</h3>
+        <div class="col-md-12">
+
+            @if (Model.Acquisitions_Table != null && Model.Acquisitions_Table.Count() > 0)
+            {
+
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th class="hidden">Id_Acq</th>
+                            <th class="hidden">FK_Id_Patient</th>
+                            <th class="hidden">FK_Guid_Patient</th>
+                            <th>[DATE]</th>
+                            <th>[HOUR]</th>
+                            <th>[OS]</th>
+                            <th>[OD]</th>
+                            <th>[OS_OD]</th>
+                            <th>[SPH]</th>
+                            <th>[CYL]</th>
+                            <th>[AXIS]</th>
+                            <th>[BCVA]</th>
+                            <th>[UCVA]</th>
+                            <th>[REFERENCE_SPH_REFRAC]</th>
+                            <th>[AP]</th>
+                            <th>[NP]</th>
+                            <th>[NOTES]</th>
+                            <th>[BESTFOCUS]</th>
+                            <th>[WIDTH_PROFILE_1/2]</th>
+                            <th>[WIDTH_PROFILE_1/10]</th>
+                            <th>[MTF_CUT_OFF]</th>
+                            <th>[STREHL_RATIO]</th>
+                            <th>[VA_100]</th>
+                            <th>[VA_20]</th>
+                            <th>[VA_9]</th>
+                            <th>[OQAS_VALUE_100]</th>
+                            <th>[OQAS_VALUE_20]</th>
+                            <th>[OQAS_VALUE_9]</th>
+                            <th>[Type_Num]</th>
+                            <th>[Type]</th>
+                            <th>[Corr_Type_Num]</th>
+                            <th>[Corr_Type]</th>
+                            <th>[NImag]</th>
+                            <th>[NImag_Acc_Each]</th>
+                            <th>[COMPUTED_IMAGES]</th>
+                            <th>[OAR]</th>
+                            <th>[OSI]</th>
+                            <th>[Refrac_Acc_Per_1]</th>
+                            <th>[Refrac_Acc_Per_2]</th>
+                            <th>[AR]</th>
+                            <th>[Time_Each_Image_TearFilm]</th>
+                            <th>[TearFilm_Time]</th>
+                            <th>[TearFilm_OSI]</th>
+                            <th>[TearFilm_Central_Energy]</th>
+                            <th>[TearFilm_Peripheral_Energy]</th>
+                            <th>[TearFilm_VA]</th>
+                            <th>[TearFilm_MTFCutoff]</th>
+                            <th>[TearFilm_MeanOSI]</th>
+                            <th>[TearFilm_StdevOSI]</th>
+                            <th>[RotatedCamera]</th>
+                            <th>[PKJ_IsPreOperation]</th>
+                            <th>[PKJ_MicrasPerPixel]</th>
+                            <th>[PKJ_PupilDiameter]</th>
+                            <th>[PKJ_PkjVsPupil_Length]</th>
+                            <th>[PKJ_PkjVsPupil_Angle]</th>
+                            <th>[PKJ_PkjVsPupil_X]</th>
+                            <th>[PKJ_PkjVsPupil_Y]</th>
+                            <th>[PKJ_InlayVsPupil_X]</th>
+                            <th>[PKJ_InlayVsPupil_Y]</th>
+                            <th>[PKJ_InlayVsPkj_X]</th>
+                            <th>[PKJ_InlayVsPkj_Y]</th>
+                            <th>[PKJ_Pupil_PixelCentroX]</th>
+                            <th>[PKJ_Pupil_PixelCentroY]</th>
+                            <th>[PKJ_Pupil_PixelRadio]</th>
+                            <th>[PKJ_Laser_PixelCentroX]</th>
+                            <th>[PKJ_Laser_PixelCentroY]</th>
+                            <th>[PKJ_Inlay_PixelCentroX]</th>
+                            <th>[PKJ_Inlay_PixelCentroY]</th>
+                            <th>[PKJ_Inlay_PixelRadio]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.Acquisitions_Table)
+                        {
+                            <tr>
+                                <td class="hidden">@item.Id_Acq</td>
+                                <td class="hidden">@item.FK_Id_Patient</td>
+                                <td class="hidden">@item.FK_Guid_Patient</td>
+                                <td>@item.DATE</td>
+                                <td> @item.HOUR</td>
+                                <td> @item.OS</td>
+                                <td> @item.OD</td>
+                                <td> @item.OS_OD</td>
+                                <td> @item.SPH</td>
+                                <td> @item.CYL</td>
+                                <td> @item.AXIS</td>
+                                <td> @item.BCVA</td>
+                                <td> @item.UCVA</td>
+                                <td> @item.REFERENCE_SPH_REFRAC</td>
+                                <td> @item.AP</td>
+                                <td> @item.NP</td>
+                                <td> @item.NOTES</td>
+                                <td> @item.BESTFOCUS</td>
+                                <td> @item.WIDTH_PROFILE_1_2</td>
+                                <td> @item.WIDTH_PROFILE_1_10</td>
+                                <td> @item.MTF_CUT_OFF</td>
+                                <td> @item.STREHL_RATIO</td>
+                                <td> @item.VA_100</td>
+                                <td> @item.VA_20</td>
+                                <td> @item.VA_9</td>
+                                <td> @item.OQAS_VALUE_100</td>
+                                <td> @item.OQAS_VALUE_20</td>
+                                <td> @item.OQAS_VALUE_9</td>
+                                <td> @item.Type_Num</td>
+                                <td> @item.Type</td>
+                                <td> @item.Corr_Type_Num</td>
+                                <td> @item.Corr_Type</td>
+                                <td> @item.NImag</td>
+                                <td> @item.NImag_Acc_Each</td>
+                                <td> @item.COMPUTED_IMAGES</td>
+                                <td> @item.OAR</td>
+                                <td> @item.OSI</td>
+                                <td> @item.Refrac_Acc_Per_1</td>
+                                <td> @item.Refrac_Acc_Per_2</td>
+                                <td> @item.AR</td>
+                                <td> @item.Time_Each_Image_TearFilm</td>
+                                <td> @item.TearFilm_Time</td>
+                                <td> @item.TearFilm_OSI</td>
+                                <td> @item.TearFilm_Central_Energy</td>
+                                <td> @item.TearFilm_Peripheral_Energy</td>
+                                <td> @item.TearFilm_VA</td>
+                                <td> @item.TearFilm_MTFCutoff</td>
+                                <td> @item.TearFilm_MeanOSI</td>
+                                <td> @item.TearFilm_StdevOSI</td>
+                                <td> @item.RotatedCamera</td>
+                                <td> @item.PKJ_IsPreOperation</td>
+                                <td> @item.PKJ_MicrasPerPixel</td>
+                                <td> @item.PKJ_PupilDiameter</td>
+                                <td> @item.PKJ_PkjVsPupil_Length</td>
+                                <td> @item.PKJ_PkjVsPupil_Angle</td>
+                                <td> @item.PKJ_PkjVsPupil_X</td>
+                                <td> @item.PKJ_PkjVsPupil_Y</td>
+                                <td> @item.PKJ_InlayVsPupil_X</td>
+                                <td> @item.PKJ_InlayVsPupil_Y</td>
+                                <td> @item.PKJ_InlayVsPkj_X</td>
+                                <td> @item.PKJ_InlayVsPkj_Y</td>
+                                <td> @item.PKJ_Pupil_PixelCentroX</td>
+                                <td> @item.PKJ_Pupil_PixelCentroY</td>
+                                <td> @item.PKJ_Pupil_PixelRadio</td>
+                                <td> @item.PKJ_Laser_PixelCentroX</td>
+                                <td> @item.PKJ_Laser_PixelCentroY</td>
+                                <td> @item.PKJ_Inlay_PixelCentroX</td>
+                                <td> @item.PKJ_Inlay_PixelCentroY</td>
+                                <td> @item.PKJ_Inlay_PixelRadio</td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+                <button id="btnAddNewAcquisition" value="Add new exam" class="btn btn-primary">Add New</button>
+            }
+
+        </div>
+
+    </div>*@

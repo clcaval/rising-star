@@ -1,0 +1,69 @@
+﻿@model IEnumerable<RISING.STAR.DAL.InterventionEvent>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Eye)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InterventionType.Description)
+            </th>
+            <th>
+                <span>Location</span>
+            </th>
+            <th>
+                <span>Patient</span>
+            </th>
+            <th>
+                <span>Doctor</span>
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Eye)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InterventionType.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patients_Table.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Login)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.InterventionEventGuid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.InterventionEventGuid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.InterventionEventGuid })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

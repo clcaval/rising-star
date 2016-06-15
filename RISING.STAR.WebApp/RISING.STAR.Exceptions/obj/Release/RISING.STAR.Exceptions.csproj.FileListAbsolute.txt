@@ -1,0 +1,4 @@
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\bin\Release\RISING.STAR.Exceptions.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\bin\Release\RISING.STAR.Exceptions.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\obj\Release\RISING.STAR.Exceptions.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Exceptions\obj\Release\RISING.STAR.Exceptions.pdb

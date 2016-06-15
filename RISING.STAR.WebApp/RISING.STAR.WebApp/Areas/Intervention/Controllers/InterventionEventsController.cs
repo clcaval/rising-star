@@ -41,7 +41,8 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
         // GET: Intervention/InterventionEvents/Create
         public ActionResult Create()
         {
-            ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description");
+            var q = db.InterventionTypes.OrderBy(x => x.Rank);
+            ViewBag.InterventionTypeGuid = new SelectList(q, "InterventionGuid", "Description");
             ViewBag.LocationId = new SelectList(db.Locations, "LocationGuid", "Description");
             ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME");
             ViewBag.DoctorId = new SelectList(db.Users, "Guid", "Login");
@@ -79,7 +80,8 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
+            var q = db.InterventionTypes.OrderBy(x => x.Rank);
+            ViewBag.InterventionTypeGuid = new SelectList(q, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
             ViewBag.LocationId = new SelectList(db.Locations, "LocationGuid", "Description", interventionEvent.LocationId);
             ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME", interventionEvent.PatientGuid);
             ViewBag.DoctorId = new SelectList(db.Users, "Guid", "Login", interventionEvent.DoctorId);
@@ -99,7 +101,8 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.InterventionTypeGuid = new SelectList(db.InterventionTypes, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
+            var q = db.InterventionTypes.OrderBy(x => x.Rank);
+            ViewBag.InterventionTypeGuid = new SelectList(q, "InterventionGuid", "Description", interventionEvent.InterventionTypeGuid);
             ViewBag.LocationId = new SelectList(db.Locations, "LocationGuid", "Description", interventionEvent.LocationId);
             ViewBag.PatientGuid = new SelectList(db.Patients_Table, "Guid", "NAME", interventionEvent.PatientGuid);
             ViewBag.DoctorId = new SelectList(db.Users, "Guid", "Login", interventionEvent.DoctorId);
@@ -123,13 +126,13 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
 
         // POST: Intervention/InterventionEvents/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
             InterventionEvent interventionEvent = db.InterventionEvents.Find(id);
             db.InterventionEvents.Remove(interventionEvent);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(new Result("OK", id.ToString()));
         }
 
         protected override void Dispose(bool disposing)

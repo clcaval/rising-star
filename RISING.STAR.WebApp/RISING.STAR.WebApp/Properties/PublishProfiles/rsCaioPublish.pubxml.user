@@ -34,7 +34,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 14:14:00</publishTime>
     </File>
     <File Include="Areas/Admin/Views/AdminDash/Index.cshtml">
-      <publishTime>06/03/2016 16:44:44</publishTime>
+      <publishTime>06/14/2016 13:52:30</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Exam/Create.cshtml">
       <publishTime>05/19/2016 15:39:52</publishTime>
@@ -172,7 +172,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/13/2016 10:02:01</publishTime>
     </File>
     <File Include="Areas/TearFilm/Views/CohortAnalysis/Index.cshtml">
-      <publishTime>06/14/2016 08:45:29</publishTime>
+      <publishTime>06/14/2016 14:36:56</publishTime>
     </File>
     <File Include="Areas/TearFilm/Views/OcularScatter/Index.cshtml">
       <publishTime>06/14/2016 08:45:45</publishTime>
@@ -188,6 +188,54 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Areas/TestingTreatment/Views/web.config">
       <publishTime>05/13/2016 10:58:11</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Permissions/Create.cshtml">
+      <publishTime>06/14/2016 13:49:52</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Permissions/Delete.cshtml">
+      <publishTime>06/14/2016 13:49:52</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Permissions/Details.cshtml">
+      <publishTime>06/14/2016 13:49:02</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Permissions/Edit.cshtml">
+      <publishTime>06/14/2016 13:49:08</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Permissions/Index.cshtml">
+      <publishTime>06/14/2016 13:49:52</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Roles/Create.cshtml">
+      <publishTime>06/14/2016 13:49:22</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Roles/Delete.cshtml">
+      <publishTime>06/14/2016 13:49:32</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Roles/Details.cshtml">
+      <publishTime>06/14/2016 13:49:37</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Roles/Edit.cshtml">
+      <publishTime>06/14/2016 13:49:43</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Roles/Index.cshtml">
+      <publishTime>06/14/2016 13:49:50</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Users/Create.cshtml">
+      <publishTime>06/14/2016 13:58:59</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Users/Delete.cshtml">
+      <publishTime>06/14/2016 13:34:24</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Users/Details.cshtml">
+      <publishTime>06/14/2016 13:34:24</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Users/Edit.cshtml">
+      <publishTime>06/14/2016 13:34:24</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/Users/Index.cshtml">
+      <publishTime>06/14/2016 13:29:39</publishTime>
+    </File>
+    <File Include="Areas/UserAndRole/Views/web.config">
+      <publishTime>06/14/2016 13:26:33</publishTime>
     </File>
     <File Include="Areas/Visiometrics/Views/CompareVisiometrics/Index.cshtml">
       <publishTime>06/14/2016 08:47:09</publishTime>
@@ -271,7 +319,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 10:11:57</publishTime>
     </File>
     <File Include="bin/RISING.STAR.WebApp.dll">
-      <publishTime>06/14/2016 10:12:00</publishTime>
+      <publishTime>06/14/2016 16:56:08</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>04/25/2016 10:54:24</publishTime>
@@ -565,10 +613,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 08:26:08</publishTime>
     </File>
     <File Include="Scripts/app/OSI/osiTrendline.js">
-      <publishTime>06/14/2016 07:24:11</publishTime>
+      <publishTime>06/14/2016 15:50:33</publishTime>
+    </File>
+    <File Include="Scripts/app/TearFilm/tearFilmCohort.js">
+      <publishTime>06/14/2016 14:35:15</publishTime>
     </File>
     <File Include="Scripts/app/TearFilm/tearFilmTrendline.js">
-      <publishTime>06/14/2016 07:23:53</publishTime>
+      <publishTime>06/14/2016 15:50:33</publishTime>
     </File>
     <File Include="Scripts/bootstrap-datepicker.js">
       <publishTime>04/26/2016 13:56:35</publishTime>
@@ -1528,7 +1579,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/26/2016 13:56:35</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>06/14/2016 07:54:34</publishTime>
+      <publishTime>06/14/2016 14:20:55</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>04/25/2016 10:54:32</publishTime>
@@ -1618,7 +1669,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2016 10:54:33</publishTime>
     </File>
     <File Include="Views/Shared/_Intervention.cshtml">
-      <publishTime>06/14/2016 06:48:09</publishTime>
+      <publishTime>06/14/2016 15:49:57</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>05/03/2016 07:39:50</publishTime>

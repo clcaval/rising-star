@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <h2>Admin Dashboard<h6>Change icons later</h6></h2>
+
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "Patient")">
+                               Patients and Exams
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "Acquisitions")">
+                                Acquisitions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "Locations")">
+                                Location
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "InterventionIcons", new { area = "Intervention" })">
+                                Intervention Icons
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "InterventionTypes", new { area = "Intervention" })">
+                                Intervention Types
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "InterventionEvents", new { area = "Intervention" })">
+                                Intervention Events
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users and roles -->
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "Users", new { area = "UserAndRole" })">
+                                Users
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "Roles", new { area = "UserAndRole" })">
+                                Roles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-teal panel-widget">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/Education.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "Permissions", new { area = "UserAndRole" })">
+                                Permissions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+

@@ -1,0 +1,46 @@
+﻿@model RISING.STAR.DAL.InterventionType
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <h2>Details</h2>
+
+    <div>
+        <h4>InterventionType</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InterventionCategory.CategoryDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InterventionCategory.CategoryDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.InterventionIcon.IconDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InterventionIcon.IconDescription)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.InterventionGuid }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>

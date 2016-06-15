@@ -1,0 +1,79 @@
+﻿@model RISING.STAR.WebApp.Models.Intervention.InterventionViewModel
+
+@{
+    ViewBag.Title = "Objective Scatter Trendline";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+<style>
+    .datepicker {z-index: 1151 !important ;}
+</style>
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    
+        @{ Html.RenderPartial("_Intervention"); }
+       
+        <div class="row text-center">
+            <h3>Filters</h3>
+            <div class="col-md-3">
+                <div class="input-group">
+                    @Html.LabelFor(m => m.Eye, new { @class = "input-group-addon" })
+                    @Html.DropDownListFor(m => m.SelectedEye, Model.Eye, "Select an eye", new { @id = "eyeFilter", @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="input-daterange input-group" id="datepicker">
+                    <input type="text" class="input-sm form-control" name="startFilter" id="startFilter" />
+                    <span class="input-group-addon">to</span>
+                    <input type="text" class="input-sm form-control" name="endFilter" id="endFilter" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <input type="button" value="Filter" id="btnFilter" class="btn btn-primary" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3> Chart           
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#legendModal">
+                        See legend
+                    </button> 
+                </h3>
+                <div id="osiGraph"></div>
+            </div>
+             <br/><br /><br />
+        </div>
+
+</div>
+
+<div class="modal fade" id="legendModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Legend</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-condensed" id="iconsLegend">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/OSI/osiTrendline.js")"></script>
+}
