@@ -39,5 +39,7 @@ namespace RISING.STAR.DAL
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<List_Of_Patients> List_Of_Patients { get; set; }
+        public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<PatientsComment> PatientsComments { get; set; }
     }
 }

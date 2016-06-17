@@ -29,5 +29,10 @@ namespace RISING.STAR.Business.PatientBusiness
             return patients.OrderBy(m => m.Name).ToList();
         }
 
+        public IEnumerable<PatientsComment> GetPatientComments(Guid patientId)
+        {
+            return dbContext.PatientsComments.Where(x => x.PatientId == patientId);
+        }
+        
     }
 }

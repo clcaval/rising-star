@@ -18,6 +18,11 @@ namespace RISING.STAR.Business.Acquisition
             return this.dbContext.Acquisitions_Table;
         }
 
+        public IEnumerable<Acquisitions_Table> RetrieveAcquisition(Guid patientId)
+        {
+            return this.dbContext.Acquisitions_Table.Where(x=> x.FK_Guid_Patient==patientId);
+        }
+
         public IEnumerable<Acquisitions_Table> RetrieveAcquisition(Guid patientGuid, String eye, DateTime initialDate, DateTime finalDate, int type_num)
         {
             

@@ -19,6 +19,7 @@ namespace RISING.STAR.DAL
         {
             this.InterventionEvents = new HashSet<InterventionEvent>();
             this.Roles = new HashSet<Role>();
+            this.PatientsComments = new HashSet<PatientsComment>();
         }
     
         public System.Guid Guid { get; set; }
@@ -36,5 +37,7 @@ namespace RISING.STAR.DAL
         public virtual ICollection<InterventionEvent> InterventionEvents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Role> Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PatientsComment> PatientsComments { get; set; }
     }
 }

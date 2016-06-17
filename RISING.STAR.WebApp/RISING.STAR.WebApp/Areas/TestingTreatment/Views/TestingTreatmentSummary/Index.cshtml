@@ -1,4 +1,4 @@
-﻿
+﻿@model RISING.STAR.WebApp.Models.TreatmentHistory.TreatmentHistoryViewModel
 @{
     ViewBag.Title = "Treatment Summary";
     Layout = "~/Views/Shared/_LayoutInner.cshtml";
@@ -7,7 +7,114 @@
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
     <div class="row">
-        <h2>Index Testing Treatment Summary </h2>
+        <div class="col-md-6">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">Treatment history</div>
+                <div class="panel-body">
+
+                    @{
+                        if (Model.InterventionList != null && Model.InterventionList.Count() > 0)
+                        {
+
+                            var distc = Model.InterventionList.GroupBy(p => p.InterventionTypeGuid)
+                                                              .Select(g => g.First())
+                                                              .ToList();
+
+                            foreach (var item in distc)
+                            {
+
+                                var interventions = Model.InterventionList.Where(x => x.InterventionTypeGuid == item.InterventionTypeGuid);
+                                <h1>@item.InterventionDescription</h1>
+                                foreach (var interv in interventions)
+                                {
+                                    <p>@interv.InterventionDescription</p>
+                                    <p>@interv.Eye</p>
+                                    <p>@interv.InsertionDate</p>
+                                }
+                                <br />
+                            }
+
+                        }
+                        else
+                        {
+                            <h5>No data available</h5>
+                        }
+
+                    }
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Testing history</div>
+                <div class="panel-body">
+
+                    @{
+                        if (Model.Acquisitions != null && Model.Acquisitions.Count() > 0)
+                        {
+
+                            foreach (var item in Model.Acquisitions)
+                            {
+
+                                <p>@item.AcquisitionDescription</p>
+                                <p>@item.Eye</p>
+                                <p>@item.Date</p>
+
+                            }
+
+                        }
+                        else
+                        {
+                            <h5>No data available</h5>
+                        }
+
+                    }
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">Comments</div>
+                <div class="panel-body">
+
+                    @{
+                        if (Model.PatientsComments != null && Model.PatientsComments.Count() > 0)
+                        {
+
+                           
+                            foreach (var item in Model.PatientsComments)
+                            {
+
+                                <p>@item.Comment</p>
+                                <p>@item.Date</p>
+
+                            }
+
+                        }
+                        else
+                        {
+                            <h5>No data available</h5>
+                        }
+
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        
+        @*<div class="col-md-6">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">Consent forms</div>
+                <div class="panel-body">TO BE DEFINED</div>
+            </div>
+        </div>*@
     </div>
 
 </div>

@@ -85,6 +85,23 @@
     <Property Name="PKJ_Inlay_PixelCentroY" Type="float" />
     <Property Name="PKJ_Inlay_PixelRadio" Type="float" />
   </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FileType" Type="nvarchar" MaxLength="3" />
+    <Property Name="DocumentDate" Type="datetime" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="100" />
+    <Property Name="DeleteMoveDate" Type="datetime" />
+    <Property Name="DeleteMoveBy" Type="nvarchar" MaxLength="20" />
+    <Property Name="MovedToPatientId" Type="uniqueidentifier" />
+    <Property Name="DimX" Type="int" />
+    <Property Name="DimY" Type="int" />
+    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientDoc" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Exams_Table">
     <Key>
       <PropertyRef Name="Id" />
@@ -174,6 +191,16 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     <Property Name="E-MAIL" Type="nvarchar" MaxLength="50" />
     <Property Name="OBSERVATIONS" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="PatientsComment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="DoctorId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
   <EntityType Name="Permission">
     <Key>
       <PropertyRef Name="PermissionGUID" />
@@ -181,15 +208,6 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     <Property Name="PermissionGUID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PermissionDescription" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'RISINGSTAR.dbo.qryOSI' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="qryOSI">
-          <Property Name="FK_Id_Patient" Type="int" />
-          <Property Name="OS_OD" Type="nvarchar" MaxLength="1" />
-          <Property Name="OSI" Type="float" />
-          <Property Name="DATE" Type="datetime" />
-          <Property Name="HOUR" Type="datetime" />
-        </EntityType>-->
   <EntityType Name="Role">
     <Key>
       <PropertyRef Name="RoleGUID" />
@@ -207,11 +225,6 @@ warning 6013: The table/view 'RISINGSTAR.dbo.qryOSI' does not have a primary key
     <Property Name="RoleGUID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PermissionGUID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Struct">
-          <Property Name="LastChangeApplied" Type="int" />
-        </EntityType>-->
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -254,6 +267,30 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
       </Principal>
       <Dependent Role="Acquisitions_Table">
         <PropertyRef Name="FK_Guid_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Patients_Table">
+    <End Role="Patients_Table" Type="Self.Patients_Table" Multiplicity="1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients_Table">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Patients_Table1">
+    <End Role="Patients_Table" Type="Self.Patients_Table" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients_Table">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="MovedToPatientId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -341,6 +378,30 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_PatientsComment_Patients_Table">
+    <End Role="Patients_Table" Type="Self.Patients_Table" Multiplicity="1" />
+    <End Role="PatientsComment" Type="Self.PatientsComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patients_Table">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PatientsComment">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientsComment_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="PatientsComment" Type="Self.PatientsComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PatientsComment">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RolePermission_Permission">
     <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
     <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
@@ -392,6 +453,7 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
   <EntityContainer Name="RISINGSTARModelStoreContainer">
     <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Acquisitions_Table" EntityType="Self.Acquisitions_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Exams_Table" EntityType="Self.Exams_Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionCategory" EntityType="Self.InterventionCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionEvent" EntityType="Self.InterventionEvent" Schema="dbo" store:Type="Tables" />
@@ -399,6 +461,7 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
     <EntitySet Name="InterventionType" EntityType="Self.InterventionType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patients_Table" EntityType="Self.Patients_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientsComment" EntityType="Self.PatientsComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
@@ -415,6 +478,14 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
     <AssociationSet Name="FK_Acquisitions_Table_Patients_Table" Association="Self.FK_Acquisitions_Table_Patients_Table">
       <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Patients_Table" Association="Self.FK_Document_Patients_Table">
+      <End Role="Patients_Table" EntitySet="Patients_Table" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Patients_Table1" Association="Self.FK_Document_Patients_Table1">
+      <End Role="Patients_Table" EntitySet="Patients_Table" />
+      <End Role="Document" EntitySet="Document" />
     </AssociationSet>
     <AssociationSet Name="FK_Exams_Table_Patients_Table1" Association="Self.FK_Exams_Table_Patients_Table1">
       <End Role="Patients_Table" EntitySet="Patients_Table" />
@@ -443,6 +514,14 @@ warning 6013: The table/view 'RISINGSTAR.dbo.Struct' does not have a primary key
     <AssociationSet Name="FK_InterventionType_InterventionIcon" Association="Self.FK_InterventionType_InterventionIcon">
       <End Role="InterventionIcon" EntitySet="InterventionIcon" />
       <End Role="InterventionType" EntitySet="InterventionType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientsComment_Patients_Table" Association="Self.FK_PatientsComment_Patients_Table">
+      <End Role="Patients_Table" EntitySet="Patients_Table" />
+      <End Role="PatientsComment" EntitySet="PatientsComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientsComment_User" Association="Self.FK_PatientsComment_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="PatientsComment" EntitySet="PatientsComment" />
     </AssociationSet>
     <AssociationSet Name="FK_RolePermission_Permission" Association="Self.FK_RolePermission_Permission">
       <End Role="Permission" EntitySet="Permission" />

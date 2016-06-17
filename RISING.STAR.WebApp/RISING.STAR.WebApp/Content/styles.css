@@ -294,11 +294,11 @@ a.bg-danger:hover {
 }
 
 .panel-heading {
-	font-size: 18px;
+	font-size: 15px;
 	font-weight: 300;
-	letter-spacing: 0.025em;
+	letter-spacing: 0.025em;/*
 	height: 66px;
-	line-height: 45px;
+	line-height: 45px;*/
 }
 
 .panel-default .panel-heading {

@@ -56,6 +56,9 @@
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Document.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Exams_Table.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
@@ -75,6 +78,9 @@
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PatientsComment.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Patients_Table.cs">
