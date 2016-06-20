@@ -52,6 +52,7 @@
     <Compile Include="Charts\TrendlineData.cs" />
     <Compile Include="Patients\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\Result.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OSI\" />

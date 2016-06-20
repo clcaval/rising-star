@@ -301,6 +301,10 @@ a.bg-danger:hover {
 	line-height: 45px;*/
 }
 
+.panel-heading-sm {
+	font-size: 12px;
+}
+
 .panel-default .panel-heading {
 	background: #fff;
 	border-bottom: 1px solid #eee;
@@ -570,7 +574,7 @@ a.bg-danger:hover {
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: #fff;
 	background-color: #30a5ff;
-}*/
+}
 
 .sidebar ul.nav ul,
 .sidebar ul.nav ul li {
@@ -821,6 +825,10 @@ h1.page-header {
 /*Tables*/
 .table {
 	background: #fff;
+}
+
+.table-marginless {
+    margin-bottom: 8px;
 }
 
 .fixed-table-container {

@@ -30,7 +30,8 @@ namespace RISING.STAR.WebApp.Areas.TestingTreatment.Controllers
             var pat = new PatientBusiness();
 
             var ints = ib.GetAllEventsFromPatient(id);
-            var acqs = ia.RetrieveAcquisition(id);
+            var acqs = ia.RetrieveAcquisition(id).Where(x => x.Type_Num != null &&
+                                                                !String.IsNullOrEmpty(x.Type));
             var comms = pat.GetPatientComments(id);
 
             foreach (var item in ints)
@@ -52,6 +53,10 @@ namespace RISING.STAR.WebApp.Areas.TestingTreatment.Controllers
             }
 
             viewModel.PatientsComments = pat.GetPatientComments(id).ToList();
+
+            viewModel.Acquisitions.OrderByDescending(x => x.Date);
+            viewModel.InterventionList.OrderByDescending(x => x.InsertionDate);
+            viewModel.PatientsComments.OrderByDescending(x => x.Date);
 
             return View(viewModel);
 

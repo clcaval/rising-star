@@ -49,7 +49,6 @@ namespace RISING.STAR.WebApp.Models
     public class LoginViewModel
     {
         //[Required]
-        [Required]
         [Display(Name = "Location")]
         public string SelectedLocation { set; get; }
         public IEnumerable<System.Web.Mvc.SelectListItem> Locations { set; get; }

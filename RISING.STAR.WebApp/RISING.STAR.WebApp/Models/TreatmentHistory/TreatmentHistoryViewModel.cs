@@ -14,6 +14,9 @@ namespace RISING.STAR.WebApp.Models.TreatmentHistory
         public List<TreatmentHistoryIntervention> InterventionList { get; set; }
         public List<TreatmentHistoryAcquisition> Acquisitions { get; set; }
         public List<PatientsComment> PatientsComments { get; set; }
+
+        public String Comment { get; set; }
+        public Guid PatientId { get; set; }
         
         public TreatmentHistoryViewModel()
         {

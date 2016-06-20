@@ -1,0 +1,59 @@
+﻿@model IEnumerable<RISING.STAR.DAL.PatientsComment>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patients_Table.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Login)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patients_Table.NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Login)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CommentId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.CommentId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.CommentId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

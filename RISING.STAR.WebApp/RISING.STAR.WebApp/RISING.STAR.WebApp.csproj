@@ -200,6 +200,7 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PatientsCommentsController.cs" />
     <Compile Include="Controllers\PatientsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -285,10 +286,10 @@
     <Content Include="Images\PatientEd\normal_night_vision.jpg" />
     <Content Include="Images\PatientEd\cataract_illustration.jpg" />
     <Content Include="Images\PatientEd\cataract.jpg" />
-    <Content Include="Images\Treatment\ol-select.png" />
-    <Content Include="Images\Treatment\ol.png" />
-    <Content Include="Images\Treatment\or-select.png" />
-    <Content Include="Images\Treatment\or.png" />
+    <Content Include="Images\Treatment\os-select.png" />
+    <Content Include="Images\Treatment\os.png" />
+    <Content Include="Images\Treatment\od-select.png" />
+    <Content Include="Images\Treatment\od.png" />
     <Content Include="Scripts\app\AcuTargetMetrics\acuTargetGraph.js" />
     <Content Include="Scripts\app\Exam\exam.js" />
     <Content Include="Scripts\app\OSI\osi.js" />
@@ -296,6 +297,7 @@
     <Content Include="Scripts\app\OSI\osiTrendline.js" />
     <Content Include="Scripts\app\TearFilm\tearFilmCohort.js" />
     <Content Include="Scripts\app\TearFilm\tearFilmTrendline.js" />
+    <Content Include="Scripts\app\Treatment\treatment.js" />
     <Content Include="Scripts\highcharts\api\css\font-awesome.min.css" />
     <Content Include="Scripts\highcharts\api\css\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Scripts\highcharts\api\css\images\ui-bg_glass_75_dadada_1x400.png" />
@@ -736,6 +738,11 @@
     <Content Include="Areas\OSI\Views\ScatterReports\Index.cshtml" />
     <Content Include="Areas\AcuTargetMetrics\Views\AcuTargetMetrics\Graph.cshtml" />
     <Content Include="Views\Shared\_PatientDropdownList.cshtml" />
+    <Content Include="Views\PatientsComments\Create.cshtml" />
+    <Content Include="Views\PatientsComments\Delete.cshtml" />
+    <Content Include="Views\PatientsComments\Details.cshtml" />
+    <Content Include="Views\PatientsComments\Edit.cshtml" />
+    <Content Include="Views\PatientsComments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

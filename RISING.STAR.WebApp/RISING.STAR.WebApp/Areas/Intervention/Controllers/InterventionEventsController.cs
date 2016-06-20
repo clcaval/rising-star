@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 using RISING.STAR.DAL;
 using RISING.STAR.WebApp.Models.Intervention;
+using RISING.STAR.Entities.Results;
 
 namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
 {
@@ -187,21 +188,6 @@ namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
             return Edit(iEvent);
         }
 
-
-    }
-
-
-    public class Result
-    {
-
-        public string message { get; set; }
-        public string guid { get; set; }
-
-        public Result(string _message, string _guid)
-        {
-            message = _message;
-            guid = _guid;
-        }
 
     }
 

@@ -49,3 +49,10 @@ INSERT INTO [dbo].[InterventionType] ([InterventionGuid], [CategoryGuid],[Descri
 INSERT INTO [dbo].[InterventionType] ([InterventionGuid], [CategoryGuid],[Description],[Rank],[InterventionTag],[IconGuid]) VALUES (newid(), 'DC6DC7FA-A28E-4A28-BC4E-FA51569C9F41', 'Punctal Plugs - Collagen - Upper and Lower Lid 30 days',8190,8190,'9B1A3A82-76D6-4BF2-9226-DCD670EAFED6');
 INSERT INTO [dbo].[InterventionType] ([InterventionGuid], [CategoryGuid],[Description],[Rank],[InterventionTag],[IconGuid]) VALUES (newid(), 'DC6DC7FA-A28E-4A28-BC4E-FA51569C9F41', 'Punctal Plugs - Collagen - Upper and Lower Lid 60 days',8191,8191,'9B1A3A82-76D6-4BF2-9226-DCD670EAFED6');
 INSERT INTO [dbo].[InterventionType] ([InterventionGuid], [CategoryGuid],[Description],[Rank],[InterventionTag],[IconGuid]) VALUES (newid(), 'DC6DC7FA-A28E-4A28-BC4E-FA51569C9F41', 'Punctal Plugs - Collagen -Upper and Lower Lid 90 days',8193,8193,'9B1A3A82-76D6-4BF2-9226-DCD670EAFED6');
+
+
+Use RISINGSTAR
+INSERT INTO [dbo].[InterventionType] ([InterventionGuid], [CategoryGuid],[Description],[Rank],[InterventionTag],[IconGuid]) VALUES (newid(), '55464CBC-0CA9-4AA1-92DA-C55D570A30D9', 'Restasis BID',9000,9000,'F782AA08-0B7F-49A7-BB05-585413D388E4');
+INSERT INTO [dbo].[InterventionType] ([InterventionGuid], [CategoryGuid],[Description],[Rank],[InterventionTag],[IconGuid]) VALUES (newid(), '55464CBC-0CA9-4AA1-92DA-C55D570A30D9', 'Restasis qd',9010,9010,'F782AA08-0B7F-49A7-BB05-585413D388E4');
+INSERT INTO [dbo].[InterventionType] ([InterventionGuid], [CategoryGuid],[Description],[Rank],[InterventionTag],[IconGuid]) VALUES (newid(), '55464CBC-0CA9-4AA1-92DA-C55D570A30D9', 'Cyclosporine 0.1% BID',9020,9020,'F782AA08-0B7F-49A7-BB05-585413D388E4');
+INSERT INTO [dbo].[InterventionType] ([InterventionGuid], [CategoryGuid],[Description],[Rank],[InterventionTag],[IconGuid]) VALUES (newid(), '55464CBC-0CA9-4AA1-92DA-C55D570A30D9', 'Cyclosporine 0.1% qd',9040,9040,'F782AA08-0B7F-49A7-BB05-585413D388E4');
