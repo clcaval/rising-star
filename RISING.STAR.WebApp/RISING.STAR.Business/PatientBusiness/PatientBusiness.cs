@@ -9,15 +9,8 @@ using RISING.STAR.Entities.Patients;
 
 namespace RISING.STAR.Business.PatientBusiness
 {
-    public class PatientBusiness
+    public class PatientBusiness : BusinessBase
     {
-
-        private RISINGSTAREntities dbContext;
-
-        public PatientBusiness()
-        {
-            dbContext = new RISINGSTAREntities();
-        }
 
         public List<Patient> RetrieveAllPatients()
         {
@@ -32,6 +25,11 @@ namespace RISING.STAR.Business.PatientBusiness
         public IEnumerable<PatientsComment> GetPatientComments(Guid patientId)
         {
             return dbContext.PatientsComments.Where(x => x.PatientId == patientId);
+        }
+
+        public IEnumerable<Document> GetPatientDocuments(Guid patientId)
+        {
+            return dbContext.Documents.Where(x => x.PatientId == patientId);
         }
         
     }

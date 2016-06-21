@@ -24,7 +24,6 @@ namespace RISING.STAR.DAL
         public Nullable<System.Guid> MovedToPatientId { get; set; }
         public Nullable<int> DimX { get; set; }
         public Nullable<int> DimY { get; set; }
-        public System.Guid UniqueId { get; set; }
         public byte[] PatientDoc { get; set; }
     
         public virtual Patients_Table Patients_Table { get; set; }

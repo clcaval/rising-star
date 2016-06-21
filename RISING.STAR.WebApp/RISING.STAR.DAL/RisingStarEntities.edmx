@@ -104,7 +104,6 @@
           <Property Name="MovedToPatientId" Type="uniqueidentifier" />
           <Property Name="DimX" Type="int" />
           <Property Name="DimY" Type="int" />
-          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PatientDoc" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Exams_Table">
@@ -604,16 +603,7 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
             <End Role="Role" EntitySet="Roles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <EntitySet Name="Documents" EntityType="RISINGSTARModel.Document" />
           <EntitySet Name="PatientsComments" EntityType="RISINGSTARModel.PatientsComment" />
-          <AssociationSet Name="FK_Document_Patients_Table" Association="RISINGSTARModel.FK_Document_Patients_Table">
-            <End Role="Patients_Table" EntitySet="Patients_Table" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Document_Patients_Table1" Association="RISINGSTARModel.FK_Document_Patients_Table1">
-            <End Role="Patients_Table" EntitySet="Patients_Table" />
-            <End Role="Document" EntitySet="Documents" />
-          </AssociationSet>
           <AssociationSet Name="FK_PatientsComment_Patients_Table" Association="RISINGSTARModel.FK_PatientsComment_Patients_Table">
             <End Role="Patients_Table" EntitySet="Patients_Table" />
             <End Role="PatientsComment" EntitySet="PatientsComments" />
@@ -621,6 +611,15 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
           <AssociationSet Name="FK_PatientsComment_User" Association="RISINGSTARModel.FK_PatientsComment_User">
             <End Role="User" EntitySet="Users" />
             <End Role="PatientsComment" EntitySet="PatientsComments" />
+          </AssociationSet>
+          <EntitySet Name="Documents" EntityType="RISINGSTARModel.Document" />
+          <AssociationSet Name="FK_Document_Patients_Table" Association="RISINGSTARModel.FK_Document_Patients_Table">
+            <End Role="Patients_Table" EntitySet="Patients_Table" />
+            <End Role="Document" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Document_Patients_Table1" Association="RISINGSTARModel.FK_Document_Patients_Table1">
+            <End Role="Patients_Table" EntitySet="Patients_Table" />
+            <End Role="Document" EntitySet="Documents" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="C__MigrationHistory">
@@ -801,9 +800,9 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
           <NavigationProperty Name="Acquisitions_Table" Relationship="RISINGSTARModel.FK_Acquisitions_Table_Patients_Table" FromRole="Patients_Table" ToRole="Acquisitions_Table" />
           <NavigationProperty Name="Exams_Table" Relationship="RISINGSTARModel.FK_Exams_Table_Patients_Table1" FromRole="Patients_Table" ToRole="Exams_Table" />
           <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_Patients_Table" FromRole="Patients_Table" ToRole="InterventionEvent" />
+          <NavigationProperty Name="PatientsComments" Relationship="RISINGSTARModel.FK_PatientsComment_Patients_Table" FromRole="Patients_Table" ToRole="PatientsComment" />
           <NavigationProperty Name="Documents" Relationship="RISINGSTARModel.FK_Document_Patients_Table" FromRole="Patients_Table" ToRole="Document" />
           <NavigationProperty Name="Documents1" Relationship="RISINGSTARModel.FK_Document_Patients_Table1" FromRole="Patients_Table" ToRole="Document" />
-          <NavigationProperty Name="PatientsComments" Relationship="RISINGSTARModel.FK_PatientsComment_Patients_Table" FromRole="Patients_Table" ToRole="PatientsComment" />
         </EntityType>
         <EntityType Name="Permission">
           <Key>
@@ -964,6 +963,42 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
           <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
           <End Type="RISINGSTARModel.User" Role="User" Multiplicity="*" />
         </Association>
+        <EntityType Name="PatientsComment">
+          <Key>
+            <PropertyRef Name="CommentId" />
+          </Key>
+          <Property Name="CommentId" Type="Guid" Nullable="false" />
+          <Property Name="PatientId" Type="Guid" Nullable="false" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DoctorId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_PatientsComment_Patients_Table" FromRole="PatientsComment" ToRole="Patients_Table" />
+          <NavigationProperty Name="User" Relationship="RISINGSTARModel.FK_PatientsComment_User" FromRole="PatientsComment" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_PatientsComment_Patients_Table">
+          <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
+          <End Type="RISINGSTARModel.PatientsComment" Role="PatientsComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients_Table">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="PatientsComment">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientsComment_User">
+          <End Type="RISINGSTARModel.User" Role="User" Multiplicity="1" />
+          <End Type="RISINGSTARModel.PatientsComment" Role="PatientsComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Guid" />
+            </Principal>
+            <Dependent Role="PatientsComment">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="Document">
           <Key>
             <PropertyRef Name="DocumentId" />
@@ -978,22 +1013,9 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
           <Property Name="MovedToPatientId" Type="Guid" />
           <Property Name="DimX" Type="Int32" />
           <Property Name="DimY" Type="Int32" />
-          <Property Name="UniqueId" Type="Guid" Nullable="false" />
           <Property Name="PatientDoc" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_Document_Patients_Table" FromRole="Document" ToRole="Patients_Table" />
           <NavigationProperty Name="Patients_Table1" Relationship="RISINGSTARModel.FK_Document_Patients_Table1" FromRole="Document" ToRole="Patients_Table" />
-        </EntityType>
-        <EntityType Name="PatientsComment">
-          <Key>
-            <PropertyRef Name="CommentId" />
-          </Key>
-          <Property Name="CommentId" Type="Guid" Nullable="false" />
-          <Property Name="PatientId" Type="Guid" Nullable="false" />
-          <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DoctorId" Type="Guid" Nullable="false" />
-          <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_PatientsComment_Patients_Table" FromRole="PatientsComment" ToRole="Patients_Table" />
-          <NavigationProperty Name="User" Relationship="RISINGSTARModel.FK_PatientsComment_User" FromRole="PatientsComment" ToRole="User" />
         </EntityType>
         <Association Name="FK_Document_Patients_Table">
           <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
@@ -1016,30 +1038,6 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
             </Principal>
             <Dependent Role="Document">
               <PropertyRef Name="MovedToPatientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PatientsComment_Patients_Table">
-          <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
-          <End Type="RISINGSTARModel.PatientsComment" Role="PatientsComment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Patients_Table">
-              <PropertyRef Name="Guid" />
-            </Principal>
-            <Dependent Role="PatientsComment">
-              <PropertyRef Name="PatientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PatientsComment_User">
-          <End Type="RISINGSTARModel.User" Role="User" Multiplicity="1" />
-          <End Type="RISINGSTARModel.PatientsComment" Role="PatientsComment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Guid" />
-            </Principal>
-            <Dependent Role="PatientsComment">
-              <PropertyRef Name="DoctorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1291,11 +1289,21 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
               <ScalarProperty Name="RoleGUID" ColumnName="RoleGUID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="PatientsComments">
+            <EntityTypeMapping TypeName="RISINGSTARModel.PatientsComment">
+              <MappingFragment StoreEntitySet="PatientsComment">
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Documents">
             <EntityTypeMapping TypeName="RISINGSTARModel.Document">
               <MappingFragment StoreEntitySet="Document">
                 <ScalarProperty Name="PatientDoc" ColumnName="PatientDoc" />
-                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
                 <ScalarProperty Name="DimY" ColumnName="DimY" />
                 <ScalarProperty Name="DimX" ColumnName="DimX" />
                 <ScalarProperty Name="MovedToPatientId" ColumnName="MovedToPatientId" />
@@ -1306,17 +1314,6 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
                 <ScalarProperty Name="FileType" ColumnName="FileType" />
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
                 <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PatientsComments">
-            <EntityTypeMapping TypeName="RISINGSTARModel.PatientsComment">
-              <MappingFragment StoreEntitySet="PatientsComment">
-                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

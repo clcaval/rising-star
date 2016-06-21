@@ -7,19 +7,12 @@ using System;
 
 namespace RISING.STAR.Business.AcuDataMetrics
 {
-    public class AcuTargetMetricsBusiness
+    public class AcuTargetMetricsBusiness : BusinessBase
     {
-
-        private RISINGSTAREntities dbContext;
-
-        public AcuTargetMetricsBusiness() 
-        {
-            dbContext = new RISINGSTAREntities();
-        }
-    
+           
         private IEnumerable<Acquisitions_Table> RetrieveAcquisitionsFromPatient(Guid patientId)
         {
-            return dbContext.Acquisitions_Table.Where(x => x.FK_Guid_Patient == patientId);
+            return this.dbContext.Acquisitions_Table.Where(x => x.FK_Guid_Patient == patientId);
         }
 
         public List<ObjectiveScatterIndex> RetrieveOSI(Guid patientId)

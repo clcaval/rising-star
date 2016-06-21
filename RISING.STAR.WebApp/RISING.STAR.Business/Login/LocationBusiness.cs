@@ -8,14 +8,8 @@ using RISING.STAR.DAL;
 
 namespace RISING.STAR.Business.Login
 {
-    public class LocationBusiness
+    public class LocationBusiness : BusinessBase
     {
-        private RISINGSTAREntities dbContext;
-
-        public LocationBusiness()
-        {
-            dbContext = new RISINGSTAREntities();
-        }
         
         public IEnumerable<Location> RetrieveLocations()
         {

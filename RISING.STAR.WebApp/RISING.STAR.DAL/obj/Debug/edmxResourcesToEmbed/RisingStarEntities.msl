@@ -243,11 +243,21 @@
         <ScalarProperty Name="RoleGUID" ColumnName="RoleGUID" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="PatientsComments">
+      <EntityTypeMapping TypeName="RISINGSTARModel.PatientsComment">
+        <MappingFragment StoreEntitySet="PatientsComment">
+          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Documents">
       <EntityTypeMapping TypeName="RISINGSTARModel.Document">
         <MappingFragment StoreEntitySet="Document">
           <ScalarProperty Name="PatientDoc" ColumnName="PatientDoc" />
-          <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
           <ScalarProperty Name="DimY" ColumnName="DimY" />
           <ScalarProperty Name="DimX" ColumnName="DimX" />
           <ScalarProperty Name="MovedToPatientId" ColumnName="MovedToPatientId" />
@@ -258,17 +268,6 @@
           <ScalarProperty Name="FileType" ColumnName="FileType" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
           <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="PatientsComments">
-      <EntityTypeMapping TypeName="RISINGSTARModel.PatientsComment">
-        <MappingFragment StoreEntitySet="PatientsComment">
-          <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="Comment" ColumnName="Comment" />
-          <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-          <ScalarProperty Name="CommentId" ColumnName="CommentId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

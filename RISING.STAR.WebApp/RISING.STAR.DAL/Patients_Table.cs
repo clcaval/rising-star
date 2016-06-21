@@ -20,9 +20,9 @@ namespace RISING.STAR.DAL
             this.Acquisitions_Table = new HashSet<Acquisitions_Table>();
             this.Exams_Table = new HashSet<Exams_Table>();
             this.InterventionEvents = new HashSet<InterventionEvent>();
+            this.PatientsComments = new HashSet<PatientsComment>();
             this.Documents = new HashSet<Document>();
             this.Documents1 = new HashSet<Document>();
-            this.PatientsComments = new HashSet<PatientsComment>();
         }
     
         public int Id { get; set; }
@@ -47,10 +47,10 @@ namespace RISING.STAR.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InterventionEvent> InterventionEvents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PatientsComment> PatientsComments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Document> Documents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Document> Documents1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PatientsComment> PatientsComments { get; set; }
     }
 }

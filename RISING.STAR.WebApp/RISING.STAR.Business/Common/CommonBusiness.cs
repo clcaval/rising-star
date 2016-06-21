@@ -8,16 +8,8 @@ using RISING.STAR.DAL;
 
 namespace RISING.STAR.Business.Common
 {
-    public class CommonBusiness
+    public class CommonBusiness : BusinessBase
     {
-
-        private RISINGSTAREntities dbContext;
-
-        public CommonBusiness()
-        {
-            dbContext = new RISINGSTAREntities();
-        }
-
 
     }
 }

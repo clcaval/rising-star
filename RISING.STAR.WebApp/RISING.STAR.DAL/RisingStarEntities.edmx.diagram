@@ -29,12 +29,12 @@
         <AssociationConnector Association="RISINGSTARModel.FK_InterventionType_InterventionIcon" />
         <AssociationConnector Association="RISINGSTARModel.RolePermission" />
         <AssociationConnector Association="RISINGSTARModel.UserRole" />
-        <EntityTypeShape EntityType="RISINGSTARModel.Document" Width="1.5" PointX="3" PointY="37.625" />
         <EntityTypeShape EntityType="RISINGSTARModel.PatientsComment" Width="1.5" PointX="8" PointY="8" />
-        <AssociationConnector Association="RISINGSTARModel.FK_Document_Patients_Table" />
-        <AssociationConnector Association="RISINGSTARModel.FK_Document_Patients_Table1" />
         <AssociationConnector Association="RISINGSTARModel.FK_PatientsComment_Patients_Table" />
         <AssociationConnector Association="RISINGSTARModel.FK_PatientsComment_User" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Document" Width="1.5" PointX="3" PointY="37.5" />
+        <AssociationConnector Association="RISINGSTARModel.FK_Document_Patients_Table" />
+        <AssociationConnector Association="RISINGSTARModel.FK_Document_Patients_Table1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

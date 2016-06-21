@@ -11,7 +11,6 @@
             modal: $("#myModal"),
             btnSave: $("#btnSave"),
             txtComm: $("#txtComment")
-           
 
         },
 
@@ -72,9 +71,7 @@
             {
 
                 s.btnSave.on('click', function () {
-
-                    // CommentId,PatientId,Comment,Date,DoctorId
-
+                    
                     var data = {
                         CommentId: "",
                         PatientId: $("#Patient").val(),

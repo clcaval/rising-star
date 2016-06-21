@@ -99,7 +99,6 @@
     <Property Name="MovedToPatientId" Type="uniqueidentifier" />
     <Property Name="DimX" Type="int" />
     <Property Name="DimY" Type="int" />
-    <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PatientDoc" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Exams_Table">
