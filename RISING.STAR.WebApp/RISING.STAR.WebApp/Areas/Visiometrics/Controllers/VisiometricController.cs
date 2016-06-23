@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using RISING.STAR.WebApp.Models.Visiometrics;
+using RISING.STAR.WebApp.Areas.Visiometrics.Models;
 using RISING.STAR.Business.PatientBusiness;
 
 namespace RISING.STAR.WebApp.Areas.Visiometrics.Controllers
@@ -25,6 +25,7 @@ namespace RISING.STAR.WebApp.Areas.Visiometrics.Controllers
                 var document = new Document();
                 document.DocumentId = item.DocumentId;
                 document.DocumentName = item.FileName;
+                document.DocumentDate = item.DocumentDate;
                 list.Add(document);
             }
 

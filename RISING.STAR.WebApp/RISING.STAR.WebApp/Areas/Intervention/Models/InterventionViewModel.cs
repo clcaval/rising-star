@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 using RISING.STAR.DAL;
 
-namespace RISING.STAR.WebApp.Models.Intervention
+namespace RISING.STAR.WebApp.Areas.Intervention.Models
 {
     public class InterventionViewModel
     {

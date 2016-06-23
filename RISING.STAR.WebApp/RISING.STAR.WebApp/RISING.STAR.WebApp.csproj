@@ -191,8 +191,11 @@
     <Compile Include="Areas\UserAndRole\Controllers\RolesController.cs" />
     <Compile Include="Areas\UserAndRole\Controllers\UsersController.cs" />
     <Compile Include="Areas\UserAndRole\UserAndRoleAreaRegistration.cs" />
+    <Compile Include="Areas\Visiometrics\Controllers\CentrationAnalysisController.cs" />
     <Compile Include="Areas\Visiometrics\Controllers\CompareVisiometricsController.cs" />
     <Compile Include="Areas\Visiometrics\Controllers\KAMRAOutcomesController.cs" />
+    <Compile Include="Areas\Visiometrics\Controllers\NearVisionVsCordLengthController.cs" />
+    <Compile Include="Areas\Visiometrics\Controllers\NearVisionVsTearFilmOSIController.cs" />
     <Compile Include="Areas\Visiometrics\Controllers\VisiometricController.cs" />
     <Compile Include="Areas\Visiometrics\VisiometricsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -210,16 +213,16 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Intervention\InterventionEventViewModel.cs" />
-    <Compile Include="Models\Intervention\InterventionViewModel.cs" />
-    <Compile Include="Models\OSI\OSIReportViewModel.cs" />
+    <Compile Include="Areas\Intervention\Models\InterventionEventViewModel.cs" />
+    <Compile Include="Areas\Intervention\Models\InterventionViewModel.cs" />
+    <Compile Include="Areas\OSI\Models\OSIReportViewModel.cs" />
     <Compile Include="Models\RBAC_Model.cs" />
-    <Compile Include="Models\TreatmentHistory\TreatmentHistoryAcquisition.cs" />
-    <Compile Include="Models\TreatmentHistory\TreatmentHistoryIntervention.cs" />
-    <Compile Include="Models\TreatmentHistory\TreatmentHistoryViewModel.cs" />
-    <Compile Include="Models\Visiometrics\CompareVisiometricsViewModel.cs" />
-    <Compile Include="Models\Visiometrics\Document.cs" />
-    <Compile Include="Models\Visiometrics\VisiometricsViewModel.cs" />
+    <Compile Include="Areas\TestingTreatment\Models\TreatmentHistoryAcquisition.cs" />
+    <Compile Include="Areas\TestingTreatment\Models\TreatmentHistoryIntervention.cs" />
+    <Compile Include="Areas\TestingTreatment\Models\TreatmentHistoryViewModel.cs" />
+    <Compile Include="Areas\Visiometrics\Models\CompareVisiometricsViewModel.cs" />
+    <Compile Include="Areas\Visiometrics\Models\Document.cs" />
+    <Compile Include="Areas\Visiometrics\Models\VisiometricsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -295,12 +298,14 @@
     <Content Include="Images\Treatment\od.png" />
     <Content Include="Scripts\app\AcuTargetMetrics\acuTargetGraph.js" />
     <Content Include="Scripts\app\Exam\exam.js" />
+    <Content Include="Scripts\app\KAMRAOutcomes\kamraOutcomes.js" />
     <Content Include="Scripts\app\OSI\osi.js" />
     <Content Include="Scripts\app\OSI\osiReport.js" />
     <Content Include="Scripts\app\OSI\osiTrendline.js" />
     <Content Include="Scripts\app\TearFilm\tearFilmCohort.js" />
     <Content Include="Scripts\app\TearFilm\tearFilmTrendline.js" />
     <Content Include="Scripts\app\Treatment\treatment.js" />
+    <Content Include="Scripts\app\Visiometrics\compareVisiometrics.js" />
     <Content Include="Scripts\app\Visiometrics\visiometrics.js" />
     <Content Include="Scripts\highcharts\api\css\font-awesome.min.css" />
     <Content Include="Scripts\highcharts\api\css\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -557,6 +562,9 @@
     <Content Include="Areas\UserAndRole\Views\Permissions\Edit.cshtml" />
     <Content Include="Areas\UserAndRole\Views\Permissions\Index.cshtml" />
     <Content Include="Files\Exams\FS_1.pdf" />
+    <Content Include="Areas\Visiometrics\Views\CentrationAnalysis\Index.cshtml" />
+    <Content Include="Areas\Visiometrics\Views\NearVisionVsCordLength\Index.cshtml" />
+    <Content Include="Areas\Visiometrics\Views\NearVisionVsTearFilmOSI\Index.cshtml" />
     <None Include="Properties\PublishProfiles\rsCaioPublish.pubxml" />
     <Content Include="Scripts\d3\.npmignore" />
     <Content Include="Scripts\d3\.spmignore" />
@@ -756,20 +764,15 @@
     <Folder Include="Areas\AcuTargetMetrics\Views\Shared\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Intervention\Models\" />
     <Folder Include="Areas\Intervention\Views\InterventionEventViewModel\" />
     <Folder Include="Areas\Intervention\Views\Shared\" />
-    <Folder Include="Areas\OSI\Models\" />
     <Folder Include="Areas\OSI\Views\Shared\" />
     <Folder Include="Areas\PatientEd\Models\" />
     <Folder Include="Areas\PatientEd\Views\Shared\" />
     <Folder Include="Areas\TearFilm\Models\" />
-    <Folder Include="Areas\TestingTreatment\Models\" />
     <Folder Include="Areas\UserAndRole\Models\" />
     <Folder Include="Areas\UserAndRole\Views\Shared\" />
-    <Folder Include="Areas\Visiometrics\Models\" />
     <Folder Include="Areas\Visiometrics\Views\Shared\" />
-    <Folder Include="Views\InterventionViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

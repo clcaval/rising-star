@@ -1,20 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="RISINGSTARModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="RISINGSTAREntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="C__MigrationHistory" EntityType="RISINGSTARModel.C__MigrationHistory" />
     <EntitySet Name="Acquisitions_Table" EntityType="RISINGSTARModel.Acquisitions_Table" />
     <EntitySet Name="Exams_Table" EntityType="RISINGSTARModel.Exams_Table" />
+    <EntitySet Name="ExamTypes" EntityType="RISINGSTARModel.ExamType" />
     <EntitySet Name="InterventionCategories" EntityType="RISINGSTARModel.InterventionCategory" />
     <EntitySet Name="InterventionEvents" EntityType="RISINGSTARModel.InterventionEvent" />
     <EntitySet Name="InterventionIcons" EntityType="RISINGSTARModel.InterventionIcon" />
     <EntitySet Name="InterventionTypes" EntityType="RISINGSTARModel.InterventionType" />
     <EntitySet Name="Locations" EntityType="RISINGSTARModel.Location" />
     <EntitySet Name="Patients_Table" EntityType="RISINGSTARModel.Patients_Table" />
+    <EntitySet Name="PatientsComments" EntityType="RISINGSTARModel.PatientsComment" />
     <EntitySet Name="Permissions" EntityType="RISINGSTARModel.Permission" />
     <EntitySet Name="Roles" EntityType="RISINGSTARModel.Role" />
-    <EntitySet Name="sysdiagrams" EntityType="RISINGSTARModel.sysdiagram" />
     <EntitySet Name="Users" EntityType="RISINGSTARModel.User" />
-    <EntitySet Name="List_Of_Patients" EntityType="RISINGSTARModel.List_Of_Patients" />
+    <AssociationSet Name="FK_Acquisitions_Table_ExamType" Association="RISINGSTARModel.FK_Acquisitions_Table_ExamType">
+      <End Role="ExamType" EntitySet="ExamTypes" />
+      <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
+    </AssociationSet>
     <AssociationSet Name="FK_Acquisitions_Table_Patients_Table" Association="RISINGSTARModel.FK_Acquisitions_Table_Patients_Table">
       <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
@@ -47,15 +50,6 @@
       <End Role="InterventionIcon" EntitySet="InterventionIcons" />
       <End Role="InterventionType" EntitySet="InterventionTypes" />
     </AssociationSet>
-    <AssociationSet Name="RolePermission" Association="RISINGSTARModel.RolePermission">
-      <End Role="Permission" EntitySet="Permissions" />
-      <End Role="Role" EntitySet="Roles" />
-    </AssociationSet>
-    <AssociationSet Name="UserRole" Association="RISINGSTARModel.UserRole">
-      <End Role="Role" EntitySet="Roles" />
-      <End Role="User" EntitySet="Users" />
-    </AssociationSet>
-    <EntitySet Name="PatientsComments" EntityType="RISINGSTARModel.PatientsComment" />
     <AssociationSet Name="FK_PatientsComment_Patients_Table" Association="RISINGSTARModel.FK_PatientsComment_Patients_Table">
       <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="PatientsComment" EntitySet="PatientsComments" />
@@ -64,7 +58,19 @@
       <End Role="User" EntitySet="Users" />
       <End Role="PatientsComment" EntitySet="PatientsComments" />
     </AssociationSet>
+    <AssociationSet Name="RolePermission" Association="RISINGSTARModel.RolePermission">
+      <End Role="Permission" EntitySet="Permissions" />
+      <End Role="Role" EntitySet="Roles" />
+    </AssociationSet>
+    <AssociationSet Name="UserRole" Association="RISINGSTARModel.UserRole">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
     <EntitySet Name="Documents" EntityType="RISINGSTARModel.Document" />
+    <AssociationSet Name="FK_Document_ExamType" Association="RISINGSTARModel.FK_Document_ExamType">
+      <End Role="ExamType" EntitySet="ExamTypes" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
     <AssociationSet Name="FK_Document_Patients_Table" Association="RISINGSTARModel.FK_Document_Patients_Table">
       <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="Document" EntitySet="Documents" />
@@ -74,16 +80,6 @@
       <End Role="Document" EntitySet="Documents" />
     </AssociationSet>
   </EntityContainer>
-  <EntityType Name="C__MigrationHistory">
-    <Key>
-      <PropertyRef Name="MigrationId" />
-      <PropertyRef Name="ContextKey" />
-    </Key>
-    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="Acquisitions_Table">
     <Key>
       <PropertyRef Name="Guid" />
@@ -158,6 +154,7 @@
     <Property Name="PKJ_Inlay_PixelCentroX" Type="Double" />
     <Property Name="PKJ_Inlay_PixelCentroY" Type="Double" />
     <Property Name="PKJ_Inlay_PixelRadio" Type="Double" />
+    <NavigationProperty Name="ExamType" Relationship="RISINGSTARModel.FK_Acquisitions_Table_ExamType" FromRole="Acquisitions_Table" ToRole="ExamType" />
     <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_Acquisitions_Table_Patients_Table" FromRole="Acquisitions_Table" ToRole="Patients_Table" />
   </EntityType>
   <EntityType Name="Exams_Table">
@@ -175,6 +172,16 @@
     <Property Name="OS_Cyl" Type="Single" Nullable="false" />
     <Property Name="OS_Axis" Type="Int16" Nullable="false" />
     <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_Exams_Table_Patients_Table1" FromRole="Exams_Table" ToRole="Patients_Table" />
+  </EntityType>
+  <EntityType Name="ExamType">
+    <Key>
+      <PropertyRef Name="ExamTypeId" />
+    </Key>
+    <Property Name="ExamTypeId" Type="Int16" Nullable="false" />
+    <Property Name="ExamTypeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExamTypeAcronym" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Acquisitions_Table" Relationship="RISINGSTARModel.FK_Acquisitions_Table_ExamType" FromRole="ExamType" ToRole="Acquisitions_Table" />
+    <NavigationProperty Name="Documents" Relationship="RISINGSTARModel.FK_Document_ExamType" FromRole="ExamType" ToRole="Document" />
   </EntityType>
   <EntityType Name="InterventionCategory">
     <Key>
@@ -256,6 +263,18 @@
     <NavigationProperty Name="Documents" Relationship="RISINGSTARModel.FK_Document_Patients_Table" FromRole="Patients_Table" ToRole="Document" />
     <NavigationProperty Name="Documents1" Relationship="RISINGSTARModel.FK_Document_Patients_Table1" FromRole="Patients_Table" ToRole="Document" />
   </EntityType>
+  <EntityType Name="PatientsComment">
+    <Key>
+      <PropertyRef Name="CommentId" />
+    </Key>
+    <Property Name="CommentId" Type="Guid" Nullable="false" />
+    <Property Name="PatientId" Type="Guid" Nullable="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DoctorId" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_PatientsComment_Patients_Table" FromRole="PatientsComment" ToRole="Patients_Table" />
+    <NavigationProperty Name="User" Relationship="RISINGSTARModel.FK_PatientsComment_User" FromRole="PatientsComment" ToRole="User" />
+  </EntityType>
   <EntityType Name="Permission">
     <Key>
       <PropertyRef Name="PermissionGUID" />
@@ -275,16 +294,6 @@
     <NavigationProperty Name="Permissions" Relationship="RISINGSTARModel.RolePermission" FromRole="Role" ToRole="Permission" />
     <NavigationProperty Name="Users" Relationship="RISINGSTARModel.UserRole" FromRole="Role" ToRole="User" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Guid" />
@@ -300,17 +309,21 @@
     <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ResetPassword" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_User" FromRole="User" ToRole="InterventionEvent" />
-    <NavigationProperty Name="Roles" Relationship="RISINGSTARModel.UserRole" FromRole="User" ToRole="Role" />
     <NavigationProperty Name="PatientsComments" Relationship="RISINGSTARModel.FK_PatientsComment_User" FromRole="User" ToRole="PatientsComment" />
+    <NavigationProperty Name="Roles" Relationship="RISINGSTARModel.UserRole" FromRole="User" ToRole="Role" />
   </EntityType>
-  <EntityType Name="List_Of_Patients">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="PATIENTS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="REFERENCE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-  </EntityType>
+  <Association Name="FK_Acquisitions_Table_ExamType">
+    <End Type="RISINGSTARModel.ExamType" Role="ExamType" Multiplicity="0..1" />
+    <End Type="RISINGSTARModel.Acquisitions_Table" Role="Acquisitions_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamType">
+        <PropertyRef Name="ExamTypeId" />
+      </Principal>
+      <Dependent Role="Acquisitions_Table">
+        <PropertyRef Name="Type_Num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Acquisitions_Table_Patients_Table">
     <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
     <End Type="RISINGSTARModel.Acquisitions_Table" Role="Acquisitions_Table" Multiplicity="*" />
@@ -407,26 +420,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="RolePermission">
-    <End Type="RISINGSTARModel.Permission" Role="Permission" Multiplicity="*" />
-    <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
-  </Association>
-  <Association Name="UserRole">
-    <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
-    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="*" />
-  </Association>
-  <EntityType Name="PatientsComment">
-    <Key>
-      <PropertyRef Name="CommentId" />
-    </Key>
-    <Property Name="CommentId" Type="Guid" Nullable="false" />
-    <Property Name="PatientId" Type="Guid" Nullable="false" />
-    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DoctorId" Type="Guid" Nullable="false" />
-    <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_PatientsComment_Patients_Table" FromRole="PatientsComment" ToRole="Patients_Table" />
-    <NavigationProperty Name="User" Relationship="RISINGSTARModel.FK_PatientsComment_User" FromRole="PatientsComment" ToRole="User" />
-  </EntityType>
   <Association Name="FK_PatientsComment_Patients_Table">
     <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
     <End Type="RISINGSTARModel.PatientsComment" Role="PatientsComment" Multiplicity="*" />
@@ -451,6 +444,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="RolePermission">
+    <End Type="RISINGSTARModel.Permission" Role="Permission" Multiplicity="*" />
+    <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
+  </Association>
+  <Association Name="UserRole">
+    <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
+    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="*" />
+  </Association>
   <EntityType Name="Document">
     <Key>
       <PropertyRef Name="DocumentId" />
@@ -458,7 +459,7 @@
     <Property Name="DocumentId" Type="Guid" Nullable="false" />
     <Property Name="PatientId" Type="Guid" Nullable="false" />
     <Property Name="FileType" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
-    <Property Name="DocumentDate" Type="DateTime" Precision="3" />
+    <Property Name="DocumentDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DeleteMoveDate" Type="DateTime" Precision="3" />
     <Property Name="DeleteMoveBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -466,9 +467,24 @@
     <Property Name="DimX" Type="Int32" />
     <Property Name="DimY" Type="Int32" />
     <Property Name="PatientDoc" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Eye" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ExamType" Type="Int16" />
+    <NavigationProperty Name="ExamType1" Relationship="RISINGSTARModel.FK_Document_ExamType" FromRole="Document" ToRole="ExamType" />
     <NavigationProperty Name="Patients_Table" Relationship="RISINGSTARModel.FK_Document_Patients_Table" FromRole="Document" ToRole="Patients_Table" />
     <NavigationProperty Name="Patients_Table1" Relationship="RISINGSTARModel.FK_Document_Patients_Table1" FromRole="Document" ToRole="Patients_Table" />
   </EntityType>
+  <Association Name="FK_Document_ExamType">
+    <End Type="RISINGSTARModel.ExamType" Role="ExamType" Multiplicity="0..1" />
+    <End Type="RISINGSTARModel.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamType">
+        <PropertyRef Name="ExamTypeId" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="ExamType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Document_Patients_Table">
     <End Type="RISINGSTARModel.Patients_Table" Role="Patients_Table" Multiplicity="1" />
     <End Type="RISINGSTARModel.Document" Role="Document" Multiplicity="*" />

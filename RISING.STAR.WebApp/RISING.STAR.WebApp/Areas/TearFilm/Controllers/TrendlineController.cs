@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using RISING.STAR.Business.TearFilm;
-using RISING.STAR.WebApp.Models.Intervention;
+using RISING.STAR.WebApp.Areas.Intervention.Models;
 using RISING.STAR.Business.Intervention;
 
 namespace RISING.STAR.WebApp.Areas.TearFilm.Controllers

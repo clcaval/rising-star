@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5b61a4bba58845c59acb2528d7c68ac7" Name="Diagram1" ZoomLevel="97">
-        <EntityTypeShape EntityType="RISINGSTARModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="2.625" />
-        <EntityTypeShape EntityType="RISINGSTARModel.Acquisitions_Table" Width="1.5" PointX="3" PointY="13.5" />
-        <EntityTypeShape EntityType="RISINGSTARModel.Exams_Table" Width="1.5" PointX="3" PointY="5.75" />
-        <EntityTypeShape EntityType="RISINGSTARModel.InterventionCategory" Width="1.5" PointX="1.5" PointY="32.125" />
-        <EntityTypeShape EntityType="RISINGSTARModel.InterventionEvent" Width="1.5" PointX="6" PointY="13.5" />
-        <EntityTypeShape EntityType="RISINGSTARModel.InterventionIcon" Width="1.5" PointX="1.5" PointY="34.5" />
-        <EntityTypeShape EntityType="RISINGSTARModel.InterventionType" Width="1.5" PointX="3.75" PointY="32.875" />
-        <EntityTypeShape EntityType="RISINGSTARModel.Location" Width="1.5" PointX="3.75" PointY="10.875" />
-        <EntityTypeShape EntityType="RISINGSTARModel.Patients_Table" Width="1.5" PointX="0.75" PointY="12.875" />
-        <EntityTypeShape EntityType="RISINGSTARModel.Permission" Width="1.5" PointX="1.5" PointY="29.625" />
-        <EntityTypeShape EntityType="RISINGSTARModel.Role" Width="1.5" PointX="1.5" PointY="2.375" />
-        <EntityTypeShape EntityType="RISINGSTARModel.sysdiagram" Width="1.5" PointX="5.75" PointY="5.625" />
-        <EntityTypeShape EntityType="RISINGSTARModel.User" Width="1.5" PointX="3.75" PointY="0.75" />
-        <EntityTypeShape EntityType="RISINGSTARModel.List_Of_Patients" Width="1.5" PointX="5.75" PointY="8.625" />
+      <Diagram DiagramId="5b61a4bba58845c59acb2528d7c68ac7" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="RISINGSTARModel.Acquisitions_Table" Width="1.5" PointX="9" PointY="10.25" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Exams_Table" Width="1.5" PointX="3" PointY="43.5" />
+        <EntityTypeShape EntityType="RISINGSTARModel.ExamType" Width="1.5" PointX="6.75" PointY="12.625" />
+        <EntityTypeShape EntityType="RISINGSTARModel.InterventionCategory" Width="1.5" PointX="1.5" PointY="28.75" />
+        <EntityTypeShape EntityType="RISINGSTARModel.InterventionEvent" Width="1.5" PointX="3" PointY="16.125" />
+        <EntityTypeShape EntityType="RISINGSTARModel.InterventionIcon" Width="1.5" PointX="1.5" PointY="31.125" />
+        <EntityTypeShape EntityType="RISINGSTARModel.InterventionType" Width="1.5" PointX="0.75" PointY="24.5" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Location" Width="1.5" PointX="0.75" PointY="21.375" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Patients_Table" Width="1.5" PointX="0.75" PointY="15.25" />
+        <EntityTypeShape EntityType="RISINGSTARModel.PatientsComment" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Permission" Width="1.5" PointX="1.5" PointY="4.875" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Role" Width="1.5" PointX="1.5" PointY="7.625" />
+        <EntityTypeShape EntityType="RISINGSTARModel.User" Width="1.5" PointX="0.75" PointY="10.875" />
+        <AssociationConnector Association="RISINGSTARModel.FK_Acquisitions_Table_ExamType" />
         <AssociationConnector Association="RISINGSTARModel.FK_Acquisitions_Table_Patients_Table" />
         <AssociationConnector Association="RISINGSTARModel.FK_Exams_Table_Patients_Table1" />
         <AssociationConnector Association="RISINGSTARModel.FK_InterventionType_InterventionCategory" />
@@ -27,12 +27,12 @@
         <AssociationConnector Association="RISINGSTARModel.FK_InterventionEvent_Patients_Table" />
         <AssociationConnector Association="RISINGSTARModel.FK_InterventionEvent_User" />
         <AssociationConnector Association="RISINGSTARModel.FK_InterventionType_InterventionIcon" />
-        <AssociationConnector Association="RISINGSTARModel.RolePermission" />
-        <AssociationConnector Association="RISINGSTARModel.UserRole" />
-        <EntityTypeShape EntityType="RISINGSTARModel.PatientsComment" Width="1.5" PointX="8" PointY="8" />
         <AssociationConnector Association="RISINGSTARModel.FK_PatientsComment_Patients_Table" />
         <AssociationConnector Association="RISINGSTARModel.FK_PatientsComment_User" />
-        <EntityTypeShape EntityType="RISINGSTARModel.Document" Width="1.5" PointX="3" PointY="37.5" />
+        <AssociationConnector Association="RISINGSTARModel.RolePermission" />
+        <AssociationConnector Association="RISINGSTARModel.UserRole" />
+        <EntityTypeShape EntityType="RISINGSTARModel.Document" Width="1.5" PointX="12" PointY="14.375" />
+        <AssociationConnector Association="RISINGSTARModel.FK_Document_ExamType" />
         <AssociationConnector Association="RISINGSTARModel.FK_Document_Patients_Table" />
         <AssociationConnector Association="RISINGSTARModel.FK_Document_Patients_Table1" />
       </Diagram>

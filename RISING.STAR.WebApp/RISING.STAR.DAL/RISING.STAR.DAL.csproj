@@ -53,13 +53,13 @@
     <Compile Include="Acquisitions_Table.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>RisingStarEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Document.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Exams_Table.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExamType.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="InterventionCategory.cs">
@@ -72,9 +72,6 @@
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="InterventionType.cs">
-      <DependentUpon>RisingStarEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="List_Of_Patients.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">
@@ -106,9 +103,6 @@
       <DependentUpon>RisingStarEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
-      <DependentUpon>RisingStarEntities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">

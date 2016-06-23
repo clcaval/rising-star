@@ -27,12 +27,19 @@ namespace RISING.STAR.Business.Acquisition
         {
             
             eye = eye.Substring(1, 1);
-            var acqList = this.RetrieveAcquisition().Where(
-                                                    x => x.FK_Guid_Patient == patientGuid &&
-                                                    x.OS_OD == eye &&
+            var acqList = this.RetrieveAcquisition(patientGuid).Where(
+                                                    x => x.OS_OD == eye &&
                                                     x.DATE >= initialDate &&
                                                     x.DATE <= finalDate &&
                                                     x.Type_Num == type_num);
+
+            return acqList.OrderBy(x => x.DATE);
+        }
+
+        public IEnumerable<Acquisitions_Table> RetrieveAcquisition(Guid patientId, int examType)
+        {
+            var acqList = this.RetrieveAcquisition(patientId).Where(
+                                                    x => x.Type_Num == examType);
 
             return acqList.OrderBy(x => x.DATE);
         }

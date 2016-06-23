@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="RISINGSTARModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="__MigrationHistory">
-    <Key>
-      <PropertyRef Name="MigrationId" />
-      <PropertyRef Name="ContextKey" />
-    </Key>
-    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
-    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
-    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
-    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
-  </EntityType>
   <EntityType Name="Acquisitions_Table">
     <Key>
       <PropertyRef Name="Guid" />
@@ -92,7 +82,7 @@
     <Property Name="DocumentId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PatientId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="FileType" Type="nvarchar" MaxLength="3" />
-    <Property Name="DocumentDate" Type="datetime" />
+    <Property Name="DocumentDate" Type="datetime" Nullable="false" />
     <Property Name="FileName" Type="nvarchar" MaxLength="100" />
     <Property Name="DeleteMoveDate" Type="datetime" />
     <Property Name="DeleteMoveBy" Type="nvarchar" MaxLength="20" />
@@ -100,6 +90,8 @@
     <Property Name="DimX" Type="int" />
     <Property Name="DimY" Type="int" />
     <Property Name="PatientDoc" Type="varbinary(max)" />
+    <Property Name="Eye" Type="nvarchar" MaxLength="2" />
+    <Property Name="ExamType" Type="smallint" />
   </EntityType>
   <EntityType Name="Exams_Table">
     <Key>
@@ -115,6 +107,14 @@
     <Property Name="OS_Sph" Type="real" Nullable="false" />
     <Property Name="OS_Cyl" Type="real" Nullable="false" />
     <Property Name="OS_Axis" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExamType">
+    <Key>
+      <PropertyRef Name="ExamTypeId" />
+    </Key>
+    <Property Name="ExamTypeId" Type="smallint" Nullable="false" />
+    <Property Name="ExamTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ExamTypeAcronym" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="InterventionCategory">
     <Key>
@@ -156,14 +156,6 @@
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="List_Of_Patients">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="PATIENTS" Type="nvarchar" MaxLength="255" />
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="REFERENCE" Type="nvarchar" MaxLength="20" />
-  </EntityType>
   <EntityType Name="Location">
     <Key>
       <PropertyRef Name="LocationGuid" />
@@ -224,16 +216,6 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     <Property Name="RoleGUID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PermissionGUID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Guid" />
@@ -257,6 +239,18 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     <Property Name="UserGUID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RoleGUID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Acquisitions_Table_ExamType">
+    <End Role="ExamType" Type="Self.ExamType" Multiplicity="0..1" />
+    <End Role="Acquisitions_Table" Type="Self.Acquisitions_Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamType">
+        <PropertyRef Name="ExamTypeId" />
+      </Principal>
+      <Dependent Role="Acquisitions_Table">
+        <PropertyRef Name="Type_Num" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Acquisitions_Table_Patients_Table">
     <End Role="Patients_Table" Type="Self.Patients_Table" Multiplicity="1" />
     <End Role="Acquisitions_Table" Type="Self.Acquisitions_Table" Multiplicity="*" />
@@ -266,6 +260,18 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
       </Principal>
       <Dependent Role="Acquisitions_Table">
         <PropertyRef Name="FK_Guid_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_ExamType">
+    <End Role="ExamType" Type="Self.ExamType" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamType">
+        <PropertyRef Name="ExamTypeId" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="ExamType" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -450,10 +456,10 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="RISINGSTARModelStoreContainer">
-    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Acquisitions_Table" EntityType="Self.Acquisitions_Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Exams_Table" EntityType="Self.Exams_Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamType" EntityType="Self.ExamType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionCategory" EntityType="Self.InterventionCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionEvent" EntityType="Self.InterventionEvent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionIcon" EntityType="Self.InterventionIcon" Schema="dbo" store:Type="Tables" />
@@ -464,19 +470,19 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="List_Of_Patients" EntityType="Self.List_Of_Patients" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [List_Of_Patients].[PATIENTS] AS [PATIENTS], 
-    [List_Of_Patients].[ID] AS [ID], 
-    [List_Of_Patients].[REFERENCE] AS [REFERENCE]
-    FROM [dbo].[List_Of_Patients] AS [List_Of_Patients]</DefiningQuery>
-    </EntitySet>
+    <AssociationSet Name="FK_Acquisitions_Table_ExamType" Association="Self.FK_Acquisitions_Table_ExamType">
+      <End Role="ExamType" EntitySet="ExamType" />
+      <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
+    </AssociationSet>
     <AssociationSet Name="FK_Acquisitions_Table_Patients_Table" Association="Self.FK_Acquisitions_Table_Patients_Table">
       <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_ExamType" Association="Self.FK_Document_ExamType">
+      <End Role="ExamType" EntitySet="ExamType" />
+      <End Role="Document" EntitySet="Document" />
     </AssociationSet>
     <AssociationSet Name="FK_Document_Patients_Table" Association="Self.FK_Document_Patients_Table">
       <End Role="Patients_Table" EntitySet="Patients_Table" />

@@ -85,6 +85,7 @@ namespace RISING.STAR.DAL
         public Nullable<double> PKJ_Inlay_PixelCentroY { get; set; }
         public Nullable<double> PKJ_Inlay_PixelRadio { get; set; }
     
+        public virtual ExamType ExamType { get; set; }
         public virtual Patients_Table Patients_Table { get; set; }
     }
 }

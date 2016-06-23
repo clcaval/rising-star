@@ -6,6 +6,89 @@
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-    <h2>Index</h2>
+    <div class="row">
+
+        <div class="col-md-6 datepickers">
+
+            <div class="input-group date">
+                <span class="input-group-addon" id="basic-addon1">Start date</span>
+                <input type="text" class="form-control" id="startDate">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+
+        </div>
+        <div class="col-md-6 datepickers">
+
+            <div class="input-group date">
+                <span class="input-group-addon" id="basic-addon1">End date</span>
+                <input type="text" class="form-control" id="endDate">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="padding-bottom: 20px;"></div>
+
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-blue panel-widget ">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/OSI.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "CentrationAnalysis", new { Area = "Visiometrics" })" target="_blank" class="link">
+                                Centration Analysis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-blue panel-widget ">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/OSI.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "NearVisionVsCordLength", new { Area = "Visiometrics" })" target="_blank" class="link">
+                                Near Vision vs Cord Length
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6 col-lg-4">
+            <div class="panel panel-blue panel-widget ">
+                <div class="row no-padding">
+                    <div class="col-sm-3 col-lg-5 widget-left">
+                        <img src="~/Images/Icons/OSI.png" />
+                    </div>
+                    <div class="col-sm-9 col-lg-7 widget-right">
+                        <div class="text-muted">
+                            <a href="@Url.Action("Index", "NearVisionVsTearFilmOSI", new { Area = "Visiometrics" })" target="_blank" class="link">
+                                Near Vision vs Tear Film OSI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </div>
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/KAMRAOutcomes/kamraOutcomes.js")"></script>
+}

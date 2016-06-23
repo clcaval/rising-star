@@ -25,21 +25,19 @@ namespace RISING.STAR.DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Acquisitions_Table> Acquisitions_Table { get; set; }
         public virtual DbSet<Exams_Table> Exams_Table { get; set; }
+        public virtual DbSet<ExamType> ExamTypes { get; set; }
         public virtual DbSet<InterventionCategory> InterventionCategories { get; set; }
         public virtual DbSet<InterventionEvent> InterventionEvents { get; set; }
         public virtual DbSet<InterventionIcon> InterventionIcons { get; set; }
         public virtual DbSet<InterventionType> InterventionTypes { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
         public virtual DbSet<Patients_Table> Patients_Table { get; set; }
+        public virtual DbSet<PatientsComment> PatientsComments { get; set; }
         public virtual DbSet<Permission> Permissions { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<List_Of_Patients> List_Of_Patients { get; set; }
-        public virtual DbSet<PatientsComment> PatientsComments { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
     }
 }

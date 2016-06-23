@@ -17,7 +17,7 @@ namespace RISING.STAR.DAL
         public System.Guid DocumentId { get; set; }
         public System.Guid PatientId { get; set; }
         public string FileType { get; set; }
-        public Nullable<System.DateTime> DocumentDate { get; set; }
+        public System.DateTime DocumentDate { get; set; }
         public string FileName { get; set; }
         public Nullable<System.DateTime> DeleteMoveDate { get; set; }
         public string DeleteMoveBy { get; set; }
@@ -25,7 +25,10 @@ namespace RISING.STAR.DAL
         public Nullable<int> DimX { get; set; }
         public Nullable<int> DimY { get; set; }
         public byte[] PatientDoc { get; set; }
+        public string Eye { get; set; }
+        public Nullable<short> ExamType { get; set; }
     
+        public virtual ExamType ExamType1 { get; set; }
         public virtual Patients_Table Patients_Table { get; set; }
         public virtual Patients_Table Patients_Table1 { get; set; }
     }

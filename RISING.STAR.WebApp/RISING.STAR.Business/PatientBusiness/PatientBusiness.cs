@@ -31,6 +31,11 @@ namespace RISING.STAR.Business.PatientBusiness
         {
             return dbContext.Documents.Where(x => x.PatientId == patientId);
         }
+
+        public IEnumerable<Document> GetPatientDocuments(Guid patientId, int type)
+        {
+            return this.GetPatientDocuments(patientId).Where(x => x.ExamType == type);
+        }        
         
     }
 }

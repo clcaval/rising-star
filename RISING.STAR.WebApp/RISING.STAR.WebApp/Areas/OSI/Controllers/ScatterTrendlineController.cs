@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-using RISING.STAR.WebApp.Models.Intervention;
+using RISING.STAR.WebApp.Areas.Intervention.Models;
 using RISING.STAR.Business.OSI;
 using RISING.STAR.Business.Intervention;
 using RISING.STAR.Utils.Helper;

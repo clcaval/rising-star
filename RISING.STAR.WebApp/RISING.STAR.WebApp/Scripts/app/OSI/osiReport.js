@@ -8,11 +8,23 @@
 
         settings: {
           
-            graph: $("#dispersionGraph")
+            graph: $("#dispersionGraph"),
+            btnGraph: $("#btnShowGraph"),
+            btnReset: $("#btnReset"),
+            StartAge: $("#StartAge"),
+            EndAge: $("#EndAge"),
+            SelectedFirstCriteria: $("#SelectedFirstCriteria"),
+            SelectedSecondCriteria: $("#SelectedSecondCriteria"),
+            SelectedFrequency: $("#SelectedFrequency"),
+            StartDateRange: $("#StartDateRange"),
+            EndDateRange: $("#EndDateRange")
+
 
         },
 
         url: {
+
+            getQueryDataURL: "http://" + window.location.hostname + ":" + window.location.port + "/OSI/ScatterReports/RetrieveOSICohort"
 
         },
 
@@ -198,6 +210,17 @@
 
         ajax: {
 
+            getQueryData: function (_data) {
+
+                $.get(u.getQueryDataURL, _data, function(returnedResult){
+
+                    console.log(returnedResult);
+
+                    g.generateScatter(returnedResult);
+
+                });
+
+            }
 
         },
 
@@ -212,7 +235,37 @@
 
         binder: {
 
-  
+            bindDatepicker: function () {
+
+                $("#datepicker").datepicker({});
+
+            },
+
+            bindButtons: function () {
+
+                s.btnGraph.on('click', function () {
+
+                    var data = {
+                        StartAge: s.StartAge.val(),
+                        EndAge: s.EndAge.val(),
+                        SelectedFirstCriteria: s.SelectedFirstCriteria.val(),
+                        SelectedSecondCriteria: s.SelectedSecondCriteria.val(),
+                        SelectedFrequency: s.SelectedFrequency.val(),
+                        StartDateRange: s.StartDateRange.val(),
+                        EndDateRange: s.EndDateRange.val()
+                    };
+
+                    a.getQueryData(data);
+
+                });
+
+                s.btnReset.on('click', function () {
+                    alert('reset query');
+                })
+
+            }
+
+
         },
 
         init: function () {
@@ -224,6 +277,8 @@
             a = this.ajax;
             u = this.url;
 
+            b.bindDatepicker();
+            b.bindButtons();
             g.generateScatter();
                         
         }

@@ -6,7 +6,7 @@ using System.Web;
 using RISING.STAR.DAL;
 using RISING.STAR.Business.Intervention;
 
-namespace RISING.STAR.WebApp.Models.TreatmentHistory
+namespace RISING.STAR.WebApp.Areas.TestingTreatment.Models
 {
     public class TreatmentHistoryViewModel
     {

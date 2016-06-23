@@ -19,7 +19,7 @@ namespace RISING.STAR.Business.Intervention
 
         public IEnumerable<InterventionType> GetAllInterventionTypes()
         {
-            return dbContext.InterventionTypes;
+            return dbContext.InterventionTypes.OrderBy(x => x.Description);
         }
 
         public IEnumerable<InterventionEvent> GetAllEventsFromPatient(Guid patientGuid)

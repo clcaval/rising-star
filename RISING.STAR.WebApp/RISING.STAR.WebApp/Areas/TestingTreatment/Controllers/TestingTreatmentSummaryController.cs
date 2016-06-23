@@ -8,7 +8,7 @@ using RISING.STAR.Business.Intervention;
 using RISING.STAR.Business.Acquisition;
 using RISING.STAR.Business.PatientBusiness;
 
-using RISING.STAR.WebApp.Models.TreatmentHistory;
+using RISING.STAR.WebApp.Areas.TestingTreatment.Models;
 
 namespace RISING.STAR.WebApp.Areas.TestingTreatment.Controllers
 {
