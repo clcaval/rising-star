@@ -252,5 +252,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserTests">
+      <EntityTypeMapping TypeName="RISINGSTARModel.UserTest">
+        <MappingFragment StoreEntitySet="UserTest">
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Course" ColumnName="Course" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTestQs">
+      <EntityTypeMapping TypeName="RISINGSTARModel.UserTestQ">
+        <MappingFragment StoreEntitySet="UserTestQ">
+          <ScalarProperty Name="Auxilio" ColumnName="Auxilio" />
+          <ScalarProperty Name="Dominio" ColumnName="Dominio" />
+          <ScalarProperty Name="CoerenciaAulaProva" ColumnName="CoerenciaAulaProva" />
+          <ScalarProperty Name="Didatica" ColumnName="Didatica" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTestPs">
+      <EntityTypeMapping TypeName="RISINGSTARModel.UserTestP">
+        <MappingFragment StoreEntitySet="UserTestP">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Courses" ColumnName="Courses" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

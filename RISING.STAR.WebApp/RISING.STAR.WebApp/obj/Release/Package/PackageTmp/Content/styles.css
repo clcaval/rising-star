@@ -294,11 +294,15 @@ a.bg-danger:hover {
 }
 
 .panel-heading {
-	font-size: 18px;
+	font-size: 15px;
 	font-weight: 300;
-	letter-spacing: 0.025em;
+	letter-spacing: 0.025em;/*
 	height: 66px;
-	line-height: 45px;
+	line-height: 45px;*/
+}
+
+.panel-heading-sm {
+	font-size: 12px;
 }
 
 .panel-default .panel-heading {
@@ -570,7 +574,7 @@ a.bg-danger:hover {
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: #fff;
 	background-color: #30a5ff;
-}*/
+}
 
 .sidebar ul.nav ul,
 .sidebar ul.nav ul li {
@@ -821,6 +825,10 @@ h1.page-header {
 /*Tables*/
 .table {
 	background: #fff;
+}
+
+.table-marginless {
+    margin-bottom: 8px;
 }
 
 .fixed-table-container {

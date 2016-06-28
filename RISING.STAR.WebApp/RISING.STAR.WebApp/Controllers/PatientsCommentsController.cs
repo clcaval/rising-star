@@ -9,9 +9,11 @@ using System.Web.Mvc;
 
 using RISING.STAR.DAL;
 using RISING.STAR.Entities.Results;
+using RISING.STAR.WebApp.ActionFilters;
 
 namespace RISING.STAR.WebApp.Controllers
 {
+     [RBAC]
     public class PatientsCommentsController : Controller
     {
         private RISINGSTAREntities db = new RISINGSTAREntities();

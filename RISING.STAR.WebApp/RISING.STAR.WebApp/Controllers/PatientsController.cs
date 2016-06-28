@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 
 using RISING.STAR.Business.PatientBusiness;
+using RISING.STAR.WebApp.ActionFilters;
 
 
 namespace RISING.STAR.WebApp.Controllers
 {
+     [RBAC]
     public class PatientsController : Controller
     {
         // GET: Patient

@@ -39,7 +39,7 @@
 
                 var strResponse = "";
                 var cord = parseInt($("#txtCoord").val());
-                console.log(type);
+                
                 if (type == 1 || type == 2) {
                     strResponse = s.targetInlayVsPurkinje;
                     strResponse = strResponse.replace('__position__', '');
@@ -77,7 +77,7 @@
                         strResponse = strResponse.replace('__strCord__', 'superonasal');
                         strResponse = strResponse.replace('__strMoveX__', ' microns nasal and ');
                         strResponse = strResponse.replace('__strMoveY__', ' microns superior ');
-                        g.makeAndAppendPosition(6, 540,     'Superotemporal', 'positionId');
+                        g.makeAndAppendPosition(6, 540, 'Superotemporal', 'positionId');
                     }
                     else if (x < 0 && y < 0){
                         strResponse = strResponse.replace('__strCord__', 'inferonasal');
@@ -130,7 +130,7 @@
                         strResponse = strResponse.replace('__strCord__', 'superotemporal');
                         strResponse = strResponse.replace('__strMoveX__', ' microns temporal and ');
                         strResponse = strResponse.replace('__strMoveY__', ' microns inferior ');
-                        g.makeAndAppendPosition(6, 540,     'Superotemporal', 'positionId');
+                        g.makeAndAppendPosition(6, 540, 'Superotemporal', 'positionId');
                     }
                     else if (x < 0 && y < 0){
                         strResponse = strResponse.replace('__strCord__', 'inferonasal');
@@ -238,8 +238,6 @@
                 var newY1 = y - 10;
                 var newY2 = y + 10;
                 
-                console.log(x, y);
-
                 var line1 = h.makeLine(newX1, newY1, newX2, newY1, 'pupilCenterLine1');
                 var line2 = h.makeLine(x, y - 20, x, y, 'pupilCenterLine2');
 
@@ -454,7 +452,6 @@
 
                 var xKamra = s.centerX + Math.abs(s.centerX - x);
                 var yKamra = s.centerY + ((s.centerY - y));
-                console.log(xKamra, yKamra);
                                 
                 g.makeKAMRAInlay(xKamra, yKamra);
                 g.makeInlayCenterTarget(x, y);
@@ -513,9 +510,7 @@
 
                 var xKamra = s.centerX + Math.abs(s.centerX - x);
                 var yKamra = s.centerY + ((s.centerY - y));
-                console.log(xKamra, yKamra);
-
-
+   
                 g.makeKAMRAInlay(xKamra, yKamra);
                 g.makeInlayCenterTarget(x, y);
                 g.makeTargetInlay();
@@ -532,8 +527,6 @@
                 $("#docInfo").html(text);
 
             },
-
-
 
         },
 
@@ -649,7 +642,7 @@
                 $("#txtAngle").val(h.getParameterByName('angle'));
                 $("#txtX").val(h.getParameterByName('x'));
                 $("#txtY").val(h.getParameterByName('y'));
-                //$("#txtSection").val(h.getParameterByName('section'));
+        
 
                 $("#txtPurkinjeX").val(h.getParameterByName('purkX'));
                 $("#txtPurkinjeY").val(h.getParameterByName('purkY'));

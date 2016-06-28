@@ -10,7 +10,8 @@ using RISING.STAR.WebApp.Models;
 
 namespace RISING.STAR.WebApp.Controllers
 {
-
+    
+    [RBAC]
     public class DashboardController : Controller
     {
         // GET: Dashboard

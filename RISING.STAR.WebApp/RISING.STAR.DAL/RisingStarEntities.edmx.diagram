@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5b61a4bba58845c59acb2528d7c68ac7" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="5b61a4bba58845c59acb2528d7c68ac7" Name="Diagram1" ZoomLevel="98">
         <EntityTypeShape EntityType="RISINGSTARModel.Acquisitions_Table" Width="1.5" PointX="9" PointY="10.25" />
         <EntityTypeShape EntityType="RISINGSTARModel.Exams_Table" Width="1.5" PointX="3" PointY="43.5" />
         <EntityTypeShape EntityType="RISINGSTARModel.ExamType" Width="1.5" PointX="6.75" PointY="12.625" />
@@ -35,7 +35,12 @@
         <AssociationConnector Association="RISINGSTARModel.FK_Document_ExamType" />
         <AssociationConnector Association="RISINGSTARModel.FK_Document_Patients_Table" />
         <AssociationConnector Association="RISINGSTARModel.FK_Document_Patients_Table1" />
-      </Diagram>
+        <EntityTypeShape EntityType="RISINGSTARModel.UserTest" Width="1.5" PointX="0.75" PointY="34.25" />
+        <EntityTypeShape EntityType="RISINGSTARModel.UserTestQ" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="RISINGSTARModel.FK_UserTestQ_UserTest" />
+        <EntityTypeShape EntityType="RISINGSTARModel.UserTestP" Width="1.5" PointX="0.75" PointY="1.375" />
+        <AssociationConnector Association="RISINGSTARModel.FK_UserTestQ_UserTestP" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

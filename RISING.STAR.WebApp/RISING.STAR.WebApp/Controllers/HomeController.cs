@@ -7,7 +7,7 @@ using RISING.STAR.WebApp.ActionFilters;
 
 namespace RISING.STAR.WebApp.Controllers
 {
-
+     [RBAC]
     public class HomeController : Controller
     {
         

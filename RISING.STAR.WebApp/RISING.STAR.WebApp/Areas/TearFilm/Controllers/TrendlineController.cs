@@ -8,8 +8,12 @@ using RISING.STAR.Business.TearFilm;
 using RISING.STAR.WebApp.Areas.Intervention.Models;
 using RISING.STAR.Business.Intervention;
 
+using RISING.STAR.WebApp.ActionFilters;
+
 namespace RISING.STAR.WebApp.Areas.TearFilm.Controllers
 {
+
+    [RBAC]
     public class TrendlineController : Controller
     {
         // GET: TearFilm/Trendline

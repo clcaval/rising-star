@@ -9,9 +9,11 @@ using System.Web.Mvc;
 
 using RISING.STAR.DAL;
 using RISING.STAR.Utils.Password;
+using RISING.STAR.WebApp.ActionFilters;
 
 namespace RISING.STAR.WebApp.Areas.UserAndRole.Controllers
 {
+    [RBAC]
     public class UsersController : Controller
     {
         private RISINGSTAREntities db = new RISINGSTAREntities();

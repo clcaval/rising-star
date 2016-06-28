@@ -9,8 +9,12 @@ using RISING.STAR.Business.OSI;
 using RISING.STAR.Business.Intervention;
 using RISING.STAR.Utils.Helper;
 
+using RISING.STAR.WebApp.ActionFilters;
+
 namespace RISING.STAR.WebApp.Areas.OSI.Controllers
 {
+
+    [RBAC]
     public class ScatterTrendlineController : Controller
     {
         // GET: OSI/ScatterTrendline

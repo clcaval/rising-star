@@ -6,9 +6,12 @@ using System.Web.Mvc;
 
 using RISING.STAR.WebApp.Areas.Visiometrics.Models;
 using RISING.STAR.Business.PatientBusiness;
+using RISING.STAR.WebApp.ActionFilters;
 
 namespace RISING.STAR.WebApp.Areas.Visiometrics.Controllers
 {
+
+    [RBAC]
     public class VisiometricController : Controller
     {
         // GET: Visiometrics/VisiometricsReports

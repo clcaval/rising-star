@@ -40,8 +40,8 @@ namespace RISING.STAR.WebApp.ActionFilters
 
                 filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
                 {
-                    action = "Index",
-                    controller = "Unauthorised",
+                    action = "Login",
+                    controller = "Account",
                     area = ""
                 }));
 

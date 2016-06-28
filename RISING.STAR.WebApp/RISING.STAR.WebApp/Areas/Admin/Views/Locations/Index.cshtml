@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<RISING.STAR.DAL.Location>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Locations";
     Layout = "~/Views/Shared/_LayoutInner.cshtml";
 }
 
@@ -9,9 +9,22 @@
 
     <h2>Index</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+    <div class="row">
+
+        <div class="col-md-2">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <a href="@Url.Action("AdminDash", "Admin", new { Area = "" })">
+                Back to Admin Dashboard
+            </a>
+        </div>
+
+    </div>
+
     <table class="table">
         <tr>
             <th>

@@ -1,11 +1,78 @@
-﻿
+﻿@model RISING.STAR.WebApp.Models.Visiometrics.VisiometricsViewModel
+
 @{
     ViewBag.Title = "Visiometric Reports";
     Layout = "~/Views/Shared/_LayoutInner.cshtml";
 }
 
+<style>
+html,body        {height:100%;}
+.wrapper         {width:100%;min-height:600px;margin:0 auto;}
+</style>
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-    <h2>Index</h2>
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Exams</h3>
+                </div>
+                <div class="panel-body">
+                    
+                    <table id="tblExams" class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th class="hidden">Id</th>
+                                <th>File name</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @{
+                                if (Model.Documents != null && Model.Documents.Count() > 0)
+                                {
+
+                                    foreach (var item in Model.Documents)
+                                    {
+                                        <tr style="cursor: pointer;">
+                                            <td class=" hidden">@item.DocumentId</td>
+                                            <td>@item.DocumentName</td>
+                                            <td>@item.DocumentDate</td>
+                                        </tr>
+                                    }
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-9">
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Exam</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="wrapper">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     </div>
 
 </div>
+
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/Visiometrics/visiometrics.js")"></script>
+}

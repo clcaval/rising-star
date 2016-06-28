@@ -159,8 +159,6 @@
           <Property Name="InterventionTag" Type="int" />
           <Property Name="IconGuid" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Location">
           <Key>
             <PropertyRef Name="LocationGuid" />
@@ -243,6 +241,37 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
           </Key>
           <Property Name="UserGUID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="RoleGUID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTest">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Course" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserTestP">
+          <Key>
+            <PropertyRef Name="ProfessorId" />
+          </Key>
+          <Property Name="ProfessorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Courses" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="UserTestQ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProfessorId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Didatica" Type="int" />
+          <Property Name="CoerenciaAulaProva" Type="int" />
+          <Property Name="Dominio" Type="int" />
+          <Property Name="Auxilio" Type="int" />
         </EntityType>
         <Association Name="FK_Acquisitions_Table_ExamType">
           <End Role="ExamType" Type="Self.ExamType" Multiplicity="0..1" />
@@ -460,6 +489,30 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserTestQ_UserTest">
+          <End Role="UserTest" Type="Self.UserTest" Multiplicity="1" />
+          <End Role="UserTestQ" Type="Self.UserTestQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTest">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="UserTestQ">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTestQ_UserTestP">
+          <End Role="UserTestP" Type="Self.UserTestP" Multiplicity="1" />
+          <End Role="UserTestQ" Type="Self.UserTestQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTestP">
+              <PropertyRef Name="ProfessorId" />
+            </Principal>
+            <Dependent Role="UserTestQ">
+              <PropertyRef Name="ProfessorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="RISINGSTARModelStoreContainer">
           <EntitySet Name="Acquisitions_Table" EntityType="Self.Acquisitions_Table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
@@ -477,6 +530,9 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
           <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTest" EntityType="Self.UserTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTestP" EntityType="Self.UserTestP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTestQ" EntityType="Self.UserTestQ" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Acquisitions_Table_ExamType" Association="Self.FK_Acquisitions_Table_ExamType">
             <End Role="ExamType" EntitySet="ExamType" />
             <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
@@ -548,6 +604,14 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
           <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
             <End Role="User" EntitySet="User" />
             <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTestQ_UserTest" Association="Self.FK_UserTestQ_UserTest">
+            <End Role="UserTest" EntitySet="UserTest" />
+            <End Role="UserTestQ" EntitySet="UserTestQ" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTestQ_UserTestP" Association="Self.FK_UserTestQ_UserTestP">
+            <End Role="UserTestP" EntitySet="UserTestP" />
+            <End Role="UserTestQ" EntitySet="UserTestQ" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -633,7 +697,18 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
             <End Role="Patients_Table" EntitySet="Patients_Table" />
             <End Role="Document" EntitySet="Documents" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="UserTests" EntityType="RISINGSTARModel.UserTest" />
+          <EntitySet Name="UserTestQs" EntityType="RISINGSTARModel.UserTestQ" />
+          <AssociationSet Name="FK_UserTestQ_UserTest" Association="RISINGSTARModel.FK_UserTestQ_UserTest">
+            <End Role="UserTest" EntitySet="UserTests" />
+            <End Role="UserTestQ" EntitySet="UserTestQs" />
+          </AssociationSet>
+          <EntitySet Name="UserTestPs" EntityType="RISINGSTARModel.UserTestP" />
+          <AssociationSet Name="FK_UserTestQ_UserTestP" Association="RISINGSTARModel.FK_UserTestQ_UserTestP">
+            <End Role="UserTestP" EntitySet="UserTestPs" />
+            <End Role="UserTestQ" EntitySet="UserTestQs" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Acquisitions_Table">
           <Key>
             <PropertyRef Name="Guid" />
@@ -1063,6 +1138,65 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="UserTest">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Course" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserTestQs" Relationship="RISINGSTARModel.FK_UserTestQ_UserTest" FromRole="UserTest" ToRole="UserTestQ" />
+        </EntityType>
+        <EntityType Name="UserTestQ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ProfessorId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Didatica" Type="Int32" />
+          <Property Name="CoerenciaAulaProva" Type="Int32" />
+          <Property Name="Dominio" Type="Int32" />
+          <Property Name="Auxilio" Type="Int32" />
+          <NavigationProperty Name="UserTest" Relationship="RISINGSTARModel.FK_UserTestQ_UserTest" FromRole="UserTestQ" ToRole="UserTest" />
+          <NavigationProperty Name="UserTestP" Relationship="RISINGSTARModel.FK_UserTestQ_UserTestP" FromRole="UserTestQ" ToRole="UserTestP" />
+        </EntityType>
+        <Association Name="FK_UserTestQ_UserTest">
+          <End Type="RISINGSTARModel.UserTest" Role="UserTest" Multiplicity="1" />
+          <End Type="RISINGSTARModel.UserTestQ" Role="UserTestQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTest">
+              <PropertyRef Name="UserName" />
+            </Principal>
+            <Dependent Role="UserTestQ">
+              <PropertyRef Name="UserName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserTestP">
+          <Key>
+            <PropertyRef Name="ProfessorId" />
+          </Key>
+          <Property Name="ProfessorId" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Courses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserTestQs" Relationship="RISINGSTARModel.FK_UserTestQ_UserTestP" FromRole="UserTestP" ToRole="UserTestQ" />
+        </EntityType>
+        <Association Name="FK_UserTestQ_UserTestP">
+          <End Type="RISINGSTARModel.UserTestP" Role="UserTestP" Multiplicity="1" />
+          <End Type="RISINGSTARModel.UserTestQ" Role="UserTestQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTestP">
+              <PropertyRef Name="ProfessorId" />
+            </Principal>
+            <Dependent Role="UserTestQ">
+              <PropertyRef Name="ProfessorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1320,7 +1454,41 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="UserTests">
+            <EntityTypeMapping TypeName="RISINGSTARModel.UserTest">
+              <MappingFragment StoreEntitySet="UserTest">
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Course" ColumnName="Course" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTestQs">
+            <EntityTypeMapping TypeName="RISINGSTARModel.UserTestQ">
+              <MappingFragment StoreEntitySet="UserTestQ">
+                <ScalarProperty Name="Auxilio" ColumnName="Auxilio" />
+                <ScalarProperty Name="Dominio" ColumnName="Dominio" />
+                <ScalarProperty Name="CoerenciaAulaProva" ColumnName="CoerenciaAulaProva" />
+                <ScalarProperty Name="Didatica" ColumnName="Didatica" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTestPs">
+            <EntityTypeMapping TypeName="RISINGSTARModel.UserTestP">
+              <MappingFragment StoreEntitySet="UserTestP">
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Courses" ColumnName="Courses" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

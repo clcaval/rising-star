@@ -108,6 +108,15 @@
     <Compile Include="User.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="UserTest.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTestP.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTestQ.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="RisingStarEntities.edmx">

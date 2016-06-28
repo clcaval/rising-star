@@ -8,8 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using RISING.STAR.DAL;
 
+using RISING.STAR.WebApp.ActionFilters;
+
 namespace RISING.STAR.WebApp.Areas.Admin.Controllers
 {
+    [RBAC]
     public class ExamController : Controller
     {
         private RISINGSTAREntities db = new RISINGSTAREntities();

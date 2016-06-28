@@ -4,8 +4,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
+
 using RISING.STAR.Business.PatientBusiness;
-using RISING.STAR.Business.Login;
 using RISING.STAR.WebApp.Models;
 using RISING.STAR.DAL;
 using RISING.STAR.Utils.Password;
@@ -14,6 +14,7 @@ using System.Collections.Generic;
 namespace RISING.STAR.WebApp.Controllers
 {
     
+
     public class AccountController : Controller
     {
 
@@ -29,18 +30,18 @@ namespace RISING.STAR.WebApp.Controllers
         public ActionResult Login(string returnUrl)
         {
 
-            var locBuss = new LocationBusiness();
+            //var locBuss = new LocationBusiness();
 
             var lvm = new LoginViewModel();
-            var locs  = locBuss.RetrieveLocations().Select(x =>
-                            new SelectListItem
-                            {
-                                Value = x.LocationGuid.ToString(),
-                                Text = x.Description
-                            }
-                );
+            //var locs  = locBuss.RetrieveLocations().Select(x =>
+            //                new SelectListItem
+            //                {
+            //                    Value = x.LocationGuid.ToString(),
+            //                    Text = x.Description
+            //                }
+            //    );
 
-            lvm.Locations = locs;
+            ////lvm.Locations = locs;
             
             ViewBag.ReturnUrl = returnUrl;
             return View(lvm);

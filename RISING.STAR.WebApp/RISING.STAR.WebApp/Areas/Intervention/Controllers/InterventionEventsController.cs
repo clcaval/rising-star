@@ -10,9 +10,12 @@ using System.Web.Mvc;
 using RISING.STAR.DAL;
 using RISING.STAR.WebApp.Areas.Intervention.Models;
 using RISING.STAR.Entities.Results;
+using RISING.STAR.WebApp.ActionFilters;
 
 namespace RISING.STAR.WebApp.Areas.Intervention.Controllers
 {
+
+    [RBAC]
     public class InterventionEventsController : Controller
     {
         private RISINGSTAREntities db = new RISINGSTAREntities();

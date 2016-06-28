@@ -10,8 +10,12 @@ using RISING.STAR.Business.PatientBusiness;
 
 using RISING.STAR.WebApp.Areas.TestingTreatment.Models;
 
+using RISING.STAR.WebApp.ActionFilters;
+
 namespace RISING.STAR.WebApp.Areas.TestingTreatment.Controllers
 {
+
+    [RBAC]
     public class TestingTreatmentSummaryController : Controller
     {
         // GET: TestingTreatment/TestingTreatmentSummary

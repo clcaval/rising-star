@@ -7,8 +7,12 @@ using System.Web.Mvc;
 using RISING.STAR.Business.Intervention;
 using RISING.STAR.WebApp.Areas.OSI.Models;
 
+using RISING.STAR.WebApp.ActionFilters;
+
 namespace RISING.STAR.WebApp.Areas.OSI.Controllers
 {
+
+    [RBAC]
     public class ScatterReportsController : Controller
     {
         // GET: OSI/ScatterReports

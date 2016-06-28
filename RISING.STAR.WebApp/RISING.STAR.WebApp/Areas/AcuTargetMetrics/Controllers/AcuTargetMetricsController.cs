@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using RISING.STAR.WebApp.ActionFilters;
+
 using RISING.STAR.Business.AcuDataMetrics;
 using RISING.STAR.Entities.AcuDataTarget;
 
 namespace RISING.STAR.WebApp.Areas.AcuTargetMetrics.Controllers
 {
+
+    [RBAC]
     public class AcuTargetMetricsController : Controller
     {
 

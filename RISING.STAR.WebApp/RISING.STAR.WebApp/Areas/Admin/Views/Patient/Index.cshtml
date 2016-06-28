@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<RISING.STAR.DAL.Patients_Table>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Patients";
     Layout = "~/Views/Shared/_LayoutInner.cshtml";
 }
 
@@ -10,9 +10,22 @@
 
     <h2>Patients</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+    <div class="row">
+
+        <div class="col-md-2">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <a href="@Url.Action("AdminDash", "Admin", new { Area = "" })">
+                Back to Admin Dashboard
+            </a>
+        </div>
+
+    </div>
+
     <table class="table table-condensed table-striped">
         <tr>
             <th>

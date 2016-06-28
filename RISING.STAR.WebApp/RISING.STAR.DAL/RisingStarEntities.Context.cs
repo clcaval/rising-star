@@ -39,5 +39,8 @@ namespace RISING.STAR.DAL
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
+        public virtual DbSet<UserTest> UserTests { get; set; }
+        public virtual DbSet<UserTestQ> UserTestQs { get; set; }
+        public virtual DbSet<UserTestP> UserTestPs { get; set; }
     }
 }

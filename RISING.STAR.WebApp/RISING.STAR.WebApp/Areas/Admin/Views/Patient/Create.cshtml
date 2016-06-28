@@ -14,6 +14,17 @@
     <div class="form-horizontal">
         <h3>Patients</h3>
         <hr />
+
+        <div class="row">
+            
+            <div class="col-md-2">
+                <a href="@Url.Action("AdminDash", "Admin", new { Area = "" })">
+                    Back to Admin Dashboard
+                </a>
+            </div>
+
+        </div>
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="row">

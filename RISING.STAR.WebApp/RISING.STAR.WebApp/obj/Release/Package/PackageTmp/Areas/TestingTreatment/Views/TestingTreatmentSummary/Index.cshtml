@@ -1,4 +1,4 @@
-﻿
+﻿@model RISING.STAR.WebApp.Areas.TestingTreatment.Models.TreatmentHistoryViewModel
 @{
     ViewBag.Title = "Treatment Summary";
     Layout = "~/Views/Shared/_LayoutInner.cshtml";
@@ -7,8 +7,221 @@
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
     <div class="row">
-        <h2>Index Testing Treatment Summary </h2>
+        <div class="col-md-6">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">Treatment history</div>
+                <div class="panel-body">
+
+                    @{
+                        if (Model.InterventionList != null && Model.InterventionList.Count() > 0)
+                        {
+
+                            <div class="panel-group">
+
+                            @{
+                            var distc = Model.InterventionList.GroupBy(p => p.InterventionTypeGuid)
+                                                          .Select(g => g.First())
+                                                          .ToList();
+
+                            foreach (var item in distc)
+                            {
+
+                                <div class="panel panel-info">
+                                    <div class="panel-heading panel-heading-sm">
+                                        @item.InterventionDescription
+                                    </div>
+
+                                    <div class="panel-body">
+
+                                        <table class="table table-condensed table-striped table-marginless">
+                                            <thead>
+                                                <tr>
+                                                    <th>Eye</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    var interventions = Model.InterventionList.Where(x =>
+                                                                    x.InterventionTypeGuid == item.InterventionTypeGuid);
+
+                                                    foreach (var interv in interventions)
+                                                    {
+                                                        <tr>
+                                                            <td>@interv.Eye</td>
+                                                            <td>@interv.InsertionDate</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            }
+                            }
+                        </div>
+                        }else{
+                        <h5>No data available</h5>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Testing history</div>
+                <div class="panel-body">
+
+                    @{
+
+                        if (Model.Acquisitions != null && Model.Acquisitions.Count() > 0)
+                        {
+
+                            <div class="panel-group">
+
+                            @{
+
+                            var distc = Model.Acquisitions.GroupBy(p => p.AcquisitionDescription)
+                                                          .Select(g => g.First())
+                                                          .ToList();
+
+                            if (distc != null && distc.Count() > 0)
+                            {
+
+                                foreach (var item in distc)
+                                {
+
+                                    var acqs = Model.Acquisitions.Where(x => x.AcquisitionDescription == item.AcquisitionDescription);
+
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading panel-heading-sm">
+                                            @item.AcquisitionDescription
+                                        </div>
+
+                                        <div class="panel-body">
+
+                                            <table class="table table-condensed">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Eye</th>
+                                                        <th>Date</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+                                                    @{foreach (var acq in acqs)
+                                                    {
+                                                        <tr>
+                                                            <td>@String.Format("{0}{1}", "O", @acq.Eye)</td>
+                                                            <td>@acq.Date</td>
+                                                        </tr>
+                                                    }
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                }
+                               
+                            }
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <h5>No data available</h5>
+                        }
+                    }                  
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">Comments</div>
+                <div class="panel-body">
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="btnAddComment">
+                        Add comment
+                    </button>
+
+                    <div id="patComments">
+                        @{
+                            if (Model.PatientsComments != null && Model.PatientsComments.Count() > 0)
+                            {
+
+                                <table id="tblComments" class="table table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-md-2">Date</th>
+                                            <th class="col-md-10">Comment</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model.PatientsComments)
+                                            {
+                                                <tr>
+                                                    <td>@item.Date</td>
+                                                    <td>@item.Comment</td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+
+                                </table>
+
+                            }
+                            else
+                            {
+                                <h5>No data available</h5>
+                            }
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">Consent forms</div>
+                <div class="panel-body">TO BE DEFINED</div>
+            </div>
+        </div>
+
     </div>
 
-</div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Add comment</h4>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="input-group">
+                        @Html.LabelFor(m => m.Comment, new { @class = "input-group-addon" })
+                        @Html.TextAreaFor(m => m.Comment, 5, 5, new { @id = "txtComment", @class = "form-control" })
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSave">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+@section JavaScript
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/app/Treatment/treatment.js")"></script>
+}

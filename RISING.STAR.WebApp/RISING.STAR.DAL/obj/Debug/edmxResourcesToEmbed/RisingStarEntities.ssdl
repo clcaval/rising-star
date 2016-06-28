@@ -154,8 +154,6 @@
     <Property Name="InterventionTag" Type="int" />
     <Property Name="IconGuid" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Location">
     <Key>
       <PropertyRef Name="LocationGuid" />
@@ -238,6 +236,37 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     </Key>
     <Property Name="UserGUID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RoleGUID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTest">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Course" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTestP">
+    <Key>
+      <PropertyRef Name="ProfessorId" />
+    </Key>
+    <Property Name="ProfessorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Courses" Type="nvarchar(max)" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="UserTestQ">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProfessorId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Didatica" Type="int" />
+    <Property Name="CoerenciaAulaProva" Type="int" />
+    <Property Name="Dominio" Type="int" />
+    <Property Name="Auxilio" Type="int" />
   </EntityType>
   <Association Name="FK_Acquisitions_Table_ExamType">
     <End Role="ExamType" Type="Self.ExamType" Multiplicity="0..1" />
@@ -455,6 +484,30 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UserTestQ_UserTest">
+    <End Role="UserTest" Type="Self.UserTest" Multiplicity="1" />
+    <End Role="UserTestQ" Type="Self.UserTestQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTest">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="UserTestQ">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTestQ_UserTestP">
+    <End Role="UserTestP" Type="Self.UserTestP" Multiplicity="1" />
+    <End Role="UserTestQ" Type="Self.UserTestQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTestP">
+        <PropertyRef Name="ProfessorId" />
+      </Principal>
+      <Dependent Role="UserTestQ">
+        <PropertyRef Name="ProfessorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="RISINGSTARModelStoreContainer">
     <EntitySet Name="Acquisitions_Table" EntityType="Self.Acquisitions_Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
@@ -472,6 +525,9 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTest" EntityType="Self.UserTest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTestP" EntityType="Self.UserTestP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTestQ" EntityType="Self.UserTestQ" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Acquisitions_Table_ExamType" Association="Self.FK_Acquisitions_Table_ExamType">
       <End Role="ExamType" EntitySet="ExamType" />
       <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
@@ -543,6 +599,14 @@ warning 6002: The table/view 'RISINGSTAR.dbo.List_Of_Patients' does not have a p
     <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
       <End Role="User" EntitySet="User" />
       <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTestQ_UserTest" Association="Self.FK_UserTestQ_UserTest">
+      <End Role="UserTest" EntitySet="UserTest" />
+      <End Role="UserTestQ" EntitySet="UserTestQ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTestQ_UserTestP" Association="Self.FK_UserTestQ_UserTestP">
+      <End Role="UserTestP" EntitySet="UserTestP" />
+      <End Role="UserTestQ" EntitySet="UserTestQ" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -79,6 +79,17 @@
       <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="Document" EntitySet="Documents" />
     </AssociationSet>
+    <EntitySet Name="UserTests" EntityType="RISINGSTARModel.UserTest" />
+    <EntitySet Name="UserTestQs" EntityType="RISINGSTARModel.UserTestQ" />
+    <AssociationSet Name="FK_UserTestQ_UserTest" Association="RISINGSTARModel.FK_UserTestQ_UserTest">
+      <End Role="UserTest" EntitySet="UserTests" />
+      <End Role="UserTestQ" EntitySet="UserTestQs" />
+    </AssociationSet>
+    <EntitySet Name="UserTestPs" EntityType="RISINGSTARModel.UserTestP" />
+    <AssociationSet Name="FK_UserTestQ_UserTestP" Association="RISINGSTARModel.FK_UserTestQ_UserTestP">
+      <End Role="UserTestP" EntitySet="UserTestPs" />
+      <End Role="UserTestQ" EntitySet="UserTestQs" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Acquisitions_Table">
     <Key>
@@ -506,6 +517,65 @@
       </Principal>
       <Dependent Role="Document">
         <PropertyRef Name="MovedToPatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserTest">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Course" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserTestQs" Relationship="RISINGSTARModel.FK_UserTestQ_UserTest" FromRole="UserTest" ToRole="UserTestQ" />
+  </EntityType>
+  <EntityType Name="UserTestQ">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="ProfessorId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Didatica" Type="Int32" />
+    <Property Name="CoerenciaAulaProva" Type="Int32" />
+    <Property Name="Dominio" Type="Int32" />
+    <Property Name="Auxilio" Type="Int32" />
+    <NavigationProperty Name="UserTest" Relationship="RISINGSTARModel.FK_UserTestQ_UserTest" FromRole="UserTestQ" ToRole="UserTest" />
+    <NavigationProperty Name="UserTestP" Relationship="RISINGSTARModel.FK_UserTestQ_UserTestP" FromRole="UserTestQ" ToRole="UserTestP" />
+  </EntityType>
+  <Association Name="FK_UserTestQ_UserTest">
+    <End Type="RISINGSTARModel.UserTest" Role="UserTest" Multiplicity="1" />
+    <End Type="RISINGSTARModel.UserTestQ" Role="UserTestQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTest">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="UserTestQ">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserTestP">
+    <Key>
+      <PropertyRef Name="ProfessorId" />
+    </Key>
+    <Property Name="ProfessorId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Courses" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserTestQs" Relationship="RISINGSTARModel.FK_UserTestQ_UserTestP" FromRole="UserTestP" ToRole="UserTestQ" />
+  </EntityType>
+  <Association Name="FK_UserTestQ_UserTestP">
+    <End Type="RISINGSTARModel.UserTestP" Role="UserTestP" Multiplicity="1" />
+    <End Type="RISINGSTARModel.UserTestQ" Role="UserTestQ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTestP">
+        <PropertyRef Name="ProfessorId" />
+      </Principal>
+      <Dependent Role="UserTestQ">
+        <PropertyRef Name="ProfessorId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
