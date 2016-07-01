@@ -7,3 +7,4 @@ C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\bin\Debug\RISING.S
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\bin\Debug\RISING.STAR.Entities.pdb
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\obj\Debug\RISING.STAR.Entities.dll
 C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\obj\Debug\RISING.STAR.Entities.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.Entities\obj\Debug\RISING.STAR.Entities.csprojResolveAssemblyReference.cache

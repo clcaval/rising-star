@@ -201,36 +201,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="RISINGSTARModel.User">
-        <MappingFragment StoreEntitySet="User">
-          <ScalarProperty Name="ResetPassword" ColumnName="ResetPassword" />
-          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-          <ScalarProperty Name="IsADM" ColumnName="IsADM" />
-          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-          <ScalarProperty Name="Login" ColumnName="Login" />
-          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
-          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
-          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="Guid" ColumnName="Guid" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <AssociationSetMapping Name="RolePermission" TypeName="RISINGSTARModel.RolePermission" StoreEntitySet="RolePermission">
       <EndProperty Name="Role">
         <ScalarProperty Name="RoleGUID" ColumnName="RoleGUID" />
       </EndProperty>
       <EndProperty Name="Permission">
         <ScalarProperty Name="PermissionGUID" ColumnName="PermissionGUID" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="UserRole" TypeName="RISINGSTARModel.UserRole" StoreEntitySet="UserRole">
-      <EndProperty Name="User">
-        <ScalarProperty Name="Guid" ColumnName="UserGUID" />
-      </EndProperty>
-      <EndProperty Name="Role">
-        <ScalarProperty Name="RoleGUID" ColumnName="RoleGUID" />
       </EndProperty>
     </AssociationSetMapping>
     <EntitySetMapping Name="Documents">
@@ -283,6 +259,57 @@
           <ScalarProperty Name="Courses" ColumnName="Courses" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ProfessorId" ColumnName="ProfessorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="RISINGSTARModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="LastModifiedBy" ColumnName="LastModifiedBy" />
+          <ScalarProperty Name="ResetPassword" ColumnName="ResetPassword" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="IsADM" ColumnName="IsADM" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="DateLastModified" ColumnName="DateLastModified" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Guid" ColumnName="Guid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserRole" TypeName="RISINGSTARModel.UserRole" StoreEntitySet="UserRole">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Guid" ColumnName="UserGUID" />
+      </EndProperty>
+      <EndProperty Name="Role">
+        <ScalarProperty Name="RoleGUID" ColumnName="RoleGUID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ETDRSNearVAs">
+      <EntityTypeMapping TypeName="RISINGSTARModel.ETDRSNearVA">
+        <MappingFragment StoreEntitySet="ETDRSNearVA">
+          <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+          <ScalarProperty Name="LetterSize" ColumnName="LetterSize" />
+          <ScalarProperty Name="LogMar" ColumnName="LogMar" />
+          <ScalarProperty Name="ETDRSVA" ColumnName="ETDRSVA" />
+          <ScalarProperty Name="ETDRSID" ColumnName="ETDRSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JaegerNearVAs">
+      <EntityTypeMapping TypeName="RISINGSTARModel.JaegerNearVA">
+        <MappingFragment StoreEntitySet="JaegerNearVA">
+          <ScalarProperty Name="JaegerNVA" ColumnName="JaegerNVA" />
+          <ScalarProperty Name="JaegerId" ColumnName="JaegerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SnellenVAs">
+      <EntityTypeMapping TypeName="RISINGSTARModel.SnellenVA">
+        <MappingFragment StoreEntitySet="SnellenVA">
+          <ScalarProperty Name="SnellenVA1" ColumnName="SnellenVA" />
+          <ScalarProperty Name="VAID" ColumnName="VAID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

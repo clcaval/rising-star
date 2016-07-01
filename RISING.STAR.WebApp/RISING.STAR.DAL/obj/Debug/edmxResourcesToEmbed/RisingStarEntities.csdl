@@ -13,7 +13,6 @@
     <EntitySet Name="PatientsComments" EntityType="RISINGSTARModel.PatientsComment" />
     <EntitySet Name="Permissions" EntityType="RISINGSTARModel.Permission" />
     <EntitySet Name="Roles" EntityType="RISINGSTARModel.Role" />
-    <EntitySet Name="Users" EntityType="RISINGSTARModel.User" />
     <AssociationSet Name="FK_Acquisitions_Table_ExamType" Association="RISINGSTARModel.FK_Acquisitions_Table_ExamType">
       <End Role="ExamType" EntitySet="ExamTypes" />
       <End Role="Acquisitions_Table" EntitySet="Acquisitions_Table" />
@@ -42,10 +41,6 @@
       <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="InterventionEvent" EntitySet="InterventionEvents" />
     </AssociationSet>
-    <AssociationSet Name="FK_InterventionEvent_User" Association="RISINGSTARModel.FK_InterventionEvent_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="InterventionEvent" EntitySet="InterventionEvents" />
-    </AssociationSet>
     <AssociationSet Name="FK_InterventionType_InterventionIcon" Association="RISINGSTARModel.FK_InterventionType_InterventionIcon">
       <End Role="InterventionIcon" EntitySet="InterventionIcons" />
       <End Role="InterventionType" EntitySet="InterventionTypes" />
@@ -54,17 +49,9 @@
       <End Role="Patients_Table" EntitySet="Patients_Table" />
       <End Role="PatientsComment" EntitySet="PatientsComments" />
     </AssociationSet>
-    <AssociationSet Name="FK_PatientsComment_User" Association="RISINGSTARModel.FK_PatientsComment_User">
-      <End Role="User" EntitySet="Users" />
-      <End Role="PatientsComment" EntitySet="PatientsComments" />
-    </AssociationSet>
     <AssociationSet Name="RolePermission" Association="RISINGSTARModel.RolePermission">
       <End Role="Permission" EntitySet="Permissions" />
       <End Role="Role" EntitySet="Roles" />
-    </AssociationSet>
-    <AssociationSet Name="UserRole" Association="RISINGSTARModel.UserRole">
-      <End Role="Role" EntitySet="Roles" />
-      <End Role="User" EntitySet="Users" />
     </AssociationSet>
     <EntitySet Name="Documents" EntityType="RISINGSTARModel.Document" />
     <AssociationSet Name="FK_Document_ExamType" Association="RISINGSTARModel.FK_Document_ExamType">
@@ -90,6 +77,26 @@
       <End Role="UserTestP" EntitySet="UserTestPs" />
       <End Role="UserTestQ" EntitySet="UserTestQs" />
     </AssociationSet>
+    <EntitySet Name="Users" EntityType="RISINGSTARModel.User" />
+    <AssociationSet Name="FK_InterventionEvent_User" Association="RISINGSTARModel.FK_InterventionEvent_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="InterventionEvent" EntitySet="InterventionEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientsComment_User" Association="RISINGSTARModel.FK_PatientsComment_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PatientsComment" EntitySet="PatientsComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_User" Association="RISINGSTARModel.FK_User_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="User1" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="UserRole" Association="RISINGSTARModel.UserRole">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="ETDRSNearVAs" EntityType="RISINGSTARModel.ETDRSNearVA" />
+    <EntitySet Name="JaegerNearVAs" EntityType="RISINGSTARModel.JaegerNearVA" />
+    <EntitySet Name="SnellenVAs" EntityType="RISINGSTARModel.SnellenVA" />
   </EntityContainer>
   <EntityType Name="Acquisitions_Table">
     <Key>
@@ -305,24 +312,6 @@
     <NavigationProperty Name="Permissions" Relationship="RISINGSTARModel.RolePermission" FromRole="Role" ToRole="Permission" />
     <NavigationProperty Name="Users" Relationship="RISINGSTARModel.UserRole" FromRole="Role" ToRole="User" />
   </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="Guid" />
-    </Key>
-    <Property Name="Guid" Type="Guid" Nullable="false" />
-    <Property Name="Active" Type="Boolean" Nullable="false" />
-    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="DateLastModified" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="LastModifiedBy" Type="Int32" />
-    <Property Name="Login" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="IsADM" Type="Boolean" Nullable="false" />
-    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="ResetPassword" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_User" FromRole="User" ToRole="InterventionEvent" />
-    <NavigationProperty Name="PatientsComments" Relationship="RISINGSTARModel.FK_PatientsComment_User" FromRole="User" ToRole="PatientsComment" />
-    <NavigationProperty Name="Roles" Relationship="RISINGSTARModel.UserRole" FromRole="User" ToRole="Role" />
-  </EntityType>
   <Association Name="FK_Acquisitions_Table_ExamType">
     <End Type="RISINGSTARModel.ExamType" Role="ExamType" Multiplicity="0..1" />
     <End Type="RISINGSTARModel.Acquisitions_Table" Role="Acquisitions_Table" Multiplicity="*" />
@@ -407,18 +396,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_InterventionEvent_User">
-    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="0..1" />
-    <End Type="RISINGSTARModel.InterventionEvent" Role="InterventionEvent" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Guid" />
-      </Principal>
-      <Dependent Role="InterventionEvent">
-        <PropertyRef Name="DoctorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_InterventionType_InterventionIcon">
     <End Type="RISINGSTARModel.InterventionIcon" Role="InterventionIcon" Multiplicity="1" />
     <End Type="RISINGSTARModel.InterventionType" Role="InterventionType" Multiplicity="*" />
@@ -443,25 +420,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PatientsComment_User">
-    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="1" />
-    <End Type="RISINGSTARModel.PatientsComment" Role="PatientsComment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Guid" />
-      </Principal>
-      <Dependent Role="PatientsComment">
-        <PropertyRef Name="DoctorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="RolePermission">
     <End Type="RISINGSTARModel.Permission" Role="Permission" Multiplicity="*" />
     <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
-  </Association>
-  <Association Name="UserRole">
-    <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
-    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="*" />
   </Association>
   <EntityType Name="Document">
     <Key>
@@ -579,4 +540,88 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Guid" />
+    </Key>
+    <Property Name="Guid" Type="Guid" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateLastModified" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsADM" Type="Boolean" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ResetPassword" Type="Boolean" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="Guid" />
+    <NavigationProperty Name="InterventionEvents" Relationship="RISINGSTARModel.FK_InterventionEvent_User" FromRole="User" ToRole="InterventionEvent" />
+    <NavigationProperty Name="PatientsComments" Relationship="RISINGSTARModel.FK_PatientsComment_User" FromRole="User" ToRole="PatientsComment" />
+    <NavigationProperty Name="User1" Relationship="RISINGSTARModel.FK_User_User" FromRole="User" ToRole="User1" />
+    <NavigationProperty Name="User2" Relationship="RISINGSTARModel.FK_User_User" FromRole="User1" ToRole="User" />
+    <NavigationProperty Name="Roles" Relationship="RISINGSTARModel.UserRole" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_InterventionEvent_User">
+    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="RISINGSTARModel.InterventionEvent" Role="InterventionEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="InterventionEvent">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientsComment_User">
+    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="1" />
+    <End Type="RISINGSTARModel.PatientsComment" Role="PatientsComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="PatientsComment">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_User">
+    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="RISINGSTARModel.User" Role="User1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="LastModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserRole">
+    <End Type="RISINGSTARModel.Role" Role="Role" Multiplicity="*" />
+    <End Type="RISINGSTARModel.User" Role="User" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ETDRSNearVA">
+    <Key>
+      <PropertyRef Name="ETDRSID" />
+    </Key>
+    <Property Name="ETDRSID" Type="Guid" Nullable="false" />
+    <Property Name="ETDRSVA" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LogMar" Type="Double" Nullable="false" />
+    <Property Name="LetterSize" Type="Double" Nullable="false" />
+    <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="JaegerNearVA">
+    <Key>
+      <PropertyRef Name="JaegerId" />
+    </Key>
+    <Property Name="JaegerId" Type="Guid" Nullable="false" />
+    <Property Name="JaegerNVA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SnellenVA">
+    <Key>
+      <PropertyRef Name="VAID" />
+    </Key>
+    <Property Name="VAID" Type="Guid" Nullable="false" />
+    <Property Name="SnellenVA1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

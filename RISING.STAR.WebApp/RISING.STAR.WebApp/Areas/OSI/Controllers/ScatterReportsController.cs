@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 
 using RISING.STAR.Business.Intervention;
+using RISING.STAR.Business.OSI;
 using RISING.STAR.WebApp.Areas.OSI.Models;
-
 using RISING.STAR.WebApp.ActionFilters;
 
 namespace RISING.STAR.WebApp.Areas.OSI.Controllers
@@ -34,13 +34,13 @@ namespace RISING.STAR.WebApp.Areas.OSI.Controllers
             viewModel.SecondCriteria = viewModel.FirstCriteria;
 
             // Start Range
-            viewModel.StartRange = this.GetStartRange().ToList();
+            //viewModel.StartRange = this.GetStartRange().ToList();
 
             // End Range
-            viewModel.EndRange = this.GetEndRange().ToList();
+            //viewModel.EndRange = this.GetEndRange().ToList();
                
             // Frequency
-            viewModel.Frequency = this.GetFrequency().ToList();
+            viewModel.Timewindow = this.GetTimewindow().ToList();
 
             return View(viewModel);
         }
@@ -48,7 +48,15 @@ namespace RISING.STAR.WebApp.Areas.OSI.Controllers
         [HttpGet]
         public ActionResult RetrieveOSICohort(OSIReportViewModel viewModel)
         {
-            return Json(viewModel, JsonRequestBehavior.AllowGet);
+
+            var buss = new OSITrendlineBusiness();
+            var data = buss.RetrieveOSICohort(viewModel.StartAge, viewModel.EndAge, 
+                                                viewModel.SelectedFirstCriteria, viewModel.SelectedSecondCriteria,
+                                                viewModel.SelectedTimewindow,
+                                                viewModel.StartDateRange,
+                                                viewModel.EndDateRange);
+
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
         
         private List<SelectListItem> GetStartRange()
@@ -88,13 +96,17 @@ namespace RISING.STAR.WebApp.Areas.OSI.Controllers
             return list;
         }
 
-        private List<SelectListItem> GetFrequency()
+        private List<SelectListItem> GetTimewindow()
         {
             var list = new List<SelectListItem>();
-            list.Add(new SelectListItem { Value = "D", Text = "Days" });
-            list.Add(new SelectListItem { Value = "W", Text = "Weeks" });
-            list.Add(new SelectListItem { Value = "M", Text = "Months" });
-            list.Add(new SelectListItem { Value = "Y", Text = "Years" });
+            list.Add(new SelectListItem { Value = "1W", Text = "1 week" });
+            list.Add(new SelectListItem { Value = "1M", Text = "1 month" });
+            list.Add(new SelectListItem { Value = "3M", Text = "3 months" });
+            list.Add(new SelectListItem { Value = "6M", Text = "6 months" });
+            list.Add(new SelectListItem { Value = "1Y", Text = "1 year" });
+            list.Add(new SelectListItem { Value = "2Y", Text = "2 years" });
+            list.Add(new SelectListItem { Value = "3Y", Text = "3 years" });
+            list.Add(new SelectListItem { Value = "5Y", Text = "5 years" });
             return list;
         }
 

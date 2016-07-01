@@ -56,6 +56,9 @@
     <Compile Include="Document.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="ETDRSNearVA.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Exams_Table.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
@@ -72,6 +75,9 @@
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="InterventionType.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JaegerNearVA.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Location.cs">
@@ -103,6 +109,9 @@
       <DependentUpon>RisingStarEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
+      <DependentUpon>RisingStarEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SnellenVA.cs">
       <DependentUpon>RisingStarEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">

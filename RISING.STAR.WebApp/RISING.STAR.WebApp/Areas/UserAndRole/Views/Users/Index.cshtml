@@ -7,11 +7,23 @@
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-    <h2>Index</h2>
+    <h2>Users</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+    <div class="row">
+
+        <div class="col-md-2">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <a href="@Url.Action("AdminDash", "Admin", new { Area = "" })">
+                Back to Admin Dashboard
+            </a>
+        </div>
+
+    </div>
     <table class="table">
         <tr>
             <th>
@@ -37,6 +49,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ResetPassword)
+            </th>
+            <th>
+                Role
             </th>
             <th></th>
         </tr>
@@ -67,6 +82,27 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ResetPassword)
+                </td>
+                @{
+                    if (item.Roles != null && item.Roles.Count > 0)
+                    {
+                        var roles = new List<String>();
+                        foreach (var role in item.Roles)
+                        {
+                            roles.Add(role.DescriptionDisplay);
+                        }
+                        <td>
+                            @String.Join(", ", roles.ToArray())
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }
+
+                <td>
+             
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Guid }) |

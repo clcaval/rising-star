@@ -11,60 +11,69 @@
 
         <div class="col-md-4">
 
-            <h5>Age criteria</h5>
-            <div class="input-group">
-                <span class="input-group-addon">Age range</span>
-                <input type="text" class="form-control" placeholder="From" aria-describedby="basic-addon1" id="StartAge">
-                <span class="input-group-addon">To</span>
-                <input type="text" class="form-control" placeholder="To" aria-describedby="basic-addon1" id="EndAge">
-            </div>
-
-            <h5>First criteria</h5>
-            <div class="input-group">
-                <div class="input-group">
-                    <label class="input-group-addon" for="FirstCriteria">Intervention</label>
-                    @Html.DropDownListFor(m => m.SelectedFirstCriteria, Model.FirstCriteria, "", new { @id = "SelectedFirstCriteria", @class = "form-control" })
+            <div class="panel panel-primary">
+                <div class="panel-heading">Age criteria</div>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">Age range</span>
+                        <input type="text" class="form-control" placeholder="From" aria-describedby="basic-addon1" id="StartAge">
+                        <span class="input-group-addon">To</span>
+                        <input type="text" class="form-control" placeholder="To" aria-describedby="basic-addon1" id="EndAge">
+                    </div>
                 </div>
             </div>
 
-            <h5>Second criteria</h5>
-            <div class="input-group">
-                <div class="input-group">
-                    <label class="input-group-addon" for="SecondCriteria">Intervention</label>
-                    @Html.DropDownListFor(m => m.SelectedSecondCriteria, Model.SecondCriteria, "", new { @id = "SelectedSecondCriteria", @class = "form-control" })
+            <div class="panel panel-primary">
+                <div class="panel-heading">First criteria</div>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="FirstCriteria">Intervention</label>
+                            @Html.DropDownListFor(m => m.SelectedFirstCriteria, Model.FirstCriteria, "", new { @id = "SelectedFirstCriteria", @class = "form-control" })
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h5>Third criteria</h5>
-            <div class="input-group">
-               
-                <span class="input-group-addon">Time window</span>
-                @Html.DropDownListFor(m => m.SelectedStartRange, Model.StartRange, "Select", new { @id = "SelectedStartRange", @class = "form-control" })
 
-                <span class="input-group-addon">To</span>
-                @Html.DropDownListFor(m => m.SelectedEndRange, Model.EndRange, "Select", new { @id = "SelectedEndRange", @class = "form-control" })
-
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">From</span>
-                @Html.DropDownListFor(m => m.SelectedFrequency, Model.Frequency, "Select", new { @id = "SelectedFrequency", @class = "form-control" })
-            </div>
-
-            <h5> OR </h5>
-
-            <div class="input-daterange input-group" id="datepicker">
-                <div class="input-daterange input-group" id="datepicker">
-                    <input type="text" class="input-sm form-control" name="start" id="StartDateRange" />
-                    <span class="input-group-addon">to</span>
-                    <input type="text" class="input-sm form-control" name="end" id="EndDateRange" />
+            <div class="panel panel-primary">
+                <div class="panel-heading">Second criteria</div>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="SecondCriteria">Intervention</label>
+                            @Html.DropDownListFor(m => m.SelectedSecondCriteria, Model.SecondCriteria, "", new { @id = "SelectedSecondCriteria", @class = "form-control" })
+                        </div>
+                    </div>
                 </div>
-            </div>            
-
-            <div class="col-md-12">
-                <button type="button" value="Show Results" class="btn btn-primary" id="btnShowGraph">Show Results</button>
-                <button type="button" value="Reset Query" class="btn btn-primary" id="btnResetQuery">Reset Query</button>
             </div>
 
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">Third criteria</div>
+                <div class="panel-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">Time window</span>
+                        @Html.DropDownListFor(m => m.SelectedTimewindow, Model.Timewindow, "Select", new { @id = "SelectedTimewindow", @class = "form-control" })
+                    </div>
+                    <h5>OR</h5>
+                    <div class="input-daterange input-group" id="datepicker">
+                        <div class="input-daterange input-group" id="datepicker">
+                            <input type="text" class="input-sm form-control" name="start" id="StartDateRange" />
+                            <span class="input-group-addon">to</span>
+                            <input type="text" class="input-sm form-control" name="end" id="EndDateRange" />
+                        </div>
+                    </div>
+                </div>
+            </div>         
+
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <button type="button" value="Show Results" class="btn btn-primary" id="btnShowGraph">Show Results</button>
+                    <button type="button" value="Reset Query" class="btn btn-primary" id="btnResetQuery">Reset Query</button>
+                </div>
+            </div>
+            
         </div>
         
         <div class="col-md-8">

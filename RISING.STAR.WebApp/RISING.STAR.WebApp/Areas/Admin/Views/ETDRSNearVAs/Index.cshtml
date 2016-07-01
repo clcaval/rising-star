@@ -1,0 +1,71 @@
+﻿@model IEnumerable<RISING.STAR.DAL.ETDRSNearVA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <h2>Index</h2>
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <a href="@Url.Action("AdminDash", "Admin", new { Area = "" })">
+                Back to Admin Dashboard
+            </a>
+        </div>
+
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ETDRSVA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogMar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LetterSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SSMA_TimeStamp)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ETDRSVA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LogMar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LetterSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SSMA_TimeStamp)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ETDRSID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ETDRSID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ETDRSID })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

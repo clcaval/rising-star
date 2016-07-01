@@ -53,13 +53,19 @@ namespace RISING.STAR.WebApp.Areas.UserAndRole.Controllers
         public ActionResult Create([Bind(Include = "Guid,Active,DateCreated,DateLastModified,LastModifiedBy,Login,PasswordHash,IsADM,EmailAddress,ResetPassword")] User user)
         {
 
+            // TODO: voltar aqui para pegar role 
+
             if(user != null)
             {
+
+                var role = db.Roles.Where(x => x.RoleDescription == "DOC").FirstOrDefault(); // ("97BA8341-9004-45BE-869E-3612F317CF31");
+
                 user.Active = true;
                 user.DateCreated = DateTime.Now;
                 user.DateLastModified = DateTime.Now;
-                user.LastModifiedBy = 0;
+                user.LastModifiedBy = Guid.Parse(Session["UserID"].ToString());
                 user.ResetPassword = false;
+                user.Roles.Add(role);
                 user.PasswordHash = PasswordCreation.CreateHash(user.PasswordHash);
             }
 
@@ -101,7 +107,7 @@ namespace RISING.STAR.WebApp.Areas.UserAndRole.Controllers
                 user.Active = true;
                 user.DateCreated = DateTime.Now;
                 user.DateLastModified = DateTime.Now;
-                user.LastModifiedBy = 0;
+                user.LastModifiedBy = Guid.Parse(Session["UserID"].ToString());
                 user.ResetPassword = false;
             }
 

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<RISING.STAR.DAL.JaegerNearVA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <h2>Index</h2>
+
+    <div class="row">
+        <div class="col-md-2">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+        <div class="col-md-2">
+            <a href="@Url.Action("AdminDash", "Admin", new { Area = "" })">
+                Back to Admin Dashboard
+            </a>
+        </div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JaegerNVA)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JaegerNVA)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.JaegerId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.JaegerId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.JaegerId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

@@ -19,6 +19,7 @@ namespace RISING.STAR.DAL
         {
             this.InterventionEvents = new HashSet<InterventionEvent>();
             this.PatientsComments = new HashSet<PatientsComment>();
+            this.User1 = new HashSet<User>();
             this.Roles = new HashSet<Role>();
         }
     
@@ -26,17 +27,20 @@ namespace RISING.STAR.DAL
         public bool Active { get; set; }
         public System.DateTime DateCreated { get; set; }
         public System.DateTime DateLastModified { get; set; }
-        public Nullable<int> LastModifiedBy { get; set; }
         public string Login { get; set; }
         public string PasswordHash { get; set; }
         public bool IsADM { get; set; }
         public string EmailAddress { get; set; }
         public bool ResetPassword { get; set; }
+        public Nullable<System.Guid> LastModifiedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InterventionEvent> InterventionEvents { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PatientsComment> PatientsComments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> User1 { get; set; }
+        public virtual User User2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Role> Roles { get; set; }
     }
