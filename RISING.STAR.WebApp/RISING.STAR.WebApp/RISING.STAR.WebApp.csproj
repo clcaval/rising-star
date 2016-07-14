@@ -243,6 +243,7 @@
     <Content Include="Content\datepicker.css" />
     <Content Include="Content\datepicker3.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\select2.min.css" />
     <Content Include="Content\styles.css" />
     <Content Include="Content\themify-icons.css" />
     <Content Include="Files\SWF\Add Videos.exe" />
@@ -677,6 +678,7 @@
     <Content Include="Areas\Intervention\Views\InterventionEvents\Index.cshtml" />
     <Content Include="Areas\OSI\Views\ScatterTrendline\Index - Copy.cshtml" />
     <Content Include="Scripts\pdfobject.min.js" />
+    <Content Include="Scripts\select2\select2.full.min.js" />
     <Content Include="Views\Shared\_Intervention.cshtml" />
     <Content Include="Areas\UserAndRole\Views\web.config" />
     <Content Include="Areas\UserAndRole\Views\Users\Create.cshtml" />

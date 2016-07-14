@@ -1,42 +1,19 @@
-﻿var s,
-    h,
-    b,
-    a,
+﻿var h,
     u,
     Common = {
 
-        settings: {
-
-        },
-
         url:
         {
-
             getPatUrl: 'Patients/GetPatients'
-
         },
 
-        ajax: {
-
-        },
-
-        helper: {
-            
+        helper: {            
             bindUIComponents: function () {
                 
                 $("#Patient").on('change', function () {
-
                     var k = sessionStorage.getItem('patientId') || 0;
-
-                    //alert(sessionStorage.getItem('patientId'));
-                    //console.log(k);
-                    //if (k != 0)
-                    //    sessionStorage.removeItem('patientId');
-
                     sessionStorage.setItem('patientId', $("#Patient").val());
-
                 });
-
             },
 
             selectMenuItem: function(){
@@ -74,60 +51,21 @@
 
             }
 
-            //populatePatients: function () {
-                              
-            //    $.ajax({
-            //        type: "POST",
-            //        url: u.getPatUrl,
-            //        contentType: "application/json; charset=utf-8",
-            //        dataType: "json"
-            //    }).done(function (data, textStatus, jqXHR) {
-
-            //        if ($.isArray(data)) {
-            //            $.each(data, function (i, v) {
-            //                s.ddlPat.append($('<option>', {
-            //                    value: v.Id,
-            //                    text: v.Name
-            //                }));
-            //            });
-            //        }
-            //        else {
-            //            // TODO: if its only one
-            //        }
-            //    }).always(function (data, textStatus, jqXHR) {
-
-            //    }).fail(function (jqXHR, textStatus, errorThrown) {
-
-            //    });
-            //}
-
         },
-
-        binder: {
-
-        },
-
+        
         init: function () {
 
-            s = this.settings;
             h = this.helper;
-            b = this.binder;
-            a = this.ajax;
             u = this.url;
             
+            $("#Patient").select2();
+
             var k = sessionStorage.getItem('patientId') || 0;
-
-            if (k != 0)
-            {                
-                $("#Patient").find('option[value="'+k+'"]').prop('selected', true);
+            if (k != 0) {
+                $("#Patient").val(k).trigger('change');
             }
-   
-            $("#Patient").on('change', function () {
 
-            });
-
-            $(".leftLink").on('click', function () {
-                
+            $(".leftLink").on('click', function () {                
                 if ($("#Patient").val())
                 {
                     this.href = this.href.replace("__ids__", $("#Patient").val());
@@ -136,13 +74,14 @@
                 {
                     alert("Chose a patient");
                     return false;
-                }
-                
+                }                
             });
+
+         
 
             h.bindUIComponents();
             h.selectMenuItem();
-
+            
         }
 
     }

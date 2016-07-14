@@ -1,0 +1,57 @@
+﻿@model RISING.STAR.DAL.ETDRSNearVA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutInner.cshtml";
+}
+
+
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>ETDRSNearVA</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ETDRSVA)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ETDRSVA)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LogMar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LogMar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LetterSize)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LetterSize)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SSMA_TimeStamp)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SSMA_TimeStamp)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ETDRSID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</div>

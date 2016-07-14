@@ -396,8 +396,7 @@
                     this.href = this.href.replace("__eye__", "OS");
 
                 });
-
-
+                
                 $("#PurkinjeTargetOD").on('click', function () {
                     
                     this.href = this.href.replace("__ids__", patientId);
@@ -414,8 +413,7 @@
                     this.href = this.href.replace("__eye__", "OD");
 
                 });
-
-
+                
                 $("#PurkinjeTargetOS").on('click', function () {
                     
                     this.href = this.href.replace("__ids__", patientId);

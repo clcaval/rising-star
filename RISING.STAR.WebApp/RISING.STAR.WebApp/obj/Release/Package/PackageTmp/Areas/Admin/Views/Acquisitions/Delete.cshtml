@@ -6,6 +6,7 @@
 }
 
 
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
     <h2>Delete</h2>
@@ -15,6 +16,14 @@
         <h4>Acquisitions_Table</h4>
         <hr />
         <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id_Acq)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Id_Acq)
+            </dd>
+
             <dt>
                 @Html.DisplayNameFor(model => model.FK_Id_Patient)
             </dt>
@@ -221,14 +230,6 @@
 
             <dd>
                 @Html.DisplayFor(model => model.OQAS_VALUE_9)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Type_Num)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Type_Num)
             </dd>
 
             <dt>
@@ -549,6 +550,14 @@
 
             <dd>
                 @Html.DisplayFor(model => model.PKJ_Inlay_PixelRadio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ExamType.ExamTypeName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ExamType.ExamTypeName)
             </dd>
 
             <dt>

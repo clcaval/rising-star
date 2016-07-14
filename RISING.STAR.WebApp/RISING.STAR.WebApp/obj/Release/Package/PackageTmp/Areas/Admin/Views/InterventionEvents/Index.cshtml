@@ -12,9 +12,23 @@
     <title>Index</title>
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+
+    <div class="row">
+
+        <div class="col-md-2">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+        </div>
+
+        <div class="col-md-2">
+            <a href="@Url.Action("AdminDash", "Admin", new { Area = "" })">
+                Back to Admin Dashboard
+            </a>
+        </div>
+
+    </div>
+
     <table class="table">
         <tr>
             <th>

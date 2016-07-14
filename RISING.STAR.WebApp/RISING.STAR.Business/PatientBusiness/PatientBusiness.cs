@@ -17,7 +17,7 @@ namespace RISING.STAR.Business.PatientBusiness
             var patients = new List<Patient>();
             foreach (var item in dbContext.Patients_Table)
             {
-                patients.Add(new Patient(item.NAME + " " + item.SURNAME1, item.Guid));
+                patients.Add(new Patient(String.Format("{0} - {1} {2}", item.Id, item.NAME, item.SURNAME1), item.Guid));
             }
             return patients.OrderBy(m => m.Name).ToList();
         }

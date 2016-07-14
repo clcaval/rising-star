@@ -1,0 +1,16 @@
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.FileRobot.dll.config
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.FileRobot.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.FileRobot.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\obj\Debug\RISING.STAR.FileRobot.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\obj\Debug\RISING.STAR.FileRobot.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.Entities.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.Utils.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.Entities.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.Utils.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\obj\Debug\RISING.STAR.FileRobot.csprojResolveAssemblyReference.cache
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.Business.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.DAL.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\EntityFramework.dll
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.Business.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\RISING.STAR.DAL.pdb
+C:\GitHub\rising-star\RISING.STAR.WebApp\RISING.STAR.FileRobot\bin\Debug\EntityFramework.xml

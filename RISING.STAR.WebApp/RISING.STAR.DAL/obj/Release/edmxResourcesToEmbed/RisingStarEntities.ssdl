@@ -93,6 +93,16 @@
     <Property Name="Eye" Type="nvarchar" MaxLength="2" />
     <Property Name="ExamType" Type="smallint" />
   </EntityType>
+  <EntityType Name="ETDRSNearVA">
+    <Key>
+      <PropertyRef Name="ETDRSID" />
+    </Key>
+    <Property Name="ETDRSID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ETDRSVA" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LogMar" Type="float" Nullable="false" />
+    <Property Name="LetterSize" Type="float" Nullable="false" />
+    <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
   <EntityType Name="Exams_Table">
     <Key>
       <PropertyRef Name="Id" />
@@ -154,6 +164,13 @@
     <Property Name="InterventionTag" Type="int" />
     <Property Name="IconGuid" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
+  <EntityType Name="JaegerNearVA">
+    <Key>
+      <PropertyRef Name="JaegerId" />
+    </Key>
+    <Property Name="JaegerId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="JaegerNVA" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Location">
     <Key>
       <PropertyRef Name="LocationGuid" />
@@ -214,6 +231,13 @@
     <Property Name="RoleGUID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PermissionGUID" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
+  <EntityType Name="SnellenVA">
+    <Key>
+      <PropertyRef Name="VAID" />
+    </Key>
+    <Property Name="VAID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SnellenVA" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Guid" />
@@ -222,12 +246,12 @@
     <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="DateCreated" Type="datetime" Nullable="false" />
     <Property Name="DateLastModified" Type="datetime" Nullable="false" />
-    <Property Name="LastModifiedBy" Type="int" />
     <Property Name="Login" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="PasswordHash" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="IsADM" Type="bit" Nullable="false" />
     <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="ResetPassword" Type="bit" Nullable="false" />
+    <Property Name="LastModifiedBy" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="UserRole">
     <Key>
@@ -460,6 +484,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_User_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User1" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Guid" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="LastModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserRole_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
     <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
@@ -511,18 +547,21 @@
   <EntityContainer Name="RISINGSTARModelStoreContainer">
     <EntitySet Name="Acquisitions_Table" EntityType="Self.Acquisitions_Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ETDRSNearVA" EntityType="Self.ETDRSNearVA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Exams_Table" EntityType="Self.Exams_Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ExamType" EntityType="Self.ExamType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionCategory" EntityType="Self.InterventionCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionEvent" EntityType="Self.InterventionEvent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionIcon" EntityType="Self.InterventionIcon" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="InterventionType" EntityType="Self.InterventionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JaegerNearVA" EntityType="Self.JaegerNearVA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Patients_Table" EntityType="Self.Patients_Table" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PatientsComment" EntityType="Self.PatientsComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SnellenVA" EntityType="Self.SnellenVA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTest" EntityType="Self.UserTest" Schema="dbo" store:Type="Tables" />
@@ -591,6 +630,10 @@
     <AssociationSet Name="FK_RolePermission_Role" Association="Self.FK_RolePermission_Role">
       <End Role="Role" EntitySet="Role" />
       <End Role="RolePermission" EntitySet="RolePermission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User1" EntitySet="User" />
     </AssociationSet>
     <AssociationSet Name="FK_UserRole_Role" Association="Self.FK_UserRole_Role">
       <End Role="Role" EntitySet="Role" />

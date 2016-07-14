@@ -53,6 +53,7 @@
     <Compile Include="AcuDataMetrics\AcuTargetMetricsBusiness.cs" />
     <Compile Include="BusinessBase.cs" />
     <Compile Include="Common\CommonBusiness.cs" />
+    <Compile Include="Documents\DocumentBusiness.cs" />
     <Compile Include="Intervention\InterventionBusiness.cs" />
     <Compile Include="Login\LocationBusiness.cs" />
     <Compile Include="Acquisition\AcquisitionBusiness.cs" />

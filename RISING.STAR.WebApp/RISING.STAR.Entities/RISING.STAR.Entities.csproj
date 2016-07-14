@@ -51,6 +51,7 @@
     <Compile Include="Charts\InterventionData.cs" />
     <Compile Include="Charts\OSICohort.cs" />
     <Compile Include="Charts\TrendlineData.cs" />
+    <Compile Include="FileRobot\FileInformation.cs" />
     <Compile Include="Patients\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\Result.cs" />

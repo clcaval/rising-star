@@ -34,6 +34,9 @@ namespace RISING.STAR.WebApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/styles.css"));
 
+            bundles.Add(new StyleBundle("~/Content/select2").Include(
+                    "~/Content/select2.min.css"));
+
             bundles.Add(new StyleBundle("~/Content/csssite").Include(
                       "~/Content/site.css"));
             

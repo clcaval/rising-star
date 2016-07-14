@@ -19,22 +19,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/13/2016 10:57:51</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Acquisitions/Create.cshtml">
-      <publishTime>05/18/2016 16:12:42</publishTime>
+      <publishTime>06/30/2016 18:42:26</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Acquisitions/Delete.cshtml">
-      <publishTime>05/18/2016 16:12:50</publishTime>
+      <publishTime>06/30/2016 18:44:41</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Acquisitions/Details.cshtml">
-      <publishTime>05/18/2016 16:12:58</publishTime>
+      <publishTime>06/30/2016 18:44:41</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Acquisitions/Edit.cshtml">
-      <publishTime>05/18/2016 16:31:59</publishTime>
+      <publishTime>06/30/2016 18:44:41</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Acquisitions/Index.cshtml">
-      <publishTime>05/19/2016 14:14:00</publishTime>
+      <publishTime>06/30/2016 19:06:08</publishTime>
     </File>
     <File Include="Areas/Admin/Views/AdminDash/Index.cshtml">
-      <publishTime>06/14/2016 13:52:30</publishTime>
+      <publishTime>06/30/2016 18:57:48</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/ETDRSNearVAs/Create.cshtml">
+      <publishTime>06/30/2016 18:44:41</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/ETDRSNearVAs/Delete.cshtml">
+      <publishTime>06/30/2016 18:44:41</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/ETDRSNearVAs/Details.cshtml">
+      <publishTime>06/30/2016 18:43:26</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/ETDRSNearVAs/Edit.cshtml">
+      <publishTime>06/30/2016 18:44:41</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/ETDRSNearVAs/Index.cshtml">
+      <publishTime>06/30/2016 19:07:09</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Exam/Create.cshtml">
       <publishTime>05/19/2016 15:39:52</publishTime>
@@ -49,7 +64,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 14:58:44</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Exam/Index.cshtml">
-      <publishTime>05/19/2016 15:36:26</publishTime>
+      <publishTime>06/28/2016 17:28:08</publishTime>
     </File>
     <File Include="Areas/Admin/Views/InterventionEvents/Create.cshtml">
       <publishTime>06/01/2016 15:41:22</publishTime>
@@ -64,7 +79,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/01/2016 15:41:27</publishTime>
     </File>
     <File Include="Areas/Admin/Views/InterventionEvents/Index.cshtml">
-      <publishTime>06/01/2016 15:41:29</publishTime>
+      <publishTime>06/28/2016 17:23:30</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/JaegerNearVAs/Create.cshtml">
+      <publishTime>06/30/2016 18:44:40</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/JaegerNearVAs/Delete.cshtml">
+      <publishTime>06/30/2016 18:44:40</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/JaegerNearVAs/Details.cshtml">
+      <publishTime>06/30/2016 18:44:40</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/JaegerNearVAs/Edit.cshtml">
+      <publishTime>06/30/2016 18:44:40</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/JaegerNearVAs/Index.cshtml">
+      <publishTime>07/01/2016 10:29:16</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Locations/Create.cshtml">
       <publishTime>05/31/2016 11:38:52</publishTime>
@@ -79,10 +109,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2016 12:39:09</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Locations/Index.cshtml">
-      <publishTime>05/31/2016 13:56:09</publishTime>
+      <publishTime>06/28/2016 17:28:07</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Patient/Create.cshtml">
-      <publishTime>05/18/2016 16:57:59</publishTime>
+      <publishTime>06/28/2016 17:28:08</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Patient/Delete.cshtml">
       <publishTime>05/18/2016 13:00:53</publishTime>
@@ -94,10 +124,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 08:53:33</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Patient/Index.cshtml">
-      <publishTime>06/14/2016 08:49:12</publishTime>
+      <publishTime>06/28/2016 17:28:08</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Patient/_CreateExam.cshtml">
       <publishTime>05/19/2016 14:32:38</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/SnellenVAs/Create.cshtml">
+      <publishTime>06/30/2016 18:44:20</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/SnellenVAs/Delete.cshtml">
+      <publishTime>06/30/2016 18:44:26</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/SnellenVAs/Details.cshtml">
+      <publishTime>06/30/2016 18:44:40</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/SnellenVAs/Edit.cshtml">
+      <publishTime>06/30/2016 18:44:40</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/SnellenVAs/Index.cshtml">
+      <publishTime>07/01/2016 10:29:12</publishTime>
     </File>
     <File Include="Areas/Admin/Views/web.config">
       <publishTime>05/13/2016 05:37:10</publishTime>
@@ -115,7 +160,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 03:23:21</publishTime>
     </File>
     <File Include="Areas/Intervention/Views/InterventionEvents/Index.cshtml">
-      <publishTime>06/14/2016 03:21:31</publishTime>
+      <publishTime>06/28/2016 17:28:07</publishTime>
     </File>
     <File Include="Areas/Intervention/Views/InterventionIcons/Create.cshtml">
       <publishTime>06/03/2016 16:07:17</publishTime>
@@ -130,7 +175,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/03/2016 16:07:16</publishTime>
     </File>
     <File Include="Areas/Intervention/Views/InterventionIcons/Index.cshtml">
-      <publishTime>06/03/2016 16:07:16</publishTime>
+      <publishTime>06/28/2016 17:28:07</publishTime>
     </File>
     <File Include="Areas/Intervention/Views/InterventionTypes/Create.cshtml">
       <publishTime>06/03/2016 16:10:39</publishTime>
@@ -145,7 +190,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/03/2016 16:10:38</publishTime>
     </File>
     <File Include="Areas/Intervention/Views/InterventionTypes/Index.cshtml">
-      <publishTime>06/03/2016 16:10:39</publishTime>
+      <publishTime>06/28/2016 17:28:07</publishTime>
     </File>
     <File Include="Areas/Intervention/Views/web.config">
       <publishTime>06/03/2016 16:02:43</publishTime>
@@ -154,7 +199,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 08:44:14</publishTime>
     </File>
     <File Include="Areas/OSI/Views/ScatterReports/Index.cshtml">
-      <publishTime>06/23/2016 07:47:15</publishTime>
+      <publishTime>07/01/2016 13:47:00</publishTime>
     </File>
     <File Include="Areas/OSI/Views/ScatterTrendline/Index - Copy.cshtml">
       <publishTime>06/14/2016 04:15:07</publishTime>
@@ -166,7 +211,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/13/2016 10:48:02</publishTime>
     </File>
     <File Include="Areas/PatientEd/Views/PatientEducation/Index.cshtml">
-      <publishTime>06/15/2016 17:42:02</publishTime>
+      <publishTime>06/27/2016 15:31:53</publishTime>
     </File>
     <File Include="Areas/PatientEd/Views/web.config">
       <publishTime>05/13/2016 10:02:01</publishTime>
@@ -202,7 +247,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 13:49:08</publishTime>
     </File>
     <File Include="Areas/UserAndRole/Views/Permissions/Index.cshtml">
-      <publishTime>06/14/2016 13:49:52</publishTime>
+      <publishTime>06/29/2016 16:03:07</publishTime>
     </File>
     <File Include="Areas/UserAndRole/Views/Roles/Create.cshtml">
       <publishTime>06/14/2016 13:49:22</publishTime>
@@ -217,10 +262,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 13:49:43</publishTime>
     </File>
     <File Include="Areas/UserAndRole/Views/Roles/Index.cshtml">
-      <publishTime>06/14/2016 13:49:50</publishTime>
+      <publishTime>06/29/2016 16:03:15</publishTime>
     </File>
     <File Include="Areas/UserAndRole/Views/Users/Create.cshtml">
-      <publishTime>06/14/2016 13:58:59</publishTime>
+      <publishTime>06/29/2016 16:42:28</publishTime>
     </File>
     <File Include="Areas/UserAndRole/Views/Users/Delete.cshtml">
       <publishTime>06/14/2016 13:34:24</publishTime>
@@ -232,7 +277,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 13:34:24</publishTime>
     </File>
     <File Include="Areas/UserAndRole/Views/Users/Index.cshtml">
-      <publishTime>06/14/2016 13:29:39</publishTime>
+      <publishTime>06/29/2016 16:03:22</publishTime>
     </File>
     <File Include="Areas/UserAndRole/Views/web.config">
       <publishTime>06/14/2016 13:26:33</publishTime>
@@ -253,7 +298,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/23/2016 04:57:24</publishTime>
     </File>
     <File Include="Areas/Visiometrics/Views/Visiometric/Index.cshtml">
-      <publishTime>06/23/2016 02:38:15</publishTime>
+      <publishTime>06/27/2016 12:27:23</publishTime>
     </File>
     <File Include="Areas/Visiometrics/Views/web.config">
       <publishTime>05/13/2016 10:39:42</publishTime>
@@ -313,13 +358,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2016 10:54:40</publishTime>
     </File>
     <File Include="bin/RISING.STAR.Business.dll">
-      <publishTime>06/23/2016 22:18:54</publishTime>
+      <publishTime>07/12/2016 20:00:25</publishTime>
     </File>
     <File Include="bin/RISING.STAR.DAL.dll">
-      <publishTime>06/23/2016 22:18:52</publishTime>
+      <publishTime>07/12/2016 20:00:24</publishTime>
     </File>
     <File Include="bin/RISING.STAR.Entities.dll">
-      <publishTime>06/23/2016 20:16:17</publishTime>
+      <publishTime>07/12/2016 20:00:24</publishTime>
     </File>
     <File Include="bin/RISING.STAR.Exceptions.dll">
       <publishTime>06/14/2016 10:11:57</publishTime>
@@ -328,7 +373,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/14/2016 10:11:57</publishTime>
     </File>
     <File Include="bin/RISING.STAR.WebApp.dll">
-      <publishTime>06/23/2016 22:35:45</publishTime>
+      <publishTime>07/12/2016 20:00:28</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>04/25/2016 10:54:24</publishTime>
@@ -384,6 +429,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/font-awesome.min.css">
       <publishTime>04/26/2016 16:37:12</publishTime>
     </File>
+    <File Include="Content/select2.min.css">
+      <publishTime>07/12/2016 18:44:44</publishTime>
+    </File>
     <File Include="Content/Site.css">
       <publishTime>04/26/2016 15:54:19</publishTime>
     </File>
@@ -425,6 +473,399 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Files/Exams/FS_1.pdf">
       <publishTime>06/21/2016 14:59:41</publishTime>
+    </File>
+    <File Include="Files/SWF/Add Videos.exe">
+      <publishTime>06/27/2016 14:44:14</publishTime>
+    </File>
+    <File Include="Files/SWF/Add Videos.xml">
+      <publishTime>06/27/2016 14:44:14</publishTime>
+    </File>
+    <File Include="Files/SWF/ClearSightSelector.swf">
+      <publishTime>06/27/2016 14:44:17</publishTime>
+    </File>
+    <File Include="Files/SWF/ClearSightSelector_n.swf">
+      <publishTime>06/27/2016 14:44:18</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Accommo-dation.flv">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Accommo-dation.swf">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Accommo-dation_pdf.swf">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Accommo-dation_thumb.swf">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Astigmatism.flv">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Astigmatism.swf">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Astigmatism_pdf.swf">
+      <publishTime>06/27/2016 14:43:25</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Astigmatism_thumb.swf">
+      <publishTime>06/27/2016 14:43:25</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Black.flv">
+      <publishTime>06/27/2016 14:43:25</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Blepharitis.flv">
+      <publishTime>06/27/2016 14:43:27</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Blepharitis.swf">
+      <publishTime>06/27/2016 14:43:27</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Blepharitis_pdf.swf">
+      <publishTime>06/27/2016 14:43:27</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Blepharitis_thumb.swf">
+      <publishTime>06/27/2016 14:43:27</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Blepharo-plasty.flv">
+      <publishTime>06/27/2016 14:43:28</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Blepharo-plasty.swf">
+      <publishTime>06/27/2016 14:43:29</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Blepharo-plasty_pdf.swf">
+      <publishTime>06/27/2016 14:43:29</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Blepharo-plasty_thumb.swf">
+      <publishTime>06/27/2016 14:43:29</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Cataracts Overview.flv">
+      <publishTime>06/27/2016 14:43:29</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Cataracts Overview.swf">
+      <publishTime>06/27/2016 14:43:30</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Cataracts Overview_pdf.swf">
+      <publishTime>06/27/2016 14:43:30</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Cataracts Overview_thumb.swf">
+      <publishTime>06/27/2016 14:43:30</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Computer Lenses.flv">
+      <publishTime>06/27/2016 14:43:30</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Computer Lenses.swf">
+      <publishTime>06/27/2016 14:43:30</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Computer Lenses_pdf.swf">
+      <publishTime>06/27/2016 14:43:31</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Computer Lenses_thumb.swf">
+      <publishTime>06/27/2016 14:43:31</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Conjunctivitis.flv">
+      <publishTime>06/27/2016 14:43:31</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Conjunctivitis.swf">
+      <publishTime>06/27/2016 14:43:31</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Conjunctivitis_pdf.swf">
+      <publishTime>06/27/2016 14:43:31</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Conjunctivitis_thumb.swf">
+      <publishTime>06/27/2016 14:43:32</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Correcting Astigmatism %28LRI &amp; LVC%29.flv">
+      <publishTime>06/27/2016 14:43:32</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Correcting Astigmatism %28LRI &amp; LVC%29.swf">
+      <publishTime>06/27/2016 14:43:32</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Correcting Astigmatism %28LRI &amp; LVC%29_pdf.swf">
+      <publishTime>06/27/2016 14:43:32</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Correcting Astigmatism %28LRI &amp; LVC%29_thumb.swf">
+      <publishTime>06/27/2016 14:43:32</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Dry Eye.flv">
+      <publishTime>06/27/2016 14:43:33</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Dry Eye.swf">
+      <publishTime>06/27/2016 14:43:33</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Dry Eye_pdf.swf">
+      <publishTime>06/27/2016 14:43:33</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Dry Eye_thumb.swf">
+      <publishTime>06/27/2016 14:43:33</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Generic Multifocal IOL.flv">
+      <publishTime>06/27/2016 14:43:35</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Generic Multifocal IOL.swf">
+      <publishTime>06/27/2016 14:43:35</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Generic Multifocal IOL_pdf.swf">
+      <publishTime>06/27/2016 14:43:35</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Generic Multifocal IOL_thumb.swf">
+      <publishTime>06/27/2016 14:43:36</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL Options.flv">
+      <publishTime>06/27/2016 14:43:37</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL Options.swf">
+      <publishTime>06/27/2016 14:43:38</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL Options_pdf.swf">
+      <publishTime>06/27/2016 14:43:38</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL Options_thumb.swf">
+      <publishTime>06/27/2016 14:43:38</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL_Accommodating IOL.swf">
+      <publishTime>06/27/2016 14:43:38</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL_Aspheric Monofocal IOL.swf">
+      <publishTime>06/27/2016 14:43:39</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL_Multifocal IOL.swf">
+      <publishTime>06/27/2016 14:43:39</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL_Overview.swf">
+      <publishTime>06/27/2016 14:43:39</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL_Toric Accommodating IOL.swf">
+      <publishTime>06/27/2016 14:43:39</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL_Toric Monofocal IOL.swf">
+      <publishTime>06/27/2016 14:43:39</publishTime>
+    </File>
+    <File Include="Files/SWF/data/IOL_Toric Multifocal IOL.swf">
+      <publishTime>06/27/2016 14:43:40</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LASIK WF Guided.flv">
+      <publishTime>06/27/2016 14:43:40</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LASIK WF Guided.swf">
+      <publishTime>06/27/2016 14:43:40</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LASIK WF Guided_pdf.swf">
+      <publishTime>06/27/2016 14:43:40</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LASIK WF Guided_thumb.swf">
+      <publishTime>06/27/2016 14:43:41</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LASIK WF Optimized.flv">
+      <publishTime>06/27/2016 14:43:41</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LASIK WF Optimized.swf">
+      <publishTime>06/27/2016 14:43:41</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LASIK WF Optimized_pdf.swf">
+      <publishTime>06/27/2016 14:43:41</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LASIK WF Optimized_thumb.swf">
+      <publishTime>06/27/2016 14:43:41</publishTime>
+    </File>
+    <File Include="Files/SWF/data/leiste.swf">
+      <publishTime>06/27/2016 14:43:41</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LVC %28PRK &amp; LASIK%29.flv">
+      <publishTime>06/27/2016 14:43:43</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LVC %28PRK &amp; LASIK%29.swf">
+      <publishTime>06/27/2016 14:43:43</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LVC %28PRK &amp; LASIK%29_pdf.swf">
+      <publishTime>06/27/2016 14:43:43</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LVC %28PRK &amp; LASIK%29_thumb.swf">
+      <publishTime>06/27/2016 14:43:43</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LVC_Astigmatism.swf">
+      <publishTime>06/27/2016 14:43:44</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LVC_Hyperopia.swf">
+      <publishTime>06/27/2016 14:43:44</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LVC_Myopia.swf">
+      <publishTime>06/27/2016 14:43:44</publishTime>
+    </File>
+    <File Include="Files/SWF/data/LVC_Overview.swf">
+      <publishTime>06/27/2016 14:43:44</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Macular Degeneration.flv">
+      <publishTime>06/27/2016 14:43:45</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Macular Degeneration.swf">
+      <publishTime>06/27/2016 14:43:45</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Macular Degeneration_pdf.swf">
+      <publishTime>06/27/2016 14:43:45</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Macular Degeneration_thumb.swf">
+      <publishTime>06/27/2016 14:43:45</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Monovision - Blended Vision.flv">
+      <publishTime>06/27/2016 14:43:46</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Monovision - Blended Vision.swf">
+      <publishTime>06/27/2016 14:43:46</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Monovision - Blended Vision_pdf.swf">
+      <publishTime>06/27/2016 14:43:46</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Monovision - Blended Vision_thumb.swf">
+      <publishTime>06/27/2016 14:43:46</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Open-Angle Glaucoma.flv">
+      <publishTime>06/27/2016 14:43:46</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Open-Angle Glaucoma.swf">
+      <publishTime>06/27/2016 14:43:47</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Open-Angle Glaucoma_pdf.swf">
+      <publishTime>06/27/2016 14:43:47</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Open-Angle Glaucoma_thumb.swf">
+      <publishTime>06/27/2016 14:43:47</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Polarized Sunglasses.flv">
+      <publishTime>06/27/2016 14:43:48</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Polarized Sunglasses.swf">
+      <publishTime>06/27/2016 14:43:49</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Polarized Sunglasses_pdf.swf">
+      <publishTime>06/27/2016 14:43:49</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Polarized Sunglasses_thumb.swf">
+      <publishTime>06/27/2016 14:43:50</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Presbyopia.flv">
+      <publishTime>06/27/2016 14:43:50</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Presbyopia.swf">
+      <publishTime>06/27/2016 14:43:50</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Presbyopia_pdf.swf">
+      <publishTime>06/27/2016 14:43:50</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Presbyopia_thumb.swf">
+      <publishTime>06/27/2016 14:43:50</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Animal Eyes Quiz 2.flv">
+      <publishTime>06/27/2016 14:43:52</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Animal Eyes Quiz 2.swf">
+      <publishTime>06/27/2016 14:43:52</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Animal Eyes Quiz 2_thumb.swf">
+      <publishTime>06/27/2016 14:43:52</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Beautiful Eyes.flv">
+      <publishTime>06/27/2016 14:43:57</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Beautiful Eyes.swf">
+      <publishTime>06/27/2016 14:43:57</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Beautiful Eyes_thumb.swf">
+      <publishTime>06/27/2016 14:43:57</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Cataract Surgery.flv">
+      <publishTime>06/27/2016 14:44:00</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Cataract Surgery.swf">
+      <publishTime>06/27/2016 14:44:00</publishTime>
+    </File>
+    <File Include="Files/SWF/data/RRP Cataract Surgery_thumb.swf">
+      <publishTime>06/27/2016 14:44:01</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Secondary Cataract %28YAG%29.flv">
+      <publishTime>06/27/2016 14:44:01</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Secondary Cataract %28YAG%29.swf">
+      <publishTime>06/27/2016 14:44:01</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Secondary Cataract %28YAG%29_pdf.swf">
+      <publishTime>06/27/2016 14:44:01</publishTime>
+    </File>
+    <File Include="Files/SWF/data/Secondary Cataract %28YAG%29_thumb.swf">
+      <publishTime>06/27/2016 14:44:01</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Corrección con Laser %28PRK y LASIK%29.flv">
+      <publishTime>06/27/2016 14:44:02</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Corrección con Laser %28PRK y LASIK%29.swf">
+      <publishTime>06/27/2016 14:44:03</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Corrección con Laser %28PRK y LASIK%29_pdf.swf">
+      <publishTime>06/27/2016 14:44:03</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Corrección con Laser %28PRK y LASIK%29_thumb.swf">
+      <publishTime>06/27/2016 14:44:03</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Glaucoma de Ángulo Abierto.flv">
+      <publishTime>06/27/2016 14:44:04</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Glaucoma de Ángulo Abierto.swf">
+      <publishTime>06/27/2016 14:44:04</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Glaucoma de Ángulo Abierto_pdf.swf">
+      <publishTime>06/27/2016 14:44:05</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Glaucoma de Ángulo Abierto_thumb.swf">
+      <publishTime>06/27/2016 14:44:05</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_LIO Multifocal Genérico.flv">
+      <publishTime>06/27/2016 14:44:06</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_LIO Multifocal Genérico.swf">
+      <publishTime>06/27/2016 14:44:06</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_LIO Multifocal Genérico_pdf.swf">
+      <publishTime>06/27/2016 14:44:06</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_LIO Multifocal Genérico_thumb.swf">
+      <publishTime>06/27/2016 14:44:06</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Revista de las Cataratas.flv">
+      <publishTime>06/27/2016 14:44:07</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Revista de las Cataratas.swf">
+      <publishTime>06/27/2016 14:44:07</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Revista de las Cataratas_pdf.swf">
+      <publishTime>06/27/2016 14:44:07</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Revista de las Cataratas_thumb.swf">
+      <publishTime>06/27/2016 14:44:07</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Sequedad Ocular.flv">
+      <publishTime>06/27/2016 14:44:09</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Sequedad Ocular.swf">
+      <publishTime>06/27/2016 14:44:10</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Sequedad Ocular_pdf.swf">
+      <publishTime>06/27/2016 14:44:10</publishTime>
+    </File>
+    <File Include="Files/SWF/data/SPANISH_Sequedad Ocular_thumb.swf">
+      <publishTime>06/27/2016 14:44:10</publishTime>
+    </File>
+    <File Include="Files/SWF/License Agreement.txt">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/SIGHTSELECTOR PRACTICE EDITION.exe">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/SSPE.ico">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/uninstall.exe">
+      <publishTime>06/27/2016 14:43:24</publishTime>
+    </File>
+    <File Include="Files/SWF/uninstall.ini">
+      <publishTime>06/27/2016 14:43:24</publishTime>
     </File>
     <File Include="fonts/fontawesome-webfont.eot">
       <publishTime>04/26/2016 16:38:37</publishTime>
@@ -643,13 +1084,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2016 20:45:53</publishTime>
     </File>
     <File Include="Scripts/app/AcuTargetMetrics/acuTargetApp.js">
-      <publishTime>06/14/2016 03:57:15</publishTime>
+      <publishTime>07/01/2016 13:59:20</publishTime>
     </File>
     <File Include="Scripts/app/AcuTargetMetrics/acuTargetGraph.js">
       <publishTime>06/15/2016 10:40:30</publishTime>
     </File>
     <File Include="Scripts/app/Common/common.js">
-      <publishTime>06/14/2016 03:42:59</publishTime>
+      <publishTime>07/12/2016 19:42:06</publishTime>
     </File>
     <File Include="Scripts/app/Exam/exam.js">
       <publishTime>05/19/2016 15:43:30</publishTime>
@@ -661,7 +1102,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/01/2016 17:36:24</publishTime>
     </File>
     <File Include="Scripts/app/OSI/osiReport.js">
-      <publishTime>06/23/2016 07:45:47</publishTime>
+      <publishTime>07/01/2016 15:13:19</publishTime>
     </File>
     <File Include="Scripts/app/OSI/osiTrendline.js">
       <publishTime>06/14/2016 15:50:33</publishTime>
@@ -1641,8 +2082,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/respond.min.js">
       <publishTime>04/26/2016 13:56:35</publishTime>
     </File>
+    <File Include="Scripts/select2/select2.full.min.js">
+      <publishTime>07/12/2016 18:43:50</publishTime>
+    </File>
     <File Include="Scripts/_references.js">
-      <publishTime>06/23/2016 04:24:36</publishTime>
+      <publishTime>07/12/2016 18:43:50</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>04/25/2016 10:54:32</publishTime>
@@ -1684,7 +2128,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/29/2016 16:18:02</publishTime>
     </File>
     <File Include="Views/Dashboard/Index.cshtml">
-      <publishTime>06/14/2016 08:43:51</publishTime>
+      <publishTime>07/12/2016 18:22:41</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>04/25/2016 10:53:59</publishTime>
@@ -1747,13 +2191,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2016 10:54:33</publishTime>
     </File>
     <File Include="Views/Shared/_Intervention.cshtml">
-      <publishTime>06/14/2016 15:49:57</publishTime>
+      <publishTime>06/27/2016 12:30:30</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>05/03/2016 07:39:50</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutInner.cshtml">
-      <publishTime>06/21/2016 14:29:04</publishTime>
+      <publishTime>07/12/2016 19:52:26</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>04/29/2016 15:49:41</publishTime>
